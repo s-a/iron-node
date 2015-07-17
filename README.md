@@ -6,14 +6,15 @@
 [![Development Dependencies](https://img.shields.io/david/dev/s-a/iron-node.svg)](https://www.npmjs.org/package/iron-node)
 [![Donate](http://s-a.github.io/donate/donate.svg)](http://s-a.github.io/donate/)
 
-## Debugging Node.js code with Google Chrome Developer Tools.
+## Debug Node.js code with Google Chrome Developer Tools.
 I always hate attaching processes, watching files, restart processes and so on to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Google Chrome' s Developer Tools.
 
 ## Installation
 ```npm install iron-node -g;```
 
 ## Usage
-```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo ----customparm2=bar];```
+```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo ----customparm2=bar];```  
+[https://youtu.be/pxq6zdfJeNI](https://youtu.be/pxq6zdfJeNI)
 
 ## [Contributing](/CONTRIBUTING.md)
 
