@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "iron-node": "./bin/run.js"
+  },
+  "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "electron ./app"
+    "dev": "electron ./app",
+    "bump": "npm version patch"
   },
   "repository": {
     "type": "git",
