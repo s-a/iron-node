@@ -1,0 +1,15 @@
+{
+  "name": "iron-node-app",
+  "title": "iron-node-app",
+  "description": "iron-node-app",
+  "version": "0.0.1",
+  "author": "Stephan Ahlf <stephan.ahlf@gmail.com>",
+  "keywords": [],
+  "license": "MIT",
+  "main": "index.js",
+  "private": false,
+  "scripts": {},
+  "dependencies": {
+  },
+  "devDependencies": {}
+}

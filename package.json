@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "electron ./app"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/s-a/iron-node/issues"
   },
-  "homepage": "https://github.com/s-a/iron-node#readme"
+  "homepage": "https://github.com/s-a/iron-node#readme",
+  "dependencies": {
+    "electron": "^0.4.1",
+    "electron-prebuilt": "^0.30.0"
+  }
 }
