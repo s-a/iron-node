@@ -1,5 +1,7 @@
-# CONTRIBUTING
+# Submit an issue, feedback or a feature request
+- Any of these issue topics are welcome :O)
 
+# CONTRIBUTING
  - Fork it!
  - Clone your fork
  - Install development dependencies
@@ -9,7 +11,6 @@
  - Add a test for each new code
  - Add add your new code
  - Run the tests: `npm test;`
- - Check the coverage ```npm run cover-html;``` will produce a file called ```coverage.html;```
- - Commit your changes: `git commit -am 'Add some feature'`
- - Push to the branch: `git push origin my-new-feature`
- - Submit a pull request :D
+ - Commit your changes: `git commit -am 'Add some feature';`
+ - Push to the branch: `git push origin my-new-feature;`
+ - Submit a pull request :dog: 
