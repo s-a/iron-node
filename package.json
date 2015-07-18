@@ -8,7 +8,7 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "dev": "electron ./app",
     "bump": "npm version patch"
   },
@@ -24,5 +24,10 @@
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
     "electron-prebuilt": "^0.30.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^7.0.2",
+    "jshint": "^2.8.0"
   }
 }

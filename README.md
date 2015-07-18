@@ -1,5 +1,6 @@
 ![ironNode](logo/logo.png)  
 
+[![Build Status](https://travis-ci.org/s-a/iron-node.svg)](https://travis-ci.org/s-a/iron-node)
 [![NPM Version](http://img.shields.io/npm/v/iron-node.svg)](https://www.npmjs.org/package/iron-node)
 [![NPM Downloads](https://img.shields.io/npm/dm/iron-node.svg)](https://www.npmjs.org/package/iron-node)
 [![Dependencies](https://img.shields.io/david/s-a/iron-node.svg)](https://www.npmjs.org/package/iron-node)
