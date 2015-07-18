@@ -7,7 +7,7 @@ var path = require('path')
 var args = [ path.join(__dirname, "..", "app") ];
 for (var i = 2; i < process.argv.length; i++) {
 	var arg = process.argv[i];
-	args.push(arg);
+	args.push(path.resolve(process.cwd(), arg));
 }
 
 
