@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
-    "electron-prebuilt": "^0.30.0"
+    "electron-prebuilt": "^0.30.0",
+    "open": "0.0.5"
   },
   "devDependencies": {
     "mocha": "^2.2.5",

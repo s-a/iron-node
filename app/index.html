@@ -46,10 +46,18 @@
 		.social-icon{
 			border-radius: 2px;
 		}
+
+		#social-icons{
+			max-width: 300px;
+		}
 	</style>
 </head>
 <body>
-	<a href="https://github.com/s-a/iron-node/">
+	<script type="text/javascript">
+		var opener = window.open = require("open");
+
+	</script>
+	<a href="javascript:void(0);" onclick="opener('https://github.com/s-a/iron-node/');return false;" target="_blank">
 		<div id="logo">
 			<span class="part1">iron</span><span class="part2">Node</span>
 		</div>
@@ -58,7 +66,7 @@
 	<hr>
 	<h2>Share and spread the love to the world</h2>
 	<div id="social-icons"></div>
-	
+
   	<script type="text/javascript" src="src/js/look-at-this/look-at-this.min.js"></script>
 	<script type="text/javascript">
 		window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
@@ -70,6 +78,22 @@
 	<hr>
 	<a href="http://s-a.github.io/donate/">Donation for a dog biscuit</a>
 
-	<script type="text/javascript" src="app.js"></script>	
+	<script type="text/javascript" src="app.js"></script>
+
+	<script type="text/javascript">
+		 var socialIconClick = function(url) {
+		 	return function() {
+		 		opener(url);
+		 	};
+		 };
+
+		 window.addEventListener('load',function(){
+			var btn = document.getElementsByClassName("social-share-button");
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].onclick = socialIconClick(btn[i].href);
+				btn[i].href = "javascript:void(0)";
+			}
+		 },false); //W3C
+	</script>
 </body>
 </html>
