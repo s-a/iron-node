@@ -12,4 +12,4 @@ for (var i = 2; i < process.argv.length; i++) {
 
 
 // spawn electron
-var child = proc.spawn(electron, args);
+proc.spawn(electron, args);
