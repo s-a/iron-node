@@ -1,7 +1,7 @@
 # License
 
 Copyright (c) 2015 Stephan Ahlf <stephan.ahlf@gmail.com>
-This software is dual licensed under MIT and GNU GENERAL PUBLIC LICENSE Version 3.
+This software is licensed under MIT.
 
 ## Development dependecies
 All files located in the node_modules and external directories are
