@@ -2,15 +2,24 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="src/js/look-at-this/look-at-this.min.css">
 	<style type="text/css">
 		@font-face { 
 			font-family: "iron-node-regular"; 
 			src: url("iron-node-regular.ttf"); 
 		}
-		body{
+
+		#logo{
 			font-family: iron-node-regular;
 			font-size: 33px;
-			margin: 44px;
+		}
+
+		a{
+			color:#FF1414;
+		}
+		body{
+			padding: 55px;
+			color:#FF1414;
 			background-color: #0F0F0F;
 		}
 
@@ -24,10 +33,43 @@
 			color:#FF1414;
 			background-color: #0D0D0D;
 		}
+
+		.social-icon{
+		  	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+		}
+		.social-icon:hover{
+		  	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+		}
+		.social-icon:active{
+		  	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+		}
+		.social-icon{
+			border-radius: 2px;
+		}
 	</style>
 </head>
 <body>
-	<span class="part1">iron</span><span class="part2">Node</span>
+	<a href="https://github.com/s-a/iron-node/">
+		<div id="logo">
+			<span class="part1">iron</span><span class="part2">Node</span>
+		</div>
+	</a>
+	<br>
+	<hr>
+	<h2>Share and spread the love to the world</h2>
+	<div id="social-icons"></div>
+	
+  	<script type="text/javascript" src="src/js/look-at-this/look-at-this.min.js"></script>
+	<script type="text/javascript">
+		window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
+		window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
+		window.socialIcons.setup.url = "http://s-a.github.io/iron-node/";
+		window.socialIcons.setup.title = "Dead simple Node.js code debugging";
+	</script>
+	<br>
+	<hr>
+	<a href="http://s-a.github.io/donate/">Donation for a dog biscuit</a>
+
 	<script type="text/javascript" src="app.js"></script>	
 </body>
 </html>
