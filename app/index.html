@@ -47,15 +47,11 @@
 			border-radius: 2px;
 		}
 
-		#social-icons{
-			max-width: 300px;
-		}
 	</style>
 </head>
 <body>
 	<script type="text/javascript">
 		var opener = window.open = require("open");
-
 	</script>
 	<a href="javascript:void(0);" onclick="opener('https://github.com/s-a/iron-node/');return false;" target="_blank">
 		<div id="logo">
@@ -64,7 +60,8 @@
 	</a>
 	<br>
 	<hr>
-	<h2>Share and spread the love to the world</h2>
+	<div style="white-space: nowrap;text-overflow: ellipsis;">Share and spread the love to the world</div>
+	<br>
 	<div id="social-icons"></div>
 
   	<script type="text/javascript" src="src/js/look-at-this/look-at-this.min.js"></script>
@@ -76,7 +73,7 @@
 	</script>
 	<br>
 	<hr>
-	<a href="http://s-a.github.io/donate/">Donation for a dog biscuit</a>
+	<a href="javascript:void(0)" onclick="opener('http://s-a.github.io/donate/')">Donate for a dog biscuit</a>
 
 	<script type="text/javascript" src="app.js"></script>
 
