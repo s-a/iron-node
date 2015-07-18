@@ -1,4 +1,4 @@
-![ironNode](logo/logo2.png)  
+![ironNode](logo/logo.png)  
 
 [![NPM Version](http://img.shields.io/npm/v/iron-node.svg)](https://www.npmjs.org/package/iron-node)
 [![NPM Downloads](https://img.shields.io/npm/dm/iron-node.svg)](https://www.npmjs.org/package/iron-node)
@@ -13,15 +13,15 @@ I always hate attaching processes, watching files, restart processes and so on t
 ```npm install iron-node -g;```
 
 ## Usage
+The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
 ```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo ----customparm2=bar];```  
 
+## Demo
 [https://youtu.be/pxq6zdfJeNI](https://youtu.be/pxq6zdfJeNI)
 
 ## [Contributing](/CONTRIBUTING.md)
 
 ## [License](/LICENSE.md)
-Copyright (c) 2015 Stephan Ahlf <stephan.ahlf@gmail.com> This software is licensed under MIT.  
+Copyright (c) 2015 Stephan Ahlf <stephan.ahlf@gmail.com>  
+This software is licensed under MIT.  
 [<img src="https://s-a.github.io/license/img/mit.svg" />](/LICENSE.md#mit "Massachusetts Institute of Technology (MIT)")
-
-## Credits
- - This app is powered by GitHub' s [Electron](https://github.com/atom/electron)
