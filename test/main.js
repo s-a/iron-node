@@ -50,6 +50,7 @@ var javascriptFilesToTest = [];
 javascriptFilesToTest.push(path.join(__dirname, "..", "bin", "run.js"));
 javascriptFilesToTest.push(path.join(__dirname, "..", "app", "app.js"));
 javascriptFilesToTest.push(path.join(__dirname, "..", "app", "index.js"));
+javascriptFilesToTest.push(path.join(__dirname, "..", "app", "menu.js"));
 javascriptFilesToTest.push(path.join(__dirname, "main.js"));
 
 

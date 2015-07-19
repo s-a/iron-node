@@ -35,18 +35,17 @@
 		}
 
 		.social-icon{
-		  	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+			box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 		}
 		.social-icon:hover{
-		  	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
 		}
 		.social-icon:active{
-		  	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
 		}
 		.social-icon{
 			border-radius: 2px;
 		}
-
 	</style>
 </head>
 <body>
@@ -63,34 +62,31 @@
 	<div style="white-space: nowrap;text-overflow: ellipsis;">Share and spread the love to the world</div>
 	<br>
 	<div id="social-icons"></div>
-
-  	<script type="text/javascript" src="src/js/look-at-this/look-at-this.min.js"></script>
+	<script type="text/javascript" src="src/js/look-at-this/look-at-this.min.js"></script>
+	<script type="text/javascript" src="menu.js"></script>
 	<script type="text/javascript">
 		window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
 		window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
 		window.socialIcons.setup.url = "http://s-a.github.io/iron-node/";
 		window.socialIcons.setup.title = "Dead simple Node.js code debugging";
-	</script>
-	<br>
-	<hr>
-	<a href="javascript:void(0)" onclick="opener('http://s-a.github.io/donate/')">Donate for a dog biscuit</a>
+		var socialIconClick = function(url) {
+			return function() {
+				opener(url);
+			};
+		};
 
-	<script type="text/javascript" src="app.js"></script>
-
-	<script type="text/javascript">
-		 var socialIconClick = function(url) {
-		 	return function() {
-		 		opener(url);
-		 	};
-		 };
-
-		 window.addEventListener('load',function(){
+		window.addEventListener('load',function(){
 			var btn = document.getElementsByClassName("social-share-button");
 			for (var i = 0; i < btn.length; i++) {
 				btn[i].onclick = socialIconClick(btn[i].href);
 				btn[i].href = "javascript:void(0)";
 			}
-		 },false); //W3C
+		},false); //W3C
 	</script>
+	<br>
+	<hr>
+	<a href="javascript:void(0)" onclick="opener('http://s-a.github.io/donate/')">Donate a dog biscuit</a>
+
+	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
