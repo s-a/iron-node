@@ -18,7 +18,7 @@ I always hate attaching processes, watching files, restart processes and so on t
 
 ## Usage
 The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
-```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo ----customparm2=bar];```  
+```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];```  
 
 ## Demo
 [https://youtu.be/pxq6zdfJeNI](https://youtu.be/pxq6zdfJeNI)
