@@ -10,6 +10,9 @@
 ## Debug Node.js code with Google Chrome Developer Tools on Linux, Windows and OS X.
 I always hate attaching processes, watching files, restart processes and so on to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Google Chrome' s Developer Tools.
 
+## Screenshot
+![Screenshot](screenshot.jpg)  
+
 ## Installation
 ```npm install iron-node -g;```
 
