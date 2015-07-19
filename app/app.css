@@ -1,0 +1,42 @@
+@font-face { 
+	font-family: "iron-node-regular"; 
+	src: url("iron-node-regular.ttf"); 
+}
+
+#logo{
+	font-family: iron-node-regular;
+	font-size: 33px;
+}
+
+a{
+	color:#FF1414;
+}
+body{
+	padding: 55px;
+	color:#FF1414;
+	background-color: #0F0F0F;
+}
+
+.part1{
+	color:#0D0D0D;
+	background-color: #FF1414;
+	padding: 11px;
+}
+.part2{
+	padding: 11px;
+	color:#FF1414;
+	background-color: #0D0D0D;
+}
+
+.social-icon{
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+.social-icon:hover{
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+}
+.social-icon:active{
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+}
+.social-icon{
+	border-radius: 2px;
+}
