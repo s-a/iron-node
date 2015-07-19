@@ -1,0 +1,81 @@
+.social-icon-delicious{
+	background-position:0 0;
+	background-color:#3274D1;
+}
+.social-icon-digg{
+	background-position:0 6.65%;
+	background-color:#14589E;
+}
+.social-icon-email{
+	background-position:0 13.3%;
+	background-color:#ccc;
+}
+.social-icon-facebook{
+	background-position:0 19.950000000000003%;
+	background-color:#3B5998;
+}
+.social-icon-flattr{
+	background-position:0 26.6%;
+	background-color:#F67C1A;
+}
+.social-icon-github{
+	background-position:0 33.25%;
+}
+.social-icon-googleplus{
+	background-position:0 39.9%;
+	background-color:#D14836;
+}
+.social-icon-hackernews{
+	background-position:0 46.55%;
+	background-color:#FF6600;
+}
+.social-icon-echojs{
+	background-position:0 53.199999999999996%;
+	background-color:#AA0000;
+}
+.social-icon-linkedin{
+	background-position:0 59.849999999999994%;
+	background-color:#007FB1;
+}
+.social-icon-pinterest{
+	background-position:0 66.5%;
+	background-color:#CB2027;
+}
+.social-icon-reddit{
+	background-position:0 73.15%;
+	background-color:#FF4500;
+}
+.social-icon-stumbleupon{
+	background-position:0 79.80000000000001%;
+	background-color:#EB4924;
+}
+.social-icon-tumblr{
+	background-position:0 86.45000000000002%;
+	background-color:#2C4762;
+}
+.social-icon-twitter{
+	background-position:0 93.10000000000002%;
+	background-color:#00ACED;
+}
+.social-icon-xing{
+	background-position:0 99.75000000000003%;
+	background-color:#006567;
+}
+.social-icon{
+	background-image: url("sprite__social-icon.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-size: cover;
+	width:100%;
+	height:100%;
+	transition:all 0.1s ease-in-out;
+}
+
+.social-share-button{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	/*transition: width 0.4s ease-in, height 0.4s ease-in;*/
+	margin-right: 11px;
+	margin-bottom: 11px;
+}
