@@ -3,6 +3,10 @@ var path = require('path');
 var remote = require('remote');
 var commandLineArguments = null;
 
+
+window.opener = window.open = require("open");
+
+
 var error = function(msg) {
 	alert(msg);
 	remote.getCurrentWindow().close();
