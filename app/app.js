@@ -1,7 +1,12 @@
 var fs = require('fs');
 var path = require('path');
 var remote = require('remote');
+var markdown = require('markdown').markdown;
 var commandLineArguments = null;
+
+
+window.opener = window.open = require("open");
+
 
 var error = function(msg) {
 	alert(msg);
@@ -22,7 +27,30 @@ var prepareStartScriptParameter = function(filename) {
 	return result;
 };
 
+var initializeInfoWindow = function(rootDirectory) {
+	var filename = path.join(rootDirectory, "DEBUG.md");
+	var loadMarkdownFile = function(fn) {
+		fs.readFile(fn, function(err, data){
+			document.getElementById("content").innerHTML =  markdown.toHTML( data.toString() );
+		});
+	};
+
+	fs.exists(filename, function(exists){
+		if (exists){
+			loadMarkdownFile(filename);
+		} else {
+			filename = path.join(rootDirectory, "README.md");
+			fs.exists(filename, function(exists){
+				if (exists){
+					loadMarkdownFile(filename);
+				}
+			});
+		}
+	});
+};
+
 var boot = function() {
+
 	var args = JSON.parse(process.env.commandLineArguments || remote.getCurrentWindow().commandLineArguments);
 
 	for (var i = 2; i < args.length; i++) {
@@ -37,7 +65,13 @@ var boot = function() {
 	commandLineArguments = args;
 
 	if (args[2]){
+		document.getElementById("project-filename").innerHTML = args[2];
+		initializeInfoWindow(path.dirname(args[2]));
 		require(args[2]);
+	} else {
+		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
+		initializeInfoWindow(process.cwd());
+
 	}
 }
 

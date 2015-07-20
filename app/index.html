@@ -3,29 +3,40 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="src/js/look-at-this/look-at-this.css">
-	<link rel="stylesheet" type="text/css" href="app.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/primer-css/css/primer.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/octicons/octicons/octicons.css">
+	<link rel="stylesheet" type="text/css" href="src/css/app.css">
 </head>
 <body>
-	<script type="text/javascript">
-		var opener = window.open = require("open");
-	</script>
-	<a href="javascript:void(0);" onclick="opener('https://github.com/s-a/iron-node/');return false;" target="_blank">
-		<div id="logo">
-			<span class="part1">iron</span><span class="part2">Node</span>
+	<!-- <header></header> -->
+	<div class="flash">
+		debugging: <span id="project-filename"></span>
+	</div>
+	
+	<article id="content">
+		<div class="blankslate">
+			<span class="mega-octicon octicon-git-commit"></span>
+			<span class="mega-octicon octicon-markdown"></span>
+			<span class="mega-octicon octicon-git-branch"></span>
+			<h3>No DEBUG.md or README.md found.</h3>
+			<p>Use it to share general project informations or detailed debug informations about your project with your co-workers.</p>
 		</div>
-	</a>
-	<br>
-	<hr>
-	<div style="white-space: nowrap;text-overflow: ellipsis;">Share and spread love to the world</div>
-	<br>
-	<div id="social-icons"></div>
+	</article>
+	<footer>
+		<!-- <div style="white-space: nowrap;text-overflow: ellipsis;">Share and spread love to the world</div> -->
+		<div id="social-icons"></div> 
+		<div id="home-page">
+			<a id="donation-link" title="Donat us a dog biscuit" href="javascript:void(0)" onclick="opener('http://s-a.github.io/donate/')">&#9829;</a>
+			<a id="logo-link" title="ironNode Homepage" href="javascript:void(0);" onclick="opener('https://github.com/s-a/iron-node/');return false;" target="_blank">
+				<div id="logo">
+					<span class="part1">iron</span><span class="part2">Node</span>
+				</div>
+			</a>
+		</div>
+	</footer>
 	<script type="text/javascript" src="src/js/look-at-this/look-at-this.min.js"></script>
 	<script type="text/javascript" src="menu.js"></script>
 	<script type="text/javascript" src="social-icon-buttons.js"></script>
-	<br>
-	<hr>
-	<a href="javascript:void(0)" onclick="opener('http://s-a.github.io/donate/')">&#9829; Donate us a dog biscuit</a>
-
 	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>

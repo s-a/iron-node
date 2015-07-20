@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "1.0.5",
+  "version": "1.1.6",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
     "electron-prebuilt": "^0.30.0",
+    "markdown": "^0.5.0",
     "open": "0.0.5"
   },
   "devDependencies": {

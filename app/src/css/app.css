@@ -1,0 +1,86 @@
+
+@font-face { 
+	font-family: "iron-node-regular"; 
+	src: url("iron-node-regular.ttf"); 
+}
+
+body{
+	margin: 22px;
+}
+
+
+#logo{
+	font-family: iron-node-regular;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	margin-bottom: 11px;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+
+.part1{
+	color:#0D0D0D;
+	background-color: #CB2027;
+	padding: 5px;
+	border-radius-left: 5px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.part2{
+	padding: 5px;
+	color:#CB2027;
+	background-color: #0D0D0D;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+#home-page{
+	float:right;
+	margin-right: 22px;
+}
+
+#social-icons{
+	display: inline-block;
+	margin-right: 22px;
+}
+.social-share-button{
+	width: 16px;
+	height: 16px;
+	margin-right: 3px;
+}
+.social-icon{
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+.social-icon:hover{
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+}
+.social-icon:active{
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+}
+.social-icon{
+	border-radius: 2px;
+}
+
+article{
+	height: 100%; 
+	overflow: auto;
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+
+footer {
+	background: #DFDFDF;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	border-bottom:1px solid #A3A3A3;
+	border-top:1px solid #A3A3A3;
+	padding: 0;
+	padding-top: 11px;
+	padding-left: 11px;
+	margin: 0px;
+}
