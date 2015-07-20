@@ -23,7 +23,7 @@ var prepareStartScriptParameter = function(filename) {
 };
 
 var boot = function() {
-	var args = JSON.parse(process.env.commandLineArguments);
+	var args = JSON.parse(process.env.commandLineArguments || remote.getCurrentWindow().commandLineArguments);
 
 	for (var i = 2; i < args.length; i++) {
 		var arg = args[i];
@@ -43,7 +43,7 @@ var boot = function() {
 
 process.on('uncaughtException', function(err) {
 	var msg = ["Uncaught Exception:"];
-	if (commandLineArguments[2]){
+	if (commandLineArguments && commandLineArguments[2]){
 		msg.push(commandLineArguments[2]);
 	}
 	msg.push(err);
