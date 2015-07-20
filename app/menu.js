@@ -4,7 +4,7 @@ var template = [];
 
 
 var mnuFile = {
-	label: 'File',
+	label: 'Project',
 	submenu: [
 		{
 			label: 'Exit',

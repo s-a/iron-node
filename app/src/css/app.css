@@ -1,34 +1,13 @@
+
 @font-face { 
 	font-family: "iron-node-regular"; 
 	src: url("iron-node-regular.ttf"); 
 }
 
 body{
-	margin: 0;
-	padding: 11px;
-	padding-top: 0px;
-	padding-bottom: 100px;
-	color:#222222;
-	background-color: #FFFFFF;
-	font-family: "Consolas, Lucida Grande, sans-serif;"
+	margin: 22px;
 }
 
-h1{
-	color:#007400;
-}
-h2{
-	color:#881280;
-}
-
-a{
-	color:#A64FA1;
-	text-decoration: none;
-}
-
-
-#donation-link{
-	color: #222222;
-}
 
 #logo{
 	font-family: iron-node-regular;
@@ -82,18 +61,6 @@ a{
 }
 .social-icon{
 	border-radius: 2px;
-}
-
-
-header {
-	background: #DFDFDF;
-	width: 100%; 
-	position: fixed;
-	left: 0;
-	top: 0;
-	border-bottom:1px solid #A3A3A3;
-	border-top:1px solid #A3A3A3;
-	padding: 11px;
 }
 
 article{
