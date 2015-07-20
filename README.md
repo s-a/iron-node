@@ -16,6 +16,10 @@ I always hate attaching processes, watching files, restart processes and so on t
 ## Installation
 ```npm install iron-node -g;```
 
+### :warning: 
+ - You may need administration rights. So use ```$ sudo npm install iron-node -g;``` 
+ - To stop with the debugger at the code line you want you need to place the keyword ```debugger;``` in your source code.
+
 ## Usage
 The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
 ```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];```  
