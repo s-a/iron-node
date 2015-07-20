@@ -68,6 +68,8 @@ var boot = function() {
 		document.getElementById("project-filename").innerHTML = args[2];
 		initializeInfoWindow(path.dirname(args[2]));
 		require(args[2]);
+	} else {
+		initializeInfoWindow(process.cwd());
 	}
 }
 
