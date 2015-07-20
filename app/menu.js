@@ -37,7 +37,7 @@ var mnuHelp =   {
 		{
 			label: 'Documentation',
 			click: function() {
-				open("https://github.com/s-a/iron-node/wiki");
+				open("https://developer.chrome.com/devtools/docs/javascript-debugging");
 			}
 		},
 		{

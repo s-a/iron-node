@@ -69,7 +69,9 @@ var boot = function() {
 		initializeInfoWindow(path.dirname(args[2]));
 		require(args[2]);
 	} else {
+		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
 		initializeInfoWindow(process.cwd());
+
 	}
 }
 
