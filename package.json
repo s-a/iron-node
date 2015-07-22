@@ -9,7 +9,7 @@
   "preferGlobal": true,
   "scripts": {
     "test": "mocha",
-    "dev": "electron ./app",
+    "dev": "node_modules/.bin/electron ./app",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "repository": {
