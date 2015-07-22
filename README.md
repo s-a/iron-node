@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/s-a/iron-node.svg)](https://travis-ci.org/s-a/iron-node)
 [![NPM Version](http://img.shields.io/npm/v/iron-node.svg)](https://www.npmjs.org/package/iron-node)
 [![NPM Downloads](https://img.shields.io/npm/dm/iron-node.svg)](https://www.npmjs.org/package/iron-node)
-[![Dependencies](https://img.shields.io/david/s-a/iron-node.svg)](https://www.npmjs.org/package/iron-node)
-[![Development Dependencies](https://img.shields.io/david/dev/s-a/iron-node.svg)](https://www.npmjs.org/package/iron-node)
+[![Dependency Status](https://david-dm.org/s-a/iron-node.svg)](https://david-dm.org/s-a/iron-node)
+[![devDependency Status](https://david-dm.org/s-a/iron-node/dev-status.svg)](https://david-dm.org/s-a/iron-node#info=devDependencies)
 [![Donate](http://s-a.github.io/donate/donate.svg)](http://s-a.github.io/donate/)
 
 ## Debug Node.js code with Google Chrome Developer Tools on Linux, Windows and OS X.
@@ -29,7 +29,6 @@ The usage is exactly the same like ```node```. Just use ```iron-node``` instead 
 
 ## [Contributing](/CONTRIBUTING.md)
 
-## [License](/LICENSE.md)
+[<img src="https://s-a.github.io/license/img/mit.svg" />](/LICENSE.md#mit "Massachusetts Institute of Technology (MIT)")  
 Copyright (c) 2015 Stephan Ahlf <stephan.ahlf@gmail.com>  
-This software is licensed under MIT.  
-[<img src="https://s-a.github.io/license/img/mit.svg" />](/LICENSE.md#mit "Massachusetts Institute of Technology (MIT)")
+This software is licensed under MIT. 
