@@ -3,20 +3,38 @@ var path = require('path');
 var remote = require('remote');
 var dialog = remote.require('dialog');
 var markdown = require('markdown').markdown;
-// TODO: change logic to remote.process.argv
-var commandLineArguments = null;
-
 
 window.opener = window.open = require("open");
 
 
 var error = function(error) {
-	dialog.showMessageBox(remote.getCurrentWindow(), {type : "error", title:"Uncaught Exception: " + error.code, message:error.message, detail:error.stack, buttons:["ok", "close"]}, function(response){
+	console.error(error);
+	var msgBoxConfig = {
+		type : "error", 
+		title : "Uncaught Exception", 
+		buttons:["ok", "close"]
+	};
+
+	switch (typeof error) {
+		case "object":
+			msgBoxConfig.title = "Uncaught Exception: " + error.code;
+			msgBoxConfig.message = error.message;
+			msgBoxConfig.detail = error.stack;
+			break;
+		case "string":
+			msgBoxConfig.message = error;
+			break;
+	}
+
+
+	dialog.showMessageBox(remote.getCurrentWindow(), msgBoxConfig, function(response){
 		if (response === 1){
 			remote.getCurrentWindow().close();
 		}
 	});
 }
+
+process.on('uncaughtException', error);
 
 var prepareStartScriptParameter = function(filename) {
 	var result = filename;
@@ -51,8 +69,9 @@ var initializeInfoWindow = function(rootDirectory) {
 };
 
 var boot = function() {
-	var args = JSON.parse(process.env.commandLineArguments || remote.getCurrentWindow().commandLineArguments);
+	var args = remote.process.argv;
 
+	// equip process.argv for forthcoming Node.js scripts.
 	for (var i = 2; i < args.length; i++) {
 		var arg = args[i];
 		process.argv.push(arg);
@@ -61,8 +80,6 @@ var boot = function() {
 	if (args[2]){
 		args[2] = prepareStartScriptParameter(args[2]);
 	}
-
-	commandLineArguments = args;
 
 	if (args[2]){
 		document.getElementById("project-filename").innerHTML = args[2];
@@ -74,7 +91,6 @@ var boot = function() {
 	}
 }
 
-process.on('uncaughtException', error);
 
 window.onload = function() {
   window.setTimeout(boot, 1000);

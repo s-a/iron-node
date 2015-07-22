@@ -1,4 +1,3 @@
-process.env.commandLineArguments = JSON.stringify(process.argv)  ;
 var app = require('app');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
@@ -26,9 +25,7 @@ app.on('ready', function() {
 		'icon': __dirname + '/icon.png'
 	});
 
-	mainWindow.commandLineArguments = JSON.stringify(process.argv);
 	mainWindow.loadUrl('file://' + __dirname + '/index.html');
-
 
 	mainWindow.maximize();
 	mainWindow.openDevTools();
