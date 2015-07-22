@@ -19,7 +19,13 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
 	var meta = require("./../package.json");
-	mainWindow = new BrowserWindow({ width: 800, height: 600, title : "ironNode v" + meta.version });
+	mainWindow = new BrowserWindow({
+		width: 800,
+		height: 600,
+		title : "ironNode v" + meta.version,
+		'icon': __dirname + '/icon.png'
+	});
+
 	mainWindow.commandLineArguments = JSON.stringify(process.argv);
 	mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
