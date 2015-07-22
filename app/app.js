@@ -8,6 +8,7 @@ window.opener = window.open = require("open");
 
 
 var error = function(error) {
+	console.error(error);
 	var msgBoxConfig = {
 		type : "error", 
 		title : "Uncaught Exception", 
