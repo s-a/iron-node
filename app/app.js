@@ -1,16 +1,21 @@
 var fs = require('fs');
 var path = require('path');
 var remote = require('remote');
+var dialog = remote.require('dialog');
 var markdown = require('markdown').markdown;
+// TODO: change logic to remote.process.argv
 var commandLineArguments = null;
 
 
 window.opener = window.open = require("open");
 
 
-var error = function(msg) {
-	alert(msg);
-	remote.getCurrentWindow().close();
+var error = function(error) {
+	dialog.showMessageBox(remote.getCurrentWindow(), {type : "error", title:"Uncaught Exception: " + error.code, message:error.message, detail:error.stack, buttons:["ok", "close"]}, function(response){
+		if (response === 1){
+			remote.getCurrentWindow().close();
+		}
+	});
 }
 
 var prepareStartScriptParameter = function(filename) {
@@ -18,10 +23,6 @@ var prepareStartScriptParameter = function(filename) {
 
 	if (!path.isAbsolute(filename)){
 		result = path.resolve(process.cwd(), filename);
-	}
-
-	if (!fs.existsSync(filename)){
-		error(result + " not found.");
 	}
 
 	return result;
@@ -50,7 +51,6 @@ var initializeInfoWindow = function(rootDirectory) {
 };
 
 var boot = function() {
-
 	var args = JSON.parse(process.env.commandLineArguments || remote.getCurrentWindow().commandLineArguments);
 
 	for (var i = 2; i < args.length; i++) {
@@ -71,20 +71,11 @@ var boot = function() {
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
 		initializeInfoWindow(process.cwd());
-
 	}
 }
 
-process.on('uncaughtException', function(err) {
-	var msg = ["Uncaught Exception:"];
-	if (commandLineArguments && commandLineArguments[2]){
-		msg.push(commandLineArguments[2]);
-	}
-	msg.push(err);
-	error(msg.join("\n"))
-});
+process.on('uncaughtException', error);
 
 window.onload = function() {
   window.setTimeout(boot, 1000);
 }
-
