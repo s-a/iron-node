@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "1.1.10",
+  "version": "1.2.10",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -25,7 +25,8 @@
   "dependencies": {
     "electron-prebuilt": "^0.30.0",
     "markdown": "^0.5.0",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "semver": "^5.0.1"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
