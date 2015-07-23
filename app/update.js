@@ -30,11 +30,12 @@ Update.prototype.check = function() {
 			var currentVersion = localVersion.split("@")[1].replace(/\r?\n|\r/g, "").trim();
 			var details = "Latest version: " + latestVersion+ "\n";
 			details += "Current version: " + currentVersion;
-
-			if (semver.gt(currentVersion, latestVersion)) {
-				dialog.showMessageBox(remote.getCurrentWindow(), {type:"info", title:"ironNode Update", message:"Everything is up-to-date!", detail:details, buttons: ["ok"]});
-			} else {
+			currentVersion = semver.clean(currentVersion);
+			latestVersion = semver.clean(latestVersion);
+			if (semver.lt(currentVersion, latestVersion)) {
 				dialog.showMessageBox(remote.getCurrentWindow(), {type:"warning", title:"ironNode Update", message:"A new update is available!\nTo install it close this program.\nOpen a console an type:\n`npm install -g iron-node`.", detail:details, buttons: ["ok"]});
+			} else {
+				dialog.showMessageBox(remote.getCurrentWindow(), {type:"info", title:"ironNode Update", message:"Everything is up-to-date!", detail:details, buttons: ["ok"]});
 			}
 		});
 	});
