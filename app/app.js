@@ -34,6 +34,7 @@ var error = function(error) {
 	});
 }
 
+
 process.on('uncaughtException', error);
 
 var prepareStartScriptParameter = function(filename) {

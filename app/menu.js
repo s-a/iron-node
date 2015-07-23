@@ -1,7 +1,7 @@
 var remote = require('remote');
 var Menu = remote.require('menu');
 var template = [];
-
+var SoftwareUpdate = require('./update.js');
 
 var mnuFile = {
 	label: 'Project',
@@ -53,6 +53,17 @@ var mnuHelp =   {
 			label: 'Source Code',
 			click: function() {
 				open("https://github.com/s-a/iron-node");
+			}
+		},
+		{
+			type: 'separator'
+		},
+		{
+			label: 'Update',
+			click: function() {
+				
+				var upd = new SoftwareUpdate();
+				upd.check();
 			}
 		},
 		{
