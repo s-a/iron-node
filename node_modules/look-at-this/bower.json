@@ -1,0 +1,23 @@
+{
+  "name": "look-at-this",
+  "version": "0.1.14",
+  "authors": [
+    "s-a <stephan.ahlf@googlemail.com>"
+  ],
+  "description": "A very simple collection and lib of social sharing channels",
+  "repository": {
+    "type":"git",
+    "url": "git://github.com/s-a/look-at-this/"
+  },
+  "license": "MIT & GPL",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
