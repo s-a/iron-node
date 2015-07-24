@@ -11,7 +11,7 @@ var mnuFile = {
 			click: function() {
 				remote.getCurrentWindow().close();
 			},
-			accelerator: 'Alt+F4'
+			accelerator: 'Control+w'
 		}
 	]
 };
