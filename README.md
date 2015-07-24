@@ -24,6 +24,12 @@ I always hate attaching processes, watching files, restart processes and so on t
 The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
 ```iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];```  
 
+## Version Details
+ - electron: "0.30.0"
+ - node: "2.3.1"
+ - v8: "4.3.61.21"
+ - chrome: "43.0.2357.65"
+
 ## [Screenshots and demos](http://s-a.github.io/iron-node/)
 
 ## [Contributing](/CONTRIBUTING.md)
