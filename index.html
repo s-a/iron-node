@@ -21,6 +21,8 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-config" content="icons/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" type="text/css" href="magnific-popup.css">
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
 </head>
 <body>
 	<a href="https://github.com/s-a/iron-node"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
@@ -109,14 +111,78 @@
 			<h2>Screenshots</h2>
 		</div>
 		<div class="four-fifths column">
-			<img class="screenshot" title="ironNode on Ubuntu" src="screenshot-ubuntu.jpg" width="400">
-			<span class="avatar">Ubuntu</span>
-			<hr>
-			<img class="screenshot" title="ironNode on Windows" src="screenshot-windows.jpg" width="400">
-			<span class="avatar">Windows</span>
-			<hr>
-			<img class="screenshot" title="ironNode on Windows" src="screenshot-osx.jpg" width="400">
-			<span class="avatar">Mac</span>
+			<div class="example gc3">
+				<p>Click to zoom</p>
+				<div class="html-code grid-of-images">
+					<div class="zoom-gallery">
+						<a href="iron-node__windows__lg.jpg" data-source="iron-node__windows__lg.jpg" title="ironNode on Windows">
+							<img src="iron-node__windows__sm.jpg" width="193" height="125" />
+						</a>
+						<a href="iron-node__linux__lg.jpg" data-source="iron-node__linux__lg.jpg" title="ironNode on Linux">
+							<img src="iron-node__linux__sm.jpg" width="193" height="125" />
+						</a>
+						<a href="iron-node__osx__lg.jpg" data-source="iron-node__osx__lg.jpg" title="ironNode on OS X">
+							<img src="iron-node__osx__sm.jpg" width="193" height="125" />
+						</a>
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('.zoom-gallery').magnificPopup({
+							delegate: 'a',
+							type: 'image',
+							closeOnContentClick: false,
+							closeBtnInside: false,
+							mainClass: 'mfp-with-zoom mfp-img-mobile',
+							image: {
+								verticalFit: true,
+								titleSrc: function(item) {
+									return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
+								}
+							},
+							gallery: {
+								enabled: true
+							},
+							zoom: {
+								enabled: true,
+								duration: 300, // don't foget to change the duration also in CSS
+								opener: function(element) {
+									return element.find('img');
+								}
+							}
+							
+						});
+					});
+				</script>
+				<style type="text/css">
+					.image-source-link {
+						color: #98C3D1;
+					}
+
+					.mfp-with-zoom .mfp-container,
+					.mfp-with-zoom.mfp-bg {
+					opacity: 0;
+					-webkit-backface-visibility: hidden;
+					/* ideally, transition speed should match zoom duration */
+					-webkit-transition: all 0.3s ease-out; 
+					-moz-transition: all 0.3s ease-out; 
+					-o-transition: all 0.3s ease-out; 
+					transition: all 0.3s ease-out;
+					}
+
+					.mfp-with-zoom.mfp-ready .mfp-container {
+					opacity: 1;
+					}
+					.mfp-with-zoom.mfp-ready.mfp-bg {
+					opacity: 0.8;
+					}
+
+					.mfp-with-zoom.mfp-removing .mfp-container, 
+					.mfp-with-zoom.mfp-removing.mfp-bg {
+					opacity: 0;
+					}
+				</style>
+			</div>
 			<hr>
 		</div>
 	  </div>
@@ -147,7 +213,7 @@
 		<div class="three-fourths column">
 			<a class="twitter-timeline" href="https://twitter.com/search?q=%22iron-node%22" data-widget-id="624528874781679616">Tweets about "iron-node"</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+			<hr>
 		</div>
 	  </div>
 
@@ -167,7 +233,6 @@
 	  <br>
 	  <br>
 	  <br>
-
 	</div>
 	<div class="swatch-blue-2">
 		<p class="" style="text-align:center;">Copyright (c) 2015 by Stephan Ahlf.</p>
@@ -179,5 +244,6 @@
 		window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
 		window.socialIcons.setup.url = "http://s-a.github.io/iron-node/index.html";
 	</script>
+	<script type="text/javascript" src="jquery.magnific-popup.min.js"></script>
 </body>
 </html>
