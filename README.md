@@ -28,13 +28,8 @@ The usage is exactly the same like ```node```. Just use ```iron-node``` instead 
 
 ## [Docs](/docs/)
  - [How to use native modules](/docs/NATIVE-MODULES.md)
+ - [Version details](/docs/VERSION-DETAILS.md)
 
 ## [Contributing](/CONTRIBUTING.md)
-
-## Version Details
- - electron: "0.30.0"
- - node: "2.3.1"
- - v8: "4.3.61.21"
- - chrome: "43.0.2357.65"
 
 ## [License](/LICENSE.md)
