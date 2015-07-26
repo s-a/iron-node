@@ -8,11 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="src/css/app.css">
 </head>
 <body>
-	<!-- <header></header> -->
-	<div class="flash">
-		debugging: <span id="project-filename"></span>
-	</div>
-	
+	<nav class="menu">
+		<div id="project-package"></div>
+		<a class="menu-item selected" href="#">
+			<span class="octicon octicon-playback-play"></span>
+			<span id="project-filename"></span>
+		</a>
+		<div id="project-repo-url"></div>
+		<div id="project-bugs-url"></div>
+		<div id="project-terminal"></div>
+  	</nav>
+
 	<article id="content">
 		<div class="blankslate">
 			<span class="mega-octicon octicon-git-commit"></span>
