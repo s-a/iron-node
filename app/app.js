@@ -113,7 +113,8 @@ var initializeInfoWindow = function(rootDirectory) {
 var boot = function() {
 	var args = remote.process.argv;
 
-	// equip process.argv for forthcoming Node.js scripts.
+	// reset and equip process.argv for forthcoming Node.js scripts.
+	process.argv = [args[0]];
 	for (var i = 2; i < args.length; i++) {
 		var arg = args[i];
 		process.argv.push(arg);
