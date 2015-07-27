@@ -2,7 +2,7 @@
 
 First of all locate you local ```grunt-cli``` installation.
 
-In my case (Windows) I did this is ```$AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt```
+In my case (Windows) this is ```$AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt```
 
 
 ## Windows
