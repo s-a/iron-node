@@ -28,7 +28,7 @@ The usage is exactly the same like ```node```. Just use ```iron-node``` instead 
 
 ## [Docs](/docs/)
  - [How to debug Meteor apps?](/docs/NATIVE-MODULES.md) (Requires further improvements)
- - [How to debug Gulp Tasks?](/docs/DEBUG-GULP.md)
+ - How to debug Gulp Tasks? Stay tuned and watch [this issue](https://github.com/s-a/iron-node/issues/22)
  - [How to debug Grunt Tasks?](/docs/DEBUG-GRUNT.md)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to use native modules?](/docs/NATIVE-MODULES.md)
