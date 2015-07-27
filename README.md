@@ -27,8 +27,11 @@ The usage is exactly the same like ```node```. Just use ```iron-node``` instead 
 ## [Screenshots and demos](http://s-a.github.io/iron-node/)
 
 ## [Docs](/docs/)
- - [How to use native modules](/docs/NATIVE-MODULES.md)
+ - [How to debug Meteor apps?](/docs/NATIVE-MODULES.md) (Requires further improvements)
+ - [How to debug Gulp Tasks?](/docs/DEBUG-GULP.md)
+ - [How to debug Grunt Tasks?](/docs/DEBUG-GRUNT.md)
  - [Version details](/docs/VERSION-DETAILS.md)
+ - [How to use native modules?](/docs/NATIVE-MODULES.md)
 
 ## [Contributing](/CONTRIBUTING.md)
 
