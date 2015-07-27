@@ -10,7 +10,7 @@
 [<img src="https://s-a.github.io/license/img/mit.svg" />](/LICENSE.md#mit "Massachusetts Institute of Technology (MIT)")
 [![Donate](http://s-a.github.io/donate/donate.svg)](http://s-a.github.io/donate/)
 
-## Debug Node.js code with Google Chrome Developer Tools on Linux, Windows and OS X.
+## Debug Node.js code with Chrome Developer Tools on Linux, Windows and OS X.
 I always hate attaching processes, watching files, restart processes and so on to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Google Chrome' s Developer Tools.
 
 ## Installation
@@ -27,9 +27,9 @@ The usage is exactly the same like ```node```. Just use ```iron-node``` instead 
 ## [Screenshots and demos](http://s-a.github.io/iron-node/)
 
 ## [Docs](/docs/)
+ - [Features](/docs/FEATURES.MD)
  - [How to debug Meteor apps?](/docs/NATIVE-MODULES.md) (Requires further improvements)
- - How to debug Gulp Tasks? Stay tuned and watch [this issue](https://github.com/s-a/iron-node/issues/22)
- - [How to debug Grunt Tasks?](/docs/DEBUG-GRUNT.md)
+ - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to use native modules?](/docs/NATIVE-MODULES.md)
 
