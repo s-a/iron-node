@@ -17,4 +17,4 @@ $ iron-node $AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt [taskname]
 
 ## :warning: Heads Up!
 Some command line apps may use native modules. Please read [How to use native modules?](/docs/NATIVE-MODULES.md).  
-Some command line apps may not be compatible with electron. [Gulp is such a case](https://github.com/s-a/iron-node/issues/22). Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such an incompatibility.  
+Some command line apps may not be compatible with electron. ***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such an incompatibility.***  
