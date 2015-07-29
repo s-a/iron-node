@@ -83,3 +83,10 @@ footer {
 	padding-left: 11px;
 	margin: 0;
 }
+
+.version-badge{
+    position: absolute;
+    margin-top: -1px;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
