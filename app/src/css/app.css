@@ -61,6 +61,7 @@ body{
 }
 
 article{
+   	box-sizing: border-box;
 	height: 100%; 
 	overflow: auto;
 	padding-top: 10px;
@@ -69,6 +70,7 @@ article{
 
 
 footer {
+	box-sizing: border-box;
 	background: #DFDFDF;
 	width: 100%;
 	position: fixed;
@@ -79,5 +81,5 @@ footer {
 	padding: 0;
 	padding-top: 11px;
 	padding-left: 11px;
-	margin: 0px;
+	margin: 0;
 }
