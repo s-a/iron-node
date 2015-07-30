@@ -127,6 +127,8 @@ var boot = function() {
 	if (args[2]){
 		document.getElementById("project-filename").innerHTML = args[2];
 		initializeInfoWindow(path.dirname(args[2]));
+
+		remote.getCurrentWindow().webContents.addWorkSpace( path.dirname(args[2]) );
 		require(args[2]);
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
@@ -134,7 +136,6 @@ var boot = function() {
 	}
 }
 
-
-window.onload = function() {
-  window.setTimeout(boot, 1000);
-}
+window.addEventListener("load", function(){
+	window.setTimeout(boot, 900);
+}, false);
