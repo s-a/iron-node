@@ -24,4 +24,4 @@ try {
 ```
 
 However it depends on the Node.js module if you can manage different native versions at the same time.
-***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such a problem.*** or contact the third party module author directly and reference to this document.  
+***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such a problem.*** or contact the third party module author directly and reference to this document. Maybe the authors are willing to implement such a logic into their modules. To make those things easier I wrote [Node Module Path](https://github.com/s-a/nmp).
