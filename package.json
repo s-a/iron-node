@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
-    "electron-prebuilt": "^0.30.1",
+    "electron-prebuilt": "^0.30.2",
     "markdown": "^0.5.0",
     "open": "0.0.5",
     "semver": "^5.0.1"
