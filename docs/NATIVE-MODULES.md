@@ -3,38 +3,25 @@
 > The native Node modules are supported by Electron, but since Electron is using a different V8 version from official Node, you have to manually specify the location of Electron's headers when building native modules.  
 See https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node-modules.md for more details.
 
-# The following is an example to run [Meteor](https://www.meteor.com/) apps with ironNode on Windows.
+I published https://github.com/s-a/electron-recompile which aims to help with compile native modules for a specific electron version. Unfortunately is seems that there is no standard for requiring native modules in packages which cares about diffent versions.
 
-```bash
-## create a meteor build
-$ meteor build ../todos-build --debug --directory
-
-## compile fibers
-$ cd c:\git\
-$ git clone https://github.com/laverdet/node-fibers.git
-$ cd node-fibers
-$ set HOME=electron-gyp && node-gyp rebuild --target=0.30.0 --arch=ia32 --dist-url=https://atom.io/download/atom-shell
-# copy output to ..todos-build\bundle\programs\server\node_modules\fibers\bin\win32-ia32-v8-4.3\
-
-## compile bcrypt
-$ cd c:\git\
-$ git clone https://github.com/ncb000gt/node.bcrypt.js.git
-$ cd node.bcrypt.js
-$ set HOME=electron-gyp && node-gyp rebuild --target=0.30.0 --arch=ia32 --dist-url=https://atom.io/download/atom-shell
-# copy output to ..todos-build\bundle\programs\server\npm\npm-bcrypt\node_modules\bcrypt\build\bcrypt_lib.node
-
-## start a mongo db
-$ cd c:\git\
-$ mkdir mongo
-$ mongod --dbpath c:\git\mongo --port 8001
-
-## setup metor environment
-$ set MONGO_URL=mongodb://localhost:8001/your_db
-$ set ROOT_URL=http://localhost:3000
-$ set PORT=3000
-$ set BIND_IP=localhost
-
-## start the project
-$ cd c:\git\todos-build\bundle\
-$ iron-node main.js
+For example NSLog simply searches like this 
+```javascript
+  NSLog = require('../build/Release/nslog.node');
 ```
+
+A very good approach for me is available at the fibers source code which searches with a little bit more logic.
+```javascript
+// Look for binary for this platform
+var v8 = 'v8-'+ /[0-9]+\.[0-9]+/.exec(process.versions.v8)[0];
+var modPath = path.join(__dirname, 'bin', process.platform+ '-'+ process.arch+ '-'+ v8, 'fibers');
+try {
+	fs.statSync(modPath+ '.node');
+} catch (ex) {
+	// No binary!
+	throw new Error('`'+ modPath+ '.node` is missing. Try reinstalling `node-fibers`?');
+}
+```
+
+However it depends on the Node.js module if you can manage different native versions at the same time.
+***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such a problem.*** or contact the third party module author directly and reference to this document.  
