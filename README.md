@@ -36,7 +36,7 @@ iron-node --compile[=PATH_TO_NODE_JS_PROJECT];
 ```  
 
 ### noconflict
-Leave native the node "require" function in original state. See [How to use native modules?](/docs/NATIVE-MODULES.md#noconflict) for more details.
+Leave the native node "require" function in original state. See [How to use native modules?](/docs/NATIVE-MODULES.md#noconflict) for more details.
 ```bash
 iron-node --noconflict;
 ```  
