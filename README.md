@@ -34,7 +34,7 @@ Compile all native modules 'gainst the current installed ironNode v8 version in 
 iron-node --compile[=PATH_TO_NODE_JS_PROJECT];
 ```  
 
-### Native :warning:
+### :warning: Use native Modules
 If you ever get an error while loading native node modules you can activate an overwrite of the internal node [```require```](/app/require.js) function. You can make use of this option after you have re-compiled all native modules in your node project folder with ```--compile```.  *So far this option needs manual activation. May be it defaults to ```true``` in future. Once we have figured out that it is not dangerous* See [How to use native modules?](/docs/NATIVE-MODULES.md) for more details. 
 ```bash
 iron-node --native PATH_TO_NODE_JS_FILE;
