@@ -15,19 +15,16 @@ app.on('window-all-closed', function() {
 	}
 });
 
-
 app.on('ready', function() {
 
 	var meta = require("./../package.json");
 	var program = require('commander');
 
-	program
-	  .version(meta.version)
-	  .option('-c, --compile [value]', 'recompile native modules for current electron version and processor architecture')
-	  .parse(process.argv);
+	program.version(meta.version).allowUnknownOption()
+  	.option('-c, --compile [value]', 'recompile native modules for current electron version and processor architecture')
+	.parse(process.argv);
 
-	/*if (!program.noconflict){
-	}*/
+
 	if (program.compile){
 		var recompiler = require("./../node_modules/electron-recompile/lib/recompiler.js");
 		var targetFolder = program.compile;

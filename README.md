@@ -11,17 +11,16 @@
 
 
 ## Debug Node.js code with Chrome Developer Tools on Linux, Windows and OS X.
-I always hate attaching processes, watching files, restart processes and so on to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Google Chrome' s Developer Tools.  
+I always hated attaching processes, watching files, restart processes and so on to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Chrome Developer Tools.  
 
 ## Installation
 ```npm install iron-node -g;```
 
-### :warning: 
- - You may need administration rights. So use ```$ sudo npm install iron-node -g;``` 
- - To stop with the debugger at the code line you want you need to place the keyword ```debugger;``` in your source code.
-
 ## Usage
 The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
+```bash
+iron-node [options]
+```
 
 ### Debug session
 Start a debug session with the given JavaScript file.
@@ -35,20 +34,20 @@ Compile all native modules 'gainst the current installed ironNode v8 version in 
 iron-node --compile[=PATH_TO_NODE_JS_PROJECT];
 ```  
 
-### noconflict
-Leave the native node "require" function in original state. See [How to use native modules?](/docs/NATIVE-MODULES.md#noconflict) for more details.
+### Native :warning:
+If you ever get an error while loading native node modules you can activate an overwrite of the internal node [```require```](/app/require.js) function. You can make use of this option after you have re-compiled all native modules in your node project folder with ```--compile```.  *So far this option needs manual activation. May be it defaults to ```true``` in future. Once we have figured out that it is not dangerous* See [How to use native modules?](/docs/NATIVE-MODULES.md) for more details. 
 ```bash
-iron-node --noconflict;
+iron-node --native PATH_TO_NODE_JS_FILE;
 ```  
 
 ## [Screenshots and demos](http://s-a.github.io/iron-node/)
 
 ## [Docs](/docs/)
  - [Features](/docs/FEATURES.md)
- - [How to debug Meteor apps?](/docs/NATIVE-MODULES.md) (Requires further improvements)
- - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to use native modules?](/docs/NATIVE-MODULES.md)
+ - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
+ - [How to debug Meteor apps?](/docs/NATIVE-MODULES.md) (Requires further improvements)
 
 ## [Contributing](/CONTRIBUTING.md)
 

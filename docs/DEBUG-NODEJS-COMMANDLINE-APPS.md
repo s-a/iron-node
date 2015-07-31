@@ -1,7 +1,7 @@
 # How to debug other Node.js command line applications like a Grunt task?
 
 ironNode needs a JavaScript file as entry point for a debug session.  
-So first of all you have to locate the global installation of the commandline app you want to use. Lets say we want to debug a Grunt task.  
+So first of all you have to locate the global or local installation of the commandline app you want to use. Lets say we want to debug a Grunt task.  
 The ```where``` command will tell us the location of the commandline bash script file. Open it and find out to which JavaScript file the bash script points. In some cases this could be a JavaScript file a directly.
 
 In my case of Grunt (on Windows) this is ```$AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt```
@@ -17,4 +17,4 @@ $ iron-node $AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt [taskname]
 
 ## :warning: Heads Up!
 Some command line apps may use native modules. Please read [How to use native modules?](/docs/NATIVE-MODULES.md).  
-Some command line apps may not be compatible with electron. ***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such an incompatibility.***  
+***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such an incompatibility.***  

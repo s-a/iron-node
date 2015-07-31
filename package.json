@@ -11,6 +11,7 @@
     "test": "mocha",
     "dev": "node_modules/.bin/electron ./app",
     "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
+    "dev3": "node_modules\\.bin\\electron ./app --native --dsaasdasd",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "electron-prebuilt": "^0.30.2",
     "electron-recompile": "^1.0.5",
     "markdown": "^0.5.0",
+    "nmp": "^1.0.3",
     "open": "0.0.5",
     "semver": "^5.0.1"
   },
