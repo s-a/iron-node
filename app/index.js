@@ -17,20 +17,46 @@ app.on('window-all-closed', function() {
 
 
 app.on('ready', function() {
+
 	var meta = require("./../package.json");
-	mainWindow = new BrowserWindow({
-		width: 800,
-		height: 600,
-		title : "ironNode v" + meta.version,
-		'icon': __dirname + '/icon.png'
-	});
+	var program = require('commander');
 
-	mainWindow.loadUrl('file://' + __dirname + '/index.html');
+	program
+	  .version(meta.version)
+	  .option('-c, --compile [value]', 'recompile native modules for current electron version and processor architecture')
+	  .parse(process.argv);
 
-	mainWindow.maximize();
-	mainWindow.openDevTools();
+	/*if (!program.noconflict){
+	}*/
+	if (program.compile){
+		var recompiler = require("./../node_modules/electron-recompile/lib/recompiler.js");
+		var targetFolder = program.compile;
+		if (targetFolder.toString().toLowerCase() === "true"){
+			targetFolder = process.cwd();
+		}
+		recompiler.run({
+			dir : targetFolder,
+			electronVersion : process.versions.electron,
+			arch : process.arch
+		});
 
-	mainWindow.on('closed', function() {
-		mainWindow = null;
-	});
+		app.quit();
+		process.exit(0);
+	} else {
+		mainWindow = new BrowserWindow({
+			width: 800,
+			height: 600,
+			title : "ironNode v" + meta.version,
+			'icon': __dirname + '/icon.png'
+		});
+
+		mainWindow.loadUrl('file://' + __dirname + '/index.html');
+
+		mainWindow.maximize();
+		mainWindow.openDevTools();
+
+		mainWindow.on('closed', function() {
+			mainWindow = null;
+		});
+	}
 });

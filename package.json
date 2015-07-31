@@ -10,6 +10,7 @@
   "scripts": {
     "test": "mocha",
     "dev": "node_modules/.bin/electron ./app",
+    "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "repository": {
@@ -23,7 +24,9 @@
   },
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
+    "commander": "^2.8.1",
     "electron-prebuilt": "^0.30.2",
+    "electron-recompile": "^1.0.5",
     "markdown": "^0.5.0",
     "open": "0.0.5",
     "semver": "^5.0.1"
