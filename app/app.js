@@ -34,8 +34,18 @@ var error = function(error) {
 	});
 }
 
-
 process.on('uncaughtException', error);
+
+
+
+var removeArrayItem = function(array, searchTerm) {
+	for (var i = array.length-1; i >= 0; i--) {
+	    if (array[i] === searchTerm) {
+	        array.splice(i, 1);
+
+	    }
+	}
+}
 
 var prepareStartScriptParameter = function(filename) {
 	var result = filename;
@@ -111,7 +121,16 @@ var initializeInfoWindow = function(rootDirectory) {
 };
 
 var boot = function() {
+
 	var args = remote.process.argv;
+	for (var a = 0; a < args.length; a++) {
+		var ar = args[a];
+		if (ar === "--native"){
+			removeArrayItem(args, "--native");
+			require("./require.js");
+			break;
+		}
+	}
 
 	// reset and equip process.argv for forthcoming Node.js scripts.
 	process.argv = [args[0]];
@@ -134,8 +153,9 @@ var boot = function() {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
 		initializeInfoWindow(process.cwd());
 	}
+
 }
 
 window.addEventListener("load", function(){
-	window.setTimeout(boot, 900);
+	window.setTimeout(boot, 1000);
 }, false);
