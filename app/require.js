@@ -33,11 +33,13 @@ Module.prototype.require = function require(name) {
 
 	// test if native module should be loaded.
 	if (path.extname(name).toLowerCase() === ".node" || fs.existsSync(name + ".node")){
+		console.groupCollapsed("ironNode require(\"" + name + "\")");
 		try{
+			console.info("try node `require(" + name + ");`");
     		result = _require.call(this, name);
 		} catch(e) {
 			console.error("error while `require(" + name + ");`", e);
-			console.info("try native+ fallback `require(" + name + ");`");
+			console.warn("try native+ fallback `require(" + name + ");`");
 			var nodeModulesLevel = checkNodeModulesLevel(this.filename);
 			if (nodeModulesLevel === -1){
 				throw "native+ fallback for `" + name + "` failed! You can try `iron-node --compile`";
@@ -51,6 +53,11 @@ Module.prototype.require = function require(name) {
 
 				result = _require.call(this, p);
 			}
+		} finally {
+			if (result !== null){
+				console.info("success");
+			}
+			console.groupEnd();
 		}
 	} else {
     	result = _require.call(this, name);
