@@ -20,6 +20,7 @@ A ironNode package is identified by ```iron_node_package : true``` within packag
 ## Example package
 
 ### package.json
+```javascript
 {
   "name": "iron-node-theme",
   "version": "1.0.0",
@@ -32,24 +33,35 @@ A ironNode package is identified by ```iron_node_package : true``` within packag
   "author": "Stephan Ahlf <stephan.ahlf@gmail.com> (https://github.com/s-a)",
   "license": "ISC"
 }
+```
 
 
 ### index.js
 ```javascript
-var path = require("path");
+var MyPlugin = function() {
+	this.init();
+	return this;
+};
 
-// CSS injection
-var style = document.createElement("style");
-style.setAttribute('type', 'text/css');
-style.innerHTML = "body{background-color:yellow}";
-window.document.head.appendChild(style);
 
-// external CSS file
-var style2 = document.createElement("link");
-style2.setAttribute('rel', 'stylesheet');
-style2.setAttribute('type', 'text/css');
-style2.setAttribute('href', 'file://' + path.join(__dirname, "custom.css"));
-window.document.head.appendChild(style2);
+MyPlugin.prototype.init = function() {
+	var path = require("path");
+
+	// CSS injection
+	var style = document.createElement("style");
+	style.setAttribute('type', 'text/css');
+	style.innerHTML = "body{background-color:yellow}";
+	window.document.head.appendChild(style);
+
+	// external CSS file
+	var style2 = document.createElement("link");
+	style2.setAttribute('rel', 'stylesheet');
+	style2.setAttribute('type', 'text/css');
+	style2.setAttribute('href', 'file://' + path.join(__dirname, "custom.css"));
+	window.document.head.appendChild(style2);
+};
+
+module.exports = MyPlugin;
 ```
 
 ### custom.css
