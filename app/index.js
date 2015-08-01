@@ -46,7 +46,7 @@ app.on('ready', function() {
 			title : "ironNode v" + meta.version,
 			'icon': __dirname + '/icon.png',
 			transparent: false,
-			frame: false
+			frame: true
 		});
 
 		mainWindow.loadUrl('file://' + __dirname + '/index.html');

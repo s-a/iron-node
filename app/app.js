@@ -4,12 +4,13 @@ var remote = require('remote');
 var dialog = remote.require('dialog');
 var markdown = require('markdown').markdown;
 var packageController = require("package.js");
-var events = require('events');
+/*var events = require('events');*/
+var app = remote.require("app");
 
-var CustomApp = function  () {
+/*var CustomApp = function  () {
     this.events = new events.EventEmitter();
     return this;
-};
+};*/
 
 window.opener = window.open = require("open");
 
@@ -131,18 +132,25 @@ var initializeInfoWindow = function(rootDirectory) {
 
 var boot = function() {
 
+	var customPackageFolder = path.join( app.getPath("appData"), "iron-node" );
+	if (!fs.existsSync(customPackageFolder)){
+		customPackageFolder = path.join(__dirname, "..", "node_modules");
+	}
+
 	console.groupCollapsed("ironNode boot");
 	//console.log("%cUser %s has %d points", "color:cyan; font-size: 110%", 1, 2);
 	console.log("versions", process.versions);
+	console.log("appData", customPackageFolder );
 
 	console.groupCollapsed("ironNode packages");
-	var customApp = new CustomApp();
+
+	//var customApp = new CustomApp();
 	packageController.autoload({
 		debug: true,
 		identify: function() {
 			return (this.meta.iron_node_package === true);
 		},
-		directories: [path.join(__dirname, "..", "node_modules")],
+		directories: [customPackageFolder],
 		packageContstructorSettings: {/*app:customApp*/}
 	});
 
