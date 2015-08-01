@@ -28,5 +28,5 @@ NO UI doesn't load or doesn't work and refresh didn't help
 No Node Inspector takes a long time to start up.
 
 ### :no_entry: Limitations
-Native modules need a recompilation against the current electron version. Please read ["How to use native modules?"](/docs/NATIVE-MODULES.md) and [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md).  
+Native modules need a recompilation against the current electron version. Please read ["How to use native modules?"](/docs/NATIVE-MODULES.md).  
 As part of design ironNode does not support remote debugging, debugging of multiple processes (e.g. cluster).
