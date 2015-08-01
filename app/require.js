@@ -39,7 +39,6 @@ Module.prototype.require = function require(name) {
     		result = _require.call(this, name);
 		} catch(e) {
 			console.error("error while `require(" + name + ");`", e);
-			console.warn("try native+ fallback `require(" + name + ");`");
 			var nodeModulesLevel = checkNodeModulesLevel(this.filename);
 			if (nodeModulesLevel === -1){
 				throw "native+ fallback for `" + name + "` failed! You can try `iron-node --compile`";
@@ -51,6 +50,7 @@ Module.prototype.require = function require(name) {
 				}
 				p = path.join(p, "bin", nmp.versionString(), fn);
 
+				console.warn("try native+ fallback `require(" + p + ");`");
 				result = _require.call(this, p);
 			}
 		} finally {
