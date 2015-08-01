@@ -3,9 +3,15 @@ var path = require('path');
 var remote = require('remote');
 var dialog = remote.require('dialog');
 var markdown = require('markdown').markdown;
+var packageController = require("package.js");
+var events = require('events');
+
+var CustomApp = function  () {
+    this.events = new events.EventEmitter();
+    return this;
+};
 
 window.opener = window.open = require("open");
-
 
 var error = function(error) {
 	console.error(error);
@@ -120,7 +126,28 @@ var initializeInfoWindow = function(rootDirectory) {
 	});
 };
 
+ 
+
+
 var boot = function() {
+
+	console.groupCollapsed("ironNode boot");
+	//console.log("%cUser %s has %d points", "color:cyan; font-size: 110%", 1, 2);
+	console.log("versions", process.versions);
+
+	console.groupCollapsed("ironNode packages");
+	var customApp = new CustomApp();
+	packageController.autoload({
+		debug: true,
+		identify: function() {
+			return (this.meta.iron_node_package === true);
+		},
+		directories: [path.join(__dirname, "..", "node_modules")],
+		packageContstructorSettings: {/*app:customApp*/}
+	});
+
+	console.groupEnd();
+	console.groupEnd();
 
 	var args = remote.process.argv;
 	for (var a = 0; a < args.length; a++) {
@@ -156,6 +183,10 @@ var boot = function() {
 
 }
 
+
+/*
+	FIXME: when is devTools ready to debug?
+*/
 window.addEventListener("load", function(){
 	window.setTimeout(boot, 1000);
 }, false);

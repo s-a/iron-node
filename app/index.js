@@ -44,7 +44,9 @@ app.on('ready', function() {
 			width: 800,
 			height: 600,
 			title : "ironNode v" + meta.version,
-			'icon': __dirname + '/icon.png'
+			'icon': __dirname + '/icon.png',
+			transparent: false,
+			frame: false
 		});
 
 		mainWindow.loadUrl('file://' + __dirname + '/index.html');
