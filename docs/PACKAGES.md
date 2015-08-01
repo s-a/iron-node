@@ -71,3 +71,6 @@ body{
     color:cyan;
 }
 ```
+
+
+![Console package log](console-package-log.png)
