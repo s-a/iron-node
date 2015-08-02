@@ -44,15 +44,20 @@ app.on('ready', function() {
 			width: 800,
 			height: 600,
 			title : "ironNode v" + meta.version,
-			'icon': __dirname + '/icon.png',
+			icon: __dirname + '/icon.png',
 			transparent: false,
-			frame: true
+			frame: true,
+			'web-preferences' : {
+				'experimental-features' : true
+			}
 		});
 
 		mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
 		mainWindow.maximize();
-		mainWindow.openDevTools();
+		mainWindow.openDevTools(function(){
+			console.log("done");
+		});
 
 		mainWindow.on('closed', function() {
 			mainWindow = null;
