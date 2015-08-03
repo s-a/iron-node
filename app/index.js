@@ -1,4 +1,6 @@
 var app = require('app');  // Module to control application life.
+var fs = require('fs');  // Module to control application life.
+var path = require('path');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
 // Report crashes to our server.
@@ -9,13 +11,63 @@ var BrowserWindow = require('browser-window');  // Module to create native brows
 var mainWindow = null;
 
 
+
 app.on('window-all-closed', function() {
 	if (process.platform !== 'darwin'){
 		app.quit();
 	}
 });
 
+
+var getConfiguration = function() {
+	var result = null;
+	var dir = "";
+
+	if (process.argv[2]){
+		dir = process.argv[2];
+	}
+	var configFilename = path.join(path.resolve(path.dirname(dir)), ".iron-node.js");
+	if (!fs.existsSync(configFilename)){
+		configFilename = path.join(process.cwd(), path.resolve(path.dirname(dir)), ".iron-node.js");
+	}
+	if (!fs.existsSync(configFilename)){
+		configFilename = path.join( app.getPath("appData"), "iron-node", ".iron-node.js");
+	}
+	if (fs.existsSync(configFilename)){
+		try{
+			result = {
+				filename : configFilename,
+				settings : require(configFilename)
+			};
+		} catch(e){
+			console.error(e);
+		}
+	}
+
+	return result;
+}
+
+var initializeV8 = function(config) {
+	if (config.v8 && config.v8.flags){
+		for (var i = 0; i < config.v8.flags.length; i++) {
+			var flag = config.v8.flags[i];
+			console.log("v8", flag);
+			app.commandLine.appendSwitch("js-flags", flag)
+		}
+	}
+}
+
+var initializeApplication = function() {
+	var config = getConfiguration();
+	if (config){
+		console.log("configuration", config.filename);
+		initializeV8(config.settings);
+	}
+	//app.commandLine.appendSwitch('remote-debugging-port', '9222')
+}
+
 app.on('ready', function() {
+	initializeApplication();
 
 	var meta = require("./../package.json");
 	var program = require('commander');
@@ -52,15 +104,16 @@ app.on('ready', function() {
 			}
 		});
 
+
+
 		mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
 		mainWindow.maximize();
-		mainWindow.openDevTools(function(){
-			console.log("done");
-		});
+		mainWindow.openDevTools();
 
 		mainWindow.on('closed', function() {
 			mainWindow = null;
 		});
 	}
 });
+

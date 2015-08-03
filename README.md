@@ -34,6 +34,7 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
  - [Features](/docs/FEATURES.md)
  - [How to use native modules?](/docs/NATIVE-MODULES.md)
  - [Packages akka addons or plugins](/docs/PACKAGES.md)
+ - [Local and global Configuration](/docs/CONFIGURATION.md)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
  - [How to debug Meteor apps?](/docs/NATIVE-MODULES.md) (Requires further improvements)
