@@ -190,7 +190,9 @@ var boot = function() {
 
 }
 
-
+require('remote').getCurrentWindow().on("devtools-opened", function(){
+	debugger;
+});
 /*
 	FIXME: when is devTools ready to debug?
 */
