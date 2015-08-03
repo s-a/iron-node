@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "1.4.19",
+  "version": "1.5.19",
   "description": "",
   "main": "index.js",
   "bin": {
