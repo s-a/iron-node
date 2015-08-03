@@ -2,17 +2,29 @@
 ironNode use [package.js](https://github.com/s-a/package.js) to open the software to plugin developers. 
 If exists it scans the AppData directory for installed plugins.  
 
+A list of plugins is available here: https://www.npmjs.com/browse/keyword/iron-node.
+
 To install a Plugin: 
 
 ```bash
-cd ...
-%APPDATA% # on Windows
-$XDG_CONFIG_HOME or ~/.config # on Linux
-~/Library/Application Support # on OS X
+# on Windows
+cd %APPDATA%
+
+# on Linux
+cd $XDG_CONFIG_HOME
+# or
+cd ~/.config;
+
+# on OS X
+cd ~/Library/Application Support;
+
+# create if not exists
 mkdir iron-node;
+
+# Finaly
+cd iron-node;
 npm install your-plugin;
 ```
-
 
 ## For package developers.
 A ironNode package is identified by ```iron_node_package : true``` within package.json.
