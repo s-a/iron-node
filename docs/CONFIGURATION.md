@@ -9,7 +9,7 @@ ironNode scans the directory of the given JavaScript file first (local). If not 
 ## How to find the AppData folder?
 ```bash
 # on Windows
-cd %APPDATA%\iron-node
+cd %APPDATA%
 
 # on Linux
 cd $XDG_CONFIG_HOME
@@ -19,9 +19,9 @@ cd ~/.config;
 # on OS X
 cd ~/Library/Application Support;
 
-# Finaly
-cd iron-node;
-
 # create if not exists
 mkdir iron-node;
+
+# Finaly
+cd iron-node;
 ```
