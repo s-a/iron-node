@@ -131,8 +131,7 @@ var initializeInfoWindow = function(rootDirectory) {
 
 
 var boot = function() {
-
-	var customPackageFolder = path.join( app.getPath("appData"), "iron-node" );
+	var customPackageFolder = path.join( app.getPath("appData"), "iron-node", "node_modules" );
 	if (!fs.existsSync(customPackageFolder)){
 		customPackageFolder = path.join(__dirname, "..", "node_modules");
 	}
