@@ -42,15 +42,6 @@ body{
 	margin-right: 22px;
 }
 
-#social-icons{
-	display: inline-block;
-	margin-right: 22px;
-}
-.social-share-button{
-	max-width: 56px;
-	max-height: 56px;
-	margin-right: 3px;
-}
 .social-icon{
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
