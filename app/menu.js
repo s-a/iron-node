@@ -1,3 +1,4 @@
+var os = require('os');
 var remote = require('remote');
 var Menu = remote.require('menu');
 var template = [];
@@ -16,6 +17,36 @@ var mnuFile = {
 	]
 };
 template.push(mnuFile);
+
+if (os.platform() === 'darwin'){
+	var mnuEdit = {
+		label : 'Edit',
+		submenu:[
+			{
+				label: 'Cut',
+				accelerator: 'Cmd+X',
+				selector: 'cut:'
+			},
+			{
+				label: 'Copy',
+				accelerator: 'Cmd+C',
+				selector: 'copy:'
+			},
+			{
+				label: 'Paste',
+				accelerator: 'Cmd+V',
+				selector: 'paste:'
+			},
+			{
+				label: 'Select All',
+				accelerator: 'Cmd+A',
+				selector: 'selectAll:'
+			}
+		]
+	};
+
+	template.push(mnuEdit);
+}
 
 var mnuView =   {
 	label: 'View',
