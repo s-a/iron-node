@@ -8,13 +8,13 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "test": "mocha",
+    "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
+    "test": "mocha && npm run mdlint",
     "dev": "node_modules/.bin/electron ./app",
     "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
     "dev3": "node_modules\\.bin\\electron ./app c:\\git\\require\\index.js --native",
     "dev4": "node_modules\\.bin\\electron ./app ..\\require\\index.js --native",
-    "bump": "npm version patch && git push && git push --tags && npm publish",
-    "mdlint": "mdlint glob \"docs/*.md\""
+    "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "pre-commit": [
     "test"
