@@ -15,6 +15,7 @@
     "dev4": "node_modules\\.bin\\electron ./app ..\\require\\index.js --native",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
+  "pre-commit": ["test"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/s-a/iron-node.git"
@@ -36,8 +37,9 @@
     "semver": "^5.0.1"
   },
   "devDependencies": {
+    "jshint": "^2.8.0",
     "mocha": "^2.2.5",
-    "should": "^7.0.2",
-    "jshint": "^2.8.0"
+    "pre-commit": "^1.1.1",
+    "should": "^7.0.2"
   }
 }
