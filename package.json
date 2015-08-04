@@ -13,9 +13,12 @@
     "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
     "dev3": "node_modules\\.bin\\electron ./app c:\\git\\require\\index.js --native",
     "dev4": "node_modules\\.bin\\electron ./app ..\\require\\index.js --native",
-    "bump": "npm version patch && git push && git push --tags && npm publish"
+    "bump": "npm version patch && git push && git push --tags && npm publish",
+    "mdlint": "mdlint glob \"docs/*.md\""
   },
-  "pre-commit": ["test"],
+  "pre-commit": [
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/s-a/iron-node.git"
