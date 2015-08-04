@@ -190,9 +190,4 @@ var boot = function() {
 
 }
 
-/*
-	FIXME: when is devTools ready to debug?
-*/
-window.addEventListener("load", function(){
-	window.setTimeout(boot, 1000);
-}, false);
+boot();

@@ -106,14 +106,17 @@ app.on('ready', function() {
 
 
 
-		mainWindow.loadUrl('file://' + __dirname + '/index.html');
-
 		mainWindow.maximize();
 		mainWindow.openDevTools();
 
 		mainWindow.on('closed', function() {
 			mainWindow = null;
 		});
+
+		mainWindow.on('devtools-opened', function() {
+			mainWindow.loadUrl('file://' + __dirname + '/index.html');
+		});
 	}
 });
+
 
