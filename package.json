@@ -9,7 +9,7 @@
   "preferGlobal": true,
   "scripts": {
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
-    "test": "mocha && npm run mdlint",
+    "test": "mocha",
     "dev": "node_modules/.bin/electron ./app",
     "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
     "dev3": "node_modules\\.bin\\electron ./app c:\\git\\require\\index.js --native",
@@ -17,7 +17,7 @@
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "pre-commit": [
-    "test"
+    "test", "mdlint"
   ],
   "repository": {
     "type": "git",
