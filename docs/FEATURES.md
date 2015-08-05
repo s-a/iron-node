@@ -19,6 +19,7 @@ Restart your project with ```ctrl+r``` shortcut.
 
 
 ## :sunglasses: Cool stuff
+ironNode does support themes.  
 ironNode does not use WebSockets or something like this. (No connection lost messages or something like that).  
 ironNode works independent of local node installation because it has its own.  
 No too fast scripts to attach the debugger problems.  
