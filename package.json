@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "1.5.23",
+  "version": "1.5.24",
   "description": "Debug Node.js code on the fly with Chrome Developer Tools on Linux, Windows and OS X.",
   "main": "index.js",
   "bin": {
@@ -17,7 +17,8 @@
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "pre-commit": [
-    "test", "mdlint"
+    "test",
+    "mdlint"
   ],
   "repository": {
     "type": "git",
