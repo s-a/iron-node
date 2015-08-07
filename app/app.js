@@ -1,3 +1,4 @@
+var os = require('os');
 var fs = require('fs');
 var path = require('path');
 var remote = require('remote');
@@ -43,16 +44,6 @@ var error = function(error) {
 
 process.on('uncaughtException', error);
 
-
-
-var removeArrayItem = function(array, searchTerm) {
-	for (var i = array.length-1; i >= 0; i--) {
-	    if (array[i] === searchTerm) {
-	        array.splice(i, 1);
-
-	    }
-	}
-}
 
 var prepareStartScriptParameter = function(filename) {
 	var result = filename;
@@ -138,11 +129,19 @@ var boot = function() {
 
 	console.groupCollapsed("ironNode boot");
 	//console.log("%cUser %s has %d points", "color:cyan; font-size: 110%", 1, 2);
+	console.log("os", os.platform(), os.type());
 	console.log("versions", process.versions);
 	console.log("appData", customPackageFolder );
 
-	console.groupCollapsed("ironNode packages");
 
+	var config = new require("./config.js")(remote.process.argv);
+	console.log("configuration", config);
+	if (config && config.app && config.app["native+"] === true){
+		require("./require.js");
+	}
+
+
+	console.groupCollapsed("ironNode packages");
 	//var customApp = new CustomApp();
 	packageController.autoload({
 		debug: true,
@@ -152,18 +151,13 @@ var boot = function() {
 		directories: [customPackageFolder],
 		packageContstructorSettings: {/*app:customApp*/}
 	});
-
 	console.groupEnd();
+
 	console.groupEnd();
 
 	var args = remote.process.argv;
-	for (var a = 0; a < args.length; a++) {
-		var ar = args[a];
-		if (ar === "--native"){
-			removeArrayItem(args, "--native");
-			require("./require.js");
-			break;
-		}
+	if (args[2]){
+		args[2] = prepareStartScriptParameter(args[2]);
 	}
 
 	// reset and equip process.argv for forthcoming Node.js scripts.
@@ -171,10 +165,6 @@ var boot = function() {
 	for (var i = 2; i < args.length; i++) {
 		var arg = args[i];
 		process.argv.push(arg);
-	}
-
-	if (args[2]){
-		args[2] = prepareStartScriptParameter(args[2]);
 	}
 
 	if (args[2]){

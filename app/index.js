@@ -1,6 +1,6 @@
 var app = require('app');  // Module to control application life.
-var fs = require('fs');  // Module to control application life.
-var path = require('path');  // Module to control application life.
+/*var fs = require('fs');  // Module to control application life.
+var path = require('path');  // Module to control application life.*/
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
 // Report crashes to our server.
@@ -19,33 +19,6 @@ app.on('window-all-closed', function() {
 });
 
 
-var getConfiguration = function() {
-	var result = null;
-	var dir = "";
-
-	if (process.argv[2]){
-		dir = process.argv[2];
-	}
-	var configFilename = path.join(path.resolve(path.dirname(dir)), ".iron-node.js");
-	if (!fs.existsSync(configFilename)){
-		configFilename = path.join(process.cwd(), path.resolve(path.dirname(dir)), ".iron-node.js");
-	}
-	if (!fs.existsSync(configFilename)){
-		configFilename = path.join( app.getPath("appData"), "iron-node", ".iron-node.js");
-	}
-	if (fs.existsSync(configFilename)){
-		try{
-			result = {
-				filename : configFilename,
-				settings : require(configFilename)
-			};
-		} catch(e){
-			console.error(e);
-		}
-	}
-
-	return result;
-}
 
 var initializeV8 = function(config) {
 	if (config.v8 && config.v8.flags){
@@ -58,7 +31,8 @@ var initializeV8 = function(config) {
 }
 
 var initializeApplication = function() {
-	var config = getConfiguration();
+	var config = new require("./config.js")(process.argv);
+	//var config = getConfiguration();
 	if (config){
 		console.log("configuration", config.filename);
 		initializeV8(config.settings);

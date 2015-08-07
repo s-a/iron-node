@@ -1,8 +1,11 @@
 # Local and global configuration
 
 Since v1.5.20 ironNode supports local and global configuration via a configuration setup file.
-A configuration is saved in a file called [.iron-node.js](/.iron-node.js).  
-So far you can setup the [v8-flags](https://github.com/thlorenz/v8-flags/blob/master/flags-0.11.md) here.  
+A configuration is saved in a file called ```[.iron-node.js](/.iron-node.js)```.  
+You can setup the [v8-flags](https://github.com/thlorenz/v8-flags/blob/master/flags-0.11.md) and application settings here.  
+
+All available settings are described in the ***[example .iron-node.js configuration file](/.iron-node.js)***  
+
 
 ironNode scans the directory of the given JavaScript file first (local). If not found the next try is in ironNode' s ```AppData``` folder (global).  
 

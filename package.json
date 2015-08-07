@@ -12,8 +12,8 @@
     "test": "mocha",
     "dev": "node_modules/.bin/electron ./app",
     "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
-    "dev3": "node_modules\\.bin\\electron ./app c:\\git\\require\\index.js --native",
-    "dev4": "node_modules\\.bin\\electron ./app ..\\require\\index.js --native",
+    "dev3": "node_modules\\.bin\\electron ./app c:\\git\\require\\index.js",
+    "dev4": "node_modules\\.bin\\electron ./app ..\\require\\index.js",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "pre-commit": [
