@@ -12,6 +12,11 @@ See https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node
 I implemented both [```electron-recompile```](https://github.com/s-a/electron-recompile) and [```Node Module Path```](https://github.com/s-a/nmp) to implement a "re-compile" feature.  
 By ```calling iron-node --compile[=your-node-project-path]``` you can recompile all native modules in the ```node_modules``` subfolder or the current workking directory against the current installed iron-node v8 version.  
 
-### --native (redirect to previously re-compiled native modules)
-If you ever get an error while loading native node modules you can activate an overwrite of the internal node [```require```](/../app/require.js) function. You can make use of this option after you have re-compiled all native modules in your node project folder with ```iron-node --compile```.  *So far this option needs manual activation. May be it defaults to ```true``` in future. Once we have figured out that it is not dangerous :flushed:*. 
+### Extend require to search native modules respecting the current v8 version.
+If you ever get an error while loading native node modules you can activate an overwrite of the internal node [```require```](/../app/require.js) function. You can make use of ```native+``` option after you have re-compiled all native modules in your node project folder with ```iron-node --compile```.  *So far this option needs manual activation. May be it defaults to ```true``` in future. Once we have figured out that it is not dangerous :flushed:*.  
+
+
+See [Local and global configuration](CONFIGURATION.md) to learn how to configure the [.iron-node.js](/.iron-node.js) configuration file.
+
+
 ![require](console-require.png)  

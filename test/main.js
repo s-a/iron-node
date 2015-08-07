@@ -53,6 +53,7 @@ javascriptFilesToTest.push(path.join(__dirname, "..", "app", "index.js"));
 javascriptFilesToTest.push(path.join(__dirname, "..", "app", "menu.js"));
 javascriptFilesToTest.push(path.join(__dirname, "..", "app", "social-icon-buttons.js"));
 javascriptFilesToTest.push(path.join(__dirname, "..", "app", "require.js"));
+javascriptFilesToTest.push(path.join(__dirname, "..", "app", "config.js"));
 javascriptFilesToTest.push(path.join(__dirname, "main.js"));
 
 

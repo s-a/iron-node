@@ -44,16 +44,6 @@ var error = function(error) {
 process.on('uncaughtException', error);
 
 
-
-var removeArrayItem = function(array, searchTerm) {
-	for (var i = array.length-1; i >= 0; i--) {
-	    if (array[i] === searchTerm) {
-	        array.splice(i, 1);
-
-	    }
-	}
-}
-
 var prepareStartScriptParameter = function(filename) {
 	var result = filename;
 
@@ -141,8 +131,15 @@ var boot = function() {
 	console.log("versions", process.versions);
 	console.log("appData", customPackageFolder );
 
-	console.groupCollapsed("ironNode packages");
 
+	var config = new require("./config.js")(remote.process.argv);
+	console.log("configuration", config);
+	if (config && config.app && config.app["native+"] === true){
+		require("./require.js");
+	}
+
+
+	console.groupCollapsed("ironNode packages");
 	//var customApp = new CustomApp();
 	packageController.autoload({
 		debug: true,
@@ -152,21 +149,11 @@ var boot = function() {
 		directories: [customPackageFolder],
 		packageContstructorSettings: {/*app:customApp*/}
 	});
-
 	console.groupEnd();
+
 	console.groupEnd();
 
 	var args = remote.process.argv;
-	for (var a = 0; a < args.length; a++) {
-		var ar = args[a];
-		if (ar === "--native"){
-			removeArrayItem(args, "--native");
-			require("./require.js");
-			break;
-		}
-	}
-
-
 	if (args[2]){
 		args[2] = prepareStartScriptParameter(args[2]);
 	}
