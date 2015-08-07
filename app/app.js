@@ -1,3 +1,4 @@
+var os = require('os');
 var fs = require('fs');
 var path = require('path');
 var remote = require('remote');
@@ -128,6 +129,7 @@ var boot = function() {
 
 	console.groupCollapsed("ironNode boot");
 	//console.log("%cUser %s has %d points", "color:cyan; font-size: 110%", 1, 2);
+	console.log("os", os.platform(), os.type());
 	console.log("versions", process.versions);
 	console.log("appData", customPackageFolder );
 
