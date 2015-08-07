@@ -166,15 +166,16 @@ var boot = function() {
 		}
 	}
 
+
+	if (args[2]){
+		args[2] = prepareStartScriptParameter(args[2]);
+	}
+
 	// reset and equip process.argv for forthcoming Node.js scripts.
 	process.argv = [args[0]];
 	for (var i = 2; i < args.length; i++) {
 		var arg = args[i];
 		process.argv.push(arg);
-	}
-
-	if (args[2]){
-		args[2] = prepareStartScriptParameter(args[2]);
 	}
 
 	if (args[2]){
