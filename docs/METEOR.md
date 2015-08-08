@@ -2,24 +2,43 @@
 
 ## How to ride the [Meteor](https://www.meteor.com/) bullet?
 So far we are only able to debug meteor builds compiled with --debug without any database dependencies.
-https://github.com/s-a/iron-node/issues/1#issuecomment-127979103
+This is because we cannot compile sqlite3 at the moment (coming soon)
+
+The following is what we want to do in future. Note this is a Windows example, but it should be easy for you to adapt for Linux and OS X. Contribute to submit your notes for other platforms!
 
 
-The following is what we want to do in future.
-
+### Find global meteor installation folder on your machine
 ```bash
-# Find and change current directory to your global meteor installation.
 $ where meteor;
 # C:\Users\Stephan\AppData\Local\.meteor\meteor.bat
+```
+
+
+### Compile native modules used by meteor
+Blocked by https://github.com/mapbox/node-pre-gyp/issues/110.
+```bash
 $ cd C:\Users\Stephan\AppData\Local\.meteor\packages;
 
 # recompile native modules
-# FIXME:
-$ iron-node --compile # fails to compile sqlite3, ws maybe others :( ; blocked by https://github.com/mapbox/node-pre-gyp/issues/110
+# fails to compile sqlite3 :(
+$ iron-node --compile
 ```
 
-# route metoer to ironNode
+## Create an alias for meteor as iron-meteor
+```bash
+$ cp -rp c:\Users\Stephan\AppData\Local\.meteor\meteor.bat c:\Users\Stephan\AppData\Local\.meteor\iron-meteor.bat ;
+```
+Edit:
+```bash
+rem "%~dp0\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\meteor.bat" %*
+"%~dp0\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\iron-meteor.bat" %*
+```
 
-We need somthing that mimics the bash commands to something new maybe a command ```ironMeteor```
-
-Instead of ```node``` it have to call ```ironNode``` command. https://github.com/meteor/meteor/blob/devel/meteor#L136
+```bash
+$ cp -rp c:\Users\Stephan\AppData\Local\.meteor\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\meteor.bat c:\Users\Stephan\AppData\Local\.meteor\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\iron-meteor.bat;
+```
+Edit:
+```bash
+rem "%~dp0\dev_bundle\bin\node.exe" "%~dp0\tools\main.js" %*
+iron-node "%~dp0\tools\main.js" %*
+```
