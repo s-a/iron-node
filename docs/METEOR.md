@@ -25,7 +25,7 @@ $ cd c:\Users\Stephan\AppData\Local\.meteor\;
 $ cp -rp meteor.bat iron-meteor.bat;
 ```
 Edit iron-meteor.bat  
-~~"%~dp0\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\meteor.bat" %*~~
+~~"%~dp0\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\meteor.bat" %*~~  
 "%~dp0\packages\meteor-tool\1.1.3\mt-os.windows.x86_32\iron-meteor.bat" %*
 
 ```bash
@@ -33,7 +33,7 @@ $ cd c:\Users\Stephan\AppData\Local\.meteor\packages\meteor-tool\1.1.3\mt-os.win
 $ cp -rp meteor.bat iron-meteor.bat;
 ```
 Edit iron-meteor.bat  
-~~"%~dp0\dev_bundle\bin\node.exe" "%~dp0\tools\main.js" %*~~
+~~"%~dp0\dev_bundle\bin\node.exe" "%~dp0\tools\main.js" %*~~  
 iron-node "%~dp0\tools\main.js" %*
 
 ## Start Meteor projects with ironNode instead of Meteor
