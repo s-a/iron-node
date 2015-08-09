@@ -136,7 +136,7 @@ var boot = function() {
 
 	var config = new require("./config.js")(remote.process.argv);
 	console.log("configuration", config);
-	if (config && config.app && config.app["native+"] === true){
+	if (config && config.settings && config.settings.app && config.settings.app["native+"] === true){
 		require("./require.js");
 	}
 

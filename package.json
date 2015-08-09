@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "1.5.24",
+  "version": "1.5.25",
   "description": "Debug Node.js code on the fly with Chrome Developer Tools on Linux, Windows and OS X.",
   "main": "index.js",
   "bin": {
@@ -32,8 +32,8 @@
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
     "commander": "^2.8.1",
-    "electron-prebuilt": "^0.30.2",
-    "electron-recompile": "^1.0.5",
+    "electron-prebuilt": "^0.30.3",
+    "electron-recompile": "^1.0.12",
     "markdown": "^0.5.0",
     "nmp": "^1.0.3",
     "open": "0.0.5",
