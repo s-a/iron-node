@@ -2,7 +2,8 @@ var app = require('app');  // Module to control application life.
 /*var fs = require('fs');  // Module to control application life.
 var path = require('path');  // Module to control application life.*/
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
-
+var Toaster = require('electron-toaster');  // Module to create native browser window.
+var toaster = new Toaster();
 // Report crashes to our server.
 //require('crash-reporter').start();
 
@@ -78,7 +79,7 @@ app.on('ready', function() {
 			}
 		});
 
-
+		toaster.init(mainWindow);
 
 		mainWindow.maximize();
 		mainWindow.openDevTools();

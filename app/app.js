@@ -2,44 +2,40 @@ var os = require('os');
 var fs = require('fs');
 var path = require('path');
 var remote = require('remote');
-var dialog = remote.require('dialog');
+var ipc = require('ipc');
 var markdown = require('markdown').markdown;
 var packageController = require("package.js");
 /*var events = require('events');*/
 var app = remote.require("app");
 
 /*var CustomApp = function  () {
-    this.events = new events.EventEmitter();
-    return this;
+	this.events = new events.EventEmitter();
+	return this;
 };*/
 
 window.opener = window.open = require("open");
 
 var error = function(error) {
 	console.error(error);
-	var msgBoxConfig = {
-		type : "error", 
-		title : "Uncaught Exception", 
-		buttons:["ok", "close"]
+	var msg = {
+		/*type : "error",
+		title : "Uncaught Exception",
+		buttons:["ok", "close"],*/
+		width : 400
 	};
 
 	switch (typeof error) {
 		case "object":
-			msgBoxConfig.title = "Uncaught Exception: " + error.code;
-			msgBoxConfig.message = error.message;
-			msgBoxConfig.detail = error.stack;
+			msg.title = "Uncaught Exception: " + error.code;
+			msg.message = error.message;
 			break;
 		case "string":
-			msgBoxConfig.message = error;
+			msg.message = error;
 			break;
 	}
+	msg.detail = "Please check the console log for more details.";
 
-
-	dialog.showMessageBox(remote.getCurrentWindow(), msgBoxConfig, function(response){
-		if (response === 1){
-			remote.getCurrentWindow().close();
-		}
-	});
+	ipc.send('electron-toaster-message', msg);
 }
 
 process.on('uncaughtException', error);
