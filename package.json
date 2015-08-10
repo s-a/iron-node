@@ -32,7 +32,7 @@
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
     "commander": "^2.8.1",
-    "electron-prebuilt": "^0.30.3",
+    "electron-prebuilt": "^0.30.4",
     "electron-recompile": "^1.0.12",
     "electron-toaster": "^1.0.8",
     "markdown": "^0.5.0",
