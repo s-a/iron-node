@@ -16,13 +16,8 @@ I always hated attaching processes, watching files, restart processes and so on 
 ## Installation
 ```npm install iron-node -g;```
 
-## Usage
-The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.
-```bash
-iron-node [options]
-```
-
-### Debug session
+### Usage
+The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
 Start a debug session with the given JavaScript file.
 ```bash
 iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
