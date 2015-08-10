@@ -39,7 +39,20 @@ var error = function(error) {
 }
 
 process.on('uncaughtException', error);
+process.exit = function(code) {
+	var msg = {
+		title : "process.exit",
+		width : 300
+	}
 
+	msg.message = "Exit Code: \"" + code + "\"";
+
+	if (code !== 0){
+		msg.detail = "ERROR : Please check the console log for more details.";
+	}
+
+	ipc.send('electron-toaster-message', msg);	
+}
 
 var prepareStartScriptParameter = function(filename) {
 	var result = filename;
