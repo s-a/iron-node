@@ -67,7 +67,7 @@
     "white"         : true,
     "indent"        : 2,
     "maxdepth"      : 3,
-    "maxcomplexity"	: 7,
+    "maxcomplexity"	: 8,
     "maxparams"     : 3,
     "maxstatements" : 40
 }
