@@ -27,7 +27,9 @@ npm install your-plugin;
 ```
 
 ## For package developers.
-A ironNode package is identified by ```iron_node_package : true``` within package.json.
+A ironNode package is identified by ```iron_node_package : true``` within package.json.  
+
+If you need any events feel free to submit a PR or create an issue.
 
 ## Example package
 
