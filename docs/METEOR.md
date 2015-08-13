@@ -2,7 +2,8 @@
 ***Draft (need help to make this work)***  
 
 
-So far we are only able to debug meteor builds compiled with ```--debug``` without any database dependencies. This is because we cannot compile all native modules at the moment (coming soon). This topic is blocked https://github.com/s-a/iron-node/issues/38.  
+So far we are only able to debug meteor builds compiled with ```--debug``` without any database dependencies.  
+
 The following is what we want to do in future. Note this is a Windows example, but it should be easy for you to adapt for Linux and OS X. **Feel free to contribute to submit your notes for other platforms!**
 
 
