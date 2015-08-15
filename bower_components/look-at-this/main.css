@@ -1,0 +1,54 @@
+.social-icon{
+	background-image: url("sprite__social-icon.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-size: cover;
+	width:100%;
+	height:100%;
+	transition:all 0.1s ease-in-out;
+}
+
+.social-share-button{
+	display: inline-block;
+	width: 200px;
+	height: 200px; 
+	transition: width 0.4s ease-in, height 0.4s ease-in;
+	margin-right: 11px;
+	margin-bottom: 11px;
+}
+
+
+/*//xs only*/
+@media(max-width: 767px) {
+	.social-share-button{
+		width: 32px;
+		height: 32px;
+	}
+
+}
+
+/*//small and up*/
+@media(min-width: 768px) {
+	.social-share-button{
+		width: 64px;
+		height: 64px;
+	}
+}
+
+/*//md only*/
+@media(min-width: 992px) and (max-width: 1199px) {
+	.social-share-button{
+		width: 96px;
+		height: 96px;
+	}
+
+}
+
+/*//lg and up*/
+@media(min-width: 1200px) {
+	.social-share-button{
+		width: 128px;
+		height: 128px;
+	}
+
+}

@@ -1,0 +1,76 @@
+body{
+	background-image: url('light-wool.png');
+}
+
+.intro-header{
+	background-color: #121718;
+	color:#F0F0F0;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+@font-face { 
+	font-family: "iron-node-regular"; 
+	src: url("iron-node-regular.ttf"); 
+}
+.div_text_shadow {
+	color: rgb(97, 97, 97);
+	font-size: 50px;
+	
+}
+
+#logo{
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3) !important;
+	white-space: nowrap; 
+	font-family: iron-node-regular;
+	font-size: 92px;
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	border-radius: 5px;
+	border: solid 1px #121212;
+	background-color: #4078c0;
+}
+
+.part1{
+	padding-top: 5px;
+	padding-bottom: 1px;
+	display: inline-block;
+	padding-right: 10px;
+	padding-left: 20px;
+	background-color: #121212;
+	color:#F0F0F0;
+}
+.part2{
+	padding-top: 5px;
+	padding-bottom: 1px;
+	display: inline-block;
+	color:#121212;
+	padding-left: 10px;
+	padding-right: 20px;
+}
+
+.zoom-gallery img{
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.fa{
+	font-size: 64px;
+	margin-top: 28px;
+	margin-right: 11px;
+}
+
+
+.zoom-gallery img{
+	margin-right: 22px;
+}
+
+
+
+footer{
+	margin-top: 64px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-color: #121718;
+	color:#F0F0F0;
+}

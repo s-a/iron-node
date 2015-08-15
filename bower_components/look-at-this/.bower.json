@@ -1,0 +1,33 @@
+{
+  "name": "look-at-this",
+  "version": "0.1.14",
+  "authors": [
+    "s-a <stephan.ahlf@googlemail.com>"
+  ],
+  "description": "A very simple collection and lib of social sharing channels",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/s-a/look-at-this/"
+  },
+  "license": "MIT & GPL",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/s-a/look-at-this",
+  "_release": "0.1.14",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.14",
+    "commit": "541dccf47f0bc30914912e3715d4ab49e5befc36"
+  },
+  "_source": "git://github.com/s-a/look-at-this.git",
+  "_target": "~0.1.14",
+  "_originalSource": "look-at-this",
+  "_direct": true
+}
