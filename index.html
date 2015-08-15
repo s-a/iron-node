@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>Try A Different Node.js Debug Experience</title>
-	<meta name="author" content="Stephan Ahlf">
-	<link rel="stylesheet" type="text/css" href="node_modules/look-at-this/dist/look-at-this.min.css">
-	<link rel="stylesheet" type="text/css" href="bower_components/primer-css/css/primer.css">
-	<link rel="stylesheet" type="text/css" href="bower_components/octicons/octicons/octicons.css">
-	<link rel="stylesheet" type="text/css" href="app.css">
+	<title>The Node.js Debugger</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/look-at-this/dist/look-at-this.min.css">
+	<link rel="stylesheet" type="text/css" href="magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
@@ -20,257 +21,406 @@
 	<link rel="shortcut icon" href="icons/favicon.ico">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-config" content="icons/browserconfig.xml">
-	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" type="text/css" href="magnific-popup.css">
-	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<a href="https://github.com/s-a/iron-node"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-
-	<div class="swatch-blue">
+	<div class="intro-header">
 		<div class="container">
-			<h1>Try A Different Experience With Node.js JavaScript Debugging </h1>
-			<a id="logo" href="https://github.com/s-a/iron-node">
-				<div class="part1">iron</div><div class="part2">Node</div>
-			</a>
-			<a href="https://www.npmjs.com/package/iron-node">
-				<img style="shield" src="http://img.shields.io/npm/v/iron-node.svg">
-			</a>
-			<a href="https://www.npmjs.org/package/iron-node">
-				<img src="https://img.shields.io/npm/dm/iron-node.svg" style="max-width:100%;">
-			</a>
-		</div>
-	</div>
 
-
-	<div class="container">
-	  <div class="columns">
-		<div class="one-fifth column">
-			&nbsp;
-		</div>
-		<div class="four-fifths column">
-		</div>
-	  </div>
-
-	  <div class="columns">
-		<div class="one-fifth column">
-			&nbsp;
-		</div>
-		<div class="four-fifths column">
-			<p class="lead">
-				Powerful <a href="https://developer.chrome.com/devtools/docs/javascript-debugging">JavaScript debugging</a> for <a href="http://nodejs.org/">Node.js</a> to fix issues efficiently and debug code less painful.
-				Easy, fast and stable. <span class="">Try the new taste on Linux, <a href="https://www.apple.com/osx/">OS X</a> and <a href="http://windows.microsoft.com">Windows</a>.
-				<br>
-				<br>
-				<a href="https://travis-ci.org/s-a/iron-node">
-					<img style="shield" src="https://travis-ci.org/s-a/iron-node.svg?branch=master">
-				</a>
-				<a href="https://www.codacy.com/app/stephanahlf/iron-node">
-					<img src="https://www.codacy.com/project/badge/9abe33d152db40bfa5833f2388b32646"/>
-				</a>
-				<a href="https://github.com/s-a/iron-node/issues">
-					<img style="shield" src="https://img.shields.io/github/issues/s-a/iron-node.svg">
-				</a>
-				<a href="https://github.com/s-a/iron-node">
-					<img style="shield" src="https://img.shields.io/github/forks/s-a/iron-node.svg">
-				</a>
-				<a href="https://github.com/s-a/iron-node">
-					<img style="shield" src="https://img.shields.io/github/stars/s-a/iron-node.svg">
-				</a>
-				<a href="https://github.com/s-a/iron-node/blob/master/LICENSE.md">
-					<img style="shield" src="https://img.shields.io/badge/license-MIT-blue.svg">
-				</a>
-				<a href="http://s-a.github.io/donate/">
-					<img src="http://s-a.github.io/donate/donate.svg">
-				</a>
-			</p>
-
-			<hr>
-		</div>
-	  </div>
-
-	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Installation</h2>
-		</div>
-		<div class="four-fifths column">
-			<code>$ npm install iron-node -g;</code>
-			<hr>
-		</div>
-	  </div>
-
-	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Usage</h2>
-		</div>
-		<div class="four-fifths column">
-			<code>$ iron-node my-javascript-file.js;</code>
-			<hr>
-		</div>
-	  </div>
-
-
-	  <div class="columns">
-	  	<div class="one-fifth column">
-	  		<h2>Detailed docs</h2>
-	  	</div>
-	  	<div class="four-fifths column">
-	  		<a href="https://github.com/s-a/iron-node#docs">https://github.com/s-a/iron-node#docs</a>
-	  		<hr>
-	  	</div>
-      </div>
-
-
-	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Screenshots</h2>
-		</div>
-		<div class="four-fifths column">
-			<div class="example gc3">
-				<p>Click to zoom</p>
-				<div class="html-code grid-of-images">
-					<div class="zoom-gallery">
-						<!-- <a href="iron-node__windows-usage__lg.jpg" data-source="iron-node__windows-usage__lg.jpg" title="ironNode on Windows">
-							<img src="iron-node__windows-usage__sm.jpg" height="100" />
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>
+						<a id="logo" href="https://github.com/s-a/iron-node">
+							<div class="part1">iron</div><div class="part2">Node</div>
 						</a>
-						<br> -->
-						<a href="iron-node__windows__lg.jpg" data-source="iron-node__windows__lg.jpg" title="ironNode on Windows">
-							<img src="iron-node__windows__sm.jpg" height="130" />
-						</a> 
-						<a href="iron-node__linux__lg.jpg" data-source="iron-node__linux__lg.jpg" title="ironNode on Linux">
-							<img src="iron-node__linux__sm.jpg" height="130" />
-						</a> 
-						<a href="iron-node__osx__lg.jpg" data-source="iron-node__osx__lg.jpg" title="ironNode on OS X">
-							<img src="iron-node__osx__sm.jpg" height="130" />
+						<a href="https://www.npmjs.com/package/iron-node">
+							<img style="shield" src="http://img.shields.io/npm/v/iron-node.svg">
 						</a>
-						<a href="iron-node__es6__lg.jpg" data-source="iron-node__es6__lg.jpg" title="EcmaScript 6 (ES6 Harmony)">
-							<img src="iron-node__es6__sm.jpg" height="130" />
+						<a href="https://www.npmjs.org/package/iron-node">
+							<img src="https://img.shields.io/npm/dm/iron-node.svg" style="max-width:100%;">
 						</a>
-						<a href="iron-node__es6__lg.jpg" data-source="iron-node__es6__lg.jpg" title="EcmaScript 6 (ES6 Harmony)">
-							<img src="iron-node__es6__sm.jpg" height="130" />
+						<a href="https://github.com/s-a/iron-node/blob/master/LICENSE.md">
+							<img style="shield" src="https://img.shields.io/badge/license-MIT-blue.svg">
 						</a>
-						<a href="iron-node__theme_lg.jpg" data-source="iron-node__theme_lg.jpg" title="https://github.com/s-a/iron-node-zerodarkmatrix-theme - Chrome DevTools Extension Theme">
-							<img src="iron-node__theme_sm.jpg" height="130" />
-						</a>
-					</div>
+					</h1>
+					<hr class="section-heading-spacer">
+					<h1>
+						Try A Different Experience With Node.js JavaScript Debugging.
+					</h1>
 				</div>
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$('.zoom-gallery').magnificPopup({
-							delegate: 'a',
-							type: 'image',
-							closeOnContentClick: false,
-							closeBtnInside: false,
-							mainClass: 'mfp-with-zoom mfp-img-mobile',
-							image: {
-								verticalFit: true,
-								titleSrc: function(item) {
-									return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-								}
-							},
-							gallery: {
-								enabled: true
-							},
-							zoom: {
-								enabled: true,
-								duration: 300, // don't foget to change the duration also in CSS
-								opener: function(element) {
-									return element.find('img');
-								}
-							}
-						});
-					});
-				</script>
-				<style type="text/css">
-					.image-source-link {
-						color: #98C3D1;
-					}
-
-					.mfp-with-zoom .mfp-container,
-					.mfp-with-zoom.mfp-bg {
-					opacity: 0;
-					-webkit-backface-visibility: hidden;
-					/* ideally, transition speed should match zoom duration */
-					-webkit-transition: all 0.3s ease-out; 
-					-moz-transition: all 0.3s ease-out; 
-					-o-transition: all 0.3s ease-out; 
-					transition: all 0.3s ease-out;
-					}
-
-					.mfp-with-zoom.mfp-ready .mfp-container {
-					opacity: 1;
-					}
-					.mfp-with-zoom.mfp-ready.mfp-bg {
-					opacity: 0.8;
-					}
-
-					.mfp-with-zoom.mfp-removing .mfp-container, 
-					.mfp-with-zoom.mfp-removing.mfp-bg {
-					opacity: 0;
-					}
-				</style>
 			</div>
-			<hr>
-		</div>
-	  </div>
 
-	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Very simple demo</h2>
 		</div>
-		<div class="four-fifths column">
-			<iframe width="420" height="315" src="https://www.youtube.com/embed/pxq6zdfJeNI" frameborder="0" allowfullscreen></iframe>
-			<hr>
-		</div>
-	  </div>
+		
 
-	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Share</h2>
-		</div>
-		<div class="three-fourths column">
-			<div id="social-icons"></div><hr>
-		</div>
-	  </div>
-
-  	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Twitter feed</h2>
-		</div>
-		<div class="three-fourths column">
-			<a class="twitter-timeline" href="https://twitter.com/search?q=%22iron-node%22" data-widget-id="624528874781679616">Tweets about "iron-node"</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			<hr>
-		</div>
-	  </div>
-
-	  <div class="columns">
-		<div class="one-fifth column">
-			<h2>Support us</h2>
-		</div>
-		<div class="three-fourths column">
-			<a href="http://s-a.github.io/donate/"><span class="octicon octicon-heart"></span> Donate us a dog biscuit</a>
-		</div>
-	  </div>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
 	</div>
-	<div class="swatch-blue-2">
-		<p class="" style="text-align:center;">Copyright &copy; 2015 by <a href="https://github.com/s-a">Stephan Ahlf</a>. This software is <a href="https://github.com/s-a/iron-node/blob/master/LICENSE.md">licensed</a> under MIT.</p>
+	
+	<div class="content-section-b">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<p class="lead">
+						Powerful <a href="https://developer.chrome.com/devtools/docs/javascript-debugging">JavaScript debugging</a> for <a href="http://nodejs.org/">Node.js</a> to fix issues efficiently and debug code less painful.
+					Easy, fast and stable. <span class="">Try the new taste on Linux, <a href="https://www.apple.com/osx/">OS X</a> and <a href="http://windows.microsoft.com">Windows</a>.
+					</p>
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<img class="img-responsive" src="iron-node__theme_lg.jpg" alt="">
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 
-	<script type="text/javascript" src="node_modules/look-at-this/dist/look-at-this.min.js"></script>
+	<div class="content-section-a">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-windows"></i>
+					<i class="fa fa-apple"></i>
+					<i class="fa fa-linux"></i>
+				</div>
+				<div class="col-lg-5 col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3 class="section-heading">Cross-platform support</h3>
+					<p class="lead">ironNode works best with Windows, Linux and OS X.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="content-section-b">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-download"></i>
+
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Installation</h3>
+					<code>$ npm install -g iron-node</code>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="content-section-a">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-github"></i>
+
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Source Code</h3>
+					<a href="https://github.com/s-a/iron-node">https://github.com/s-a/iron-node</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="content-section-a">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-book"></i>
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Documentation</h3>
+					<a href="https://github.com/s-a/iron-node/tree/master/docs">https://github.com/s-a/iron-node/tree/master/docs</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="content-section-a">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-bug"></i>
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Issues, questions and feature requests</h3>
+					<a href="https://github.com/s-a/iron-node/issues">https://github.com/s-a/iron-node/issues</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="content-section-a">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-check-square-o"></i>
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Shields</h3>
+					<a href="https://travis-ci.org/s-a/iron-node">
+						<img style="shield" src="https://travis-ci.org/s-a/iron-node.svg?branch=master">
+					</a>
+					<a href="https://www.codacy.com/app/stephanahlf/iron-node">
+						<img src="https://www.codacy.com/project/badge/9abe33d152db40bfa5833f2388b32646"/>
+					</a>
+					<a href="https://github.com/s-a/iron-node/issues">
+						<img style="shield" src="https://img.shields.io/github/issues/s-a/iron-node.svg">
+					</a>
+					<a href="https://github.com/s-a/iron-node">
+						<img style="shield" src="https://img.shields.io/github/forks/s-a/iron-node.svg">
+					</a>
+					<a href="https://github.com/s-a/iron-node">
+						<img style="shield" src="https://img.shields.io/github/stars/s-a/iron-node.svg">
+					</a>
+					<a href="http://s-a.github.io/donate/">
+						<img src="http://s-a.github.io/donate/donate.svg">
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="content-section-b">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-desktop"></i>
+
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Screenshots</h3>
+					<div class="html-code grid-of-images">
+						<div class="zoom-gallery">
+							<a href="iron-node__windows-usage__lg.jpg" data-source="iron-node__windows-usage__lg.jpg" title="ironNode on Windows">
+								<img src="iron-node__windows-usage__sm.jpg" width="200" />
+							</a>
+							<br>
+							<a href="iron-node__windows__lg.jpg" data-source="iron-node__windows__lg.jpg" title="ironNode on Windows">
+								<img src="iron-node__windows__sm.jpg" width="200" />
+							</a>
+							<a href="iron-node__linux__lg.jpg" data-source="iron-node__linux__lg.jpg" title="ironNode on Linux">
+								<img src="iron-node__linux__sm.jpg" width="200" />
+							</a>
+							<a href="iron-node__osx__lg.jpg" data-source="iron-node__osx__lg.jpg" title="ironNode on OS X">
+								<img src="iron-node__osx__sm.jpg" width="200" />
+							</a>
+							<a href="iron-node__es6__lg.jpg" data-source="iron-node__es6__lg.jpg" title="EcmaScript 6 (ES6 Harmony)">
+								<img src="iron-node__es6__sm.jpg" width="200" />
+							</a>
+							<a href="iron-node__es6__lg.jpg" data-source="iron-node__es6__lg.jpg" title="EcmaScript 6 (ES6 Harmony)">
+								<img src="iron-node__es6__sm.jpg" width="200" />
+							</a>
+							<a href="iron-node__theme_lg.jpg" data-source="iron-node__theme_lg.jpg" title="https://github.com/s-a/iron-node-zerodarkmatrix-theme - Chrome DevTools Extension Theme">
+								<img src="iron-node__theme_sm.jpg" width="200" />
+							</a>
+						</div>
+					</div>
+					<p>Click to zoom</p>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$('.zoom-gallery').magnificPopup({
+								delegate: 'a',
+								type: 'image',
+								closeOnContentClick: false,
+								closeBtnInside: false,
+								mainClass: 'mfp-with-zoom mfp-img-mobile',
+								image: {
+									verticalFit: true,
+									titleSrc: function(item) {
+										return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
+									}
+								},
+								gallery: {
+									enabled: true
+								},
+								zoom: {
+									enabled: true,
+									duration: 300, // don't foget to change the duration also in CSS
+									opener: function(element) {
+										return element.find('img');
+									}
+								}
+							});
+						});
+					</script>
+					<style type="text/css">
+						.image-source-link {
+							color: #98C3D1;
+						}
+
+						.mfp-with-zoom .mfp-container,
+						.mfp-with-zoom.mfp-bg {
+						opacity: 0;
+						-webkit-backface-visibility: hidden;
+						/* ideally, transition speed should match zoom duration */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+						}
+
+						.mfp-with-zoom.mfp-ready .mfp-container {
+						opacity: 1;
+						}
+						.mfp-with-zoom.mfp-ready.mfp-bg {
+						opacity: 0.8;
+						}
+
+						.mfp-with-zoom.mfp-removing .mfp-container,
+						.mfp-with-zoom.mfp-removing.mfp-bg {
+						opacity: 0;
+						}
+					</style>
+
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container -->
+
+	</div>
+
+	<div class="content-section-a">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-youtube"></i>
+				</div>
+				<div class="col-sm-9">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h3>Videos</h3>
+					<iframe width="420" height="315" src="https://www.youtube.com/embed/pxq6zdfJeNI" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="banner">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-twitter"></i>
+				</div>
+				<div class="col-lg-9">
+					<hr class="section-heading-spacer">
+					<a class="twitter-timeline" href="https://twitter.com/search?q=%22iron-node%22%20OR%20%22ironNode%22%20OR%20%22%23ironNode%22" data-widget-id="632669396989816832" style="width:100%;">Tweets</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container -->
+
+	</div>
+	<div class="content-section-b">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-share-alt"></i>
+				</div>
+				<div class="col-sm-7">
+					<hr class="section-heading-spacer">
+					<h3>Share</h3>
+					<div id="social-icons"></div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="content-section-b">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<hr class="section-heading-spacer">
+					<i class="fa fa-heart"></i>
+				</div>
+				<div class="col-sm-7">
+					<hr class="section-heading-spacer">
+					<a href="http://s-a.github.io/donate/"><span class="octicon octicon-heart"></span> Donate us a dog biscuit</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="copyright text-muted small">Copyright &copy; Stephan Ahlf 2015. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<script type="text/javascript" src="bower_components/look-at-this/dist/look-at-this.min.js"></script>
 	<script type="text/javascript">
 		window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
 		window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
 		window.socialIcons.setup.url = "http://s-a.github.io/iron-node/index.html";
 	</script>
 	<script type="text/javascript" src="jquery.magnific-popup.min.js"></script>
+
 </body>
 </html>
