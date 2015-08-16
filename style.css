@@ -56,13 +56,14 @@ body{
 
 .fa{
 	font-size: 64px;
-	margin-top: 28px;
+	margin-top: 25px;
 	margin-right: 11px;
 }
 
 
 .zoom-gallery img{
 	margin-right: 22px;
+	margin-bottom: 22px;
 }
 
 
