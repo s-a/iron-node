@@ -1,6 +1,5 @@
 var app = require('app');  // Module to control application life.
-/*var fs = require('fs');  // Module to control application life.
-var path = require('path');  // Module to control application life.*/
+var ipc = require('ipc');
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var Toaster = require('electron-toaster');  // Module to create native browser window.
 var toaster = new Toaster();
@@ -18,6 +17,8 @@ app.on('window-all-closed', function() {
 		app.quit();
 	}
 });
+
+
 
 
 
@@ -42,6 +43,13 @@ var initializeApplication = function() {
 }
 
 app.on('ready', function() {
+
+	var firstStart = true;
+	ipc.on('is-iron-node-first-start', function(event/*, arg*/) {
+		event.sender.send("is-iron-node-first-start-asynchronous-reply", {firstStart:firstStart});
+		firstStart = false;
+	});
+
 	initializeApplication();
 
 	var meta = require("./../package.json");
