@@ -27,9 +27,10 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 
 ## [Docs](/docs/)
  - [Features](/docs/FEATURES.md)
+ - [Master the break-points](/docs/MASTER-THE-BREAKPOINTS.md)
+ - [Local and global configuration](/docs/CONFIGURATION.md)
  - [How to use native modules?](/docs/NATIVE-MODULES.md)
  - [Packages aka addons or plugins](/docs/PACKAGES.md) -> [Package-Channel](https://www.npmjs.com/browse/keyword/iron-node)
- - [Local and global configuration](/docs/CONFIGURATION.md)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
  - [How to debug Meteor apps?](/docs/METEOR.md)
