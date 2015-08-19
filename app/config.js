@@ -10,7 +10,11 @@ try{
 }
 
 var Config = function(argv) {
-	var result = null;
+	var result = {
+		filename : null,
+		settings : {v8:{}, app:{}}
+	};
+
 	var dir = "";
 
 	if (argv[2]){

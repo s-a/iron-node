@@ -180,13 +180,15 @@ var boot = function() {
 		document.getElementById("project-filename").innerHTML = args[2];
 		initializeInfoWindow(path.dirname(args[2]));
 
-		ipc.on('is-iron-node-first-start-asynchronous-reply', function(reply) {
-			if (reply.firstStart){
-				remote.getCurrentWindow().webContents.addWorkSpace( path.dirname(args[2]) );
-			}
-			require(args[2]);
-		});
-		ipc.send("is-iron-node-first-start");
+		if (config.settings.app.autoAddWorkSpace !== false){
+			ipc.on('is-iron-node-first-start-asynchronous-reply', function(reply) {
+				if (reply.firstStart){
+					remote.getCurrentWindow().webContents.addWorkSpace( path.dirname(args[2]) );
+				}
+				require(args[2]);
+			});
+			ipc.send("is-iron-node-first-start");
+		}
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
 		initializeInfoWindow(process.cwd());
