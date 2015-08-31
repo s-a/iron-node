@@ -1,3 +1,4 @@
+```bash
 ## create a meteor build
 $ meteor build ../todos-build --debug --directory
 $ cd ../todos-build/bundle/programs/server
@@ -21,3 +22,4 @@ $ set BIND_IP=localhost
 ## start the project
 $ cd c:\git\todos-build\bundle\
 $ iron-node main.js
+```

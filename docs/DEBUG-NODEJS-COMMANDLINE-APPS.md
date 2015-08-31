@@ -18,3 +18,7 @@ $ iron-node $AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt [taskname]
 ## :warning: Heads Up!
 Some command line apps may use native modules. Please read [How to use native modules?](/docs/NATIVE-MODULES.md).  
 ***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such an incompatibility.***  
+
+
+## :warning: Heads Up!
+Some command line apps may spawn another node instance. Please read [How to debug mocha?](https://github.com/s-a/iron-node/issues/51#issuecomment-136277173) if you are affected by such a behaviour.

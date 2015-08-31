@@ -2,7 +2,7 @@
 ***Draft (need help to make this work)***  
 
 
-So far we are only able to debug meteor builds compiled with ```--debug``` without any database dependencies.  
+So far we are only able to debug meteor builds compiled with ```--debug``` .  
 
 The following is what we want to do in future. Note this is a Windows example, but it should be easy for you to adapt for Linux and OS X. **Feel free to contribute to submit your notes for other platforms!**
 
