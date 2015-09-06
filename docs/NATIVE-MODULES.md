@@ -20,3 +20,10 @@ See [Local and global configuration](CONFIGURATION.md) to learn how to configure
 
 
 ![require](console-require.png)  
+
+## Dependencies
+- Install node.js
+- Install Python 2.7
+- Install .NET Framework to get VCBuild.exe
+- npm config set msvs_version 2015 --global to set msvs_version
+- npm install node-gyp #https://github.com/nodejs/node-gyp#installation
