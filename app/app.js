@@ -35,7 +35,7 @@ var error = function(error) {
 	}
 	msg.detail = "Please check the console log for more details.";
 
-	ipc.send('electron-toaster-message', msg);
+	if (ipc) {ipc.send('electron-toaster-message', msg)};
 }
 
 process.on('uncaughtException', error);
@@ -51,7 +51,7 @@ process.exit = function(code) {
 		msg.detail = "ERROR : Please check the console log for more details.";
 	}
 
-	ipc.send('electron-toaster-message', msg);	
+	if (ipc) {ipc.send('electron-toaster-message', msg)};	
 }
 
 var prepareStartScriptParameter = function(filename) {
