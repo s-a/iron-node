@@ -11,9 +11,8 @@
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "mocha",
     "dev": "node_modules/.bin/electron ./app",
-    "dev2": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
-    "dev3": "node_modules\\.bin\\electron ./app c:\\git\\require\\index.js",
-    "dev4": "node_modules\\.bin\\electron ./app ..\\require\\index.js",
+    "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
+    "compiler": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },
   "pre-commit": [
