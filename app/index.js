@@ -1,5 +1,5 @@
 var app = require('app');  // Module to control application life.
-var ipc = require('ipc');
+var ipc = require('electron').ipcMain;
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var Toaster = require('electron-toaster');  // Module to create native browser window.
 var toaster = new Toaster();
