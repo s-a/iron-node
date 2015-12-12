@@ -97,7 +97,7 @@ app.on('ready', function() {
 		});
 
 		mainWindow.on('devtools-opened', function() {
-			mainWindow.loadUrl('file://' + __dirname + '/index.html');
+			mainWindow.loadURL('file://' + __dirname + '/index.html');
 		});
 	}
 });
