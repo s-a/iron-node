@@ -149,18 +149,21 @@ var boot = function() {
 		require("./require.js");
 	}
 
-
-	console.groupCollapsed("ironNode packages");
-	//var customApp = new CustomApp();
-	packageController.autoload({
-		debug: true,
-		identify: function() {
-			return (this.meta.iron_node_package === true);
-		},
-		directories: [customPackageFolder],
-		packageContstructorSettings: {/*app:customApp*/}
-	});
-	console.groupEnd();
+	if (fs.existsSync(customPackageFolder)){
+		console.groupCollapsed("ironNode packages");
+		//var customApp = new CustomApp();
+		packageController.autoload({
+			debug: true,
+			identify: function() {
+				return (this.meta.iron_node_package === true);
+			},
+			directories: [customPackageFolder],
+			packageContstructorSettings: {/*app:customApp*/}
+		});
+		console.groupEnd();
+	} else {
+		console.warn("No packages folder found. You can install some at " +  path.join( app.getPath("appData"), "iron-node", "node_modules" ) + " from ", "https://www.npmjs.com/search?q=iron-node", ":O)");
+	}
 
 	console.groupEnd();
 
