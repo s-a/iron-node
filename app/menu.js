@@ -3,6 +3,9 @@ var remote = require('remote');
 var Menu = remote.require('menu');
 var template = [];
 var SoftwareUpdate = require('./update.js');
+var app = remote.require("app");
+var path = remote.require("path");
+var fs = remote.require("fs");
 
 var mnuFile = {
 	label: 'Project',
@@ -52,11 +55,22 @@ var mnuView =   {
 	label: 'View',
 	submenu: [
 		{
-			label: 'Debugger',
+			label: 'Show developer tools',
 			click: function() {
 				remote.getCurrentWindow().openDevTools();
 			},
 			accelerator: 'F12'
+		},
+		{
+			label: 'Show global config folder',
+			click: function() {
+				var shell = require('electron').shell;
+				var f = path.join(app.getPath("appData"), "iron-node");
+				if (!fs.existsSync(f)){
+					console.warn("No packages folder found. You can install some at " +  path.join( app.getPath("appData"), "iron-node", "node_modules" ) + " from ", "https://www.npmjs.com/search?q=iron-node", ":O)");
+				}
+				shell.openItem( f );
+			} 
 		}
 	]
 };
@@ -92,7 +106,6 @@ var mnuHelp =   {
 		{
 			label: 'Update',
 			click: function() {
-				
 				var upd = new SoftwareUpdate();
 				upd.check();
 			}
