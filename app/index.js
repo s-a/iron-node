@@ -40,6 +40,8 @@ var initializeApplication = function() {
 		initializeV8(config.settings);
 	}
 	//app.commandLine.appendSwitch('remote-debugging-port', '9222')
+
+	return config;
 }
 
 app.on('ready', function() {
@@ -51,7 +53,7 @@ app.on('ready', function() {
 			firstStart = false;
 		});
 	}
-	initializeApplication();
+	var config = initializeApplication();
 
 	var meta = require("./../package.json");
 	var program = require('commander');
@@ -91,14 +93,28 @@ app.on('ready', function() {
 		toaster.init(mainWindow);
 
 		mainWindow.maximize();
-		mainWindow.openDevTools();
+		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});
 
 		mainWindow.on('closed', function() {
 			mainWindow = null;
 		});
 
+		var devtoolsClosedFirstCall = true; // workaround - devtools-closed fired once devTools was opened?
+		mainWindow.on('devtools-closed', function() {
+			if (config.settings.app.hideMainWindow){
+				if (!devtoolsClosedFirstCall){
+					mainWindow.close();
+				}
+			}
+			devtoolsClosedFirstCall = false;
+		});
+
 		mainWindow.on('devtools-opened', function() {
 			mainWindow.loadURL('file://' + __dirname + '/index.html');
+			if (config.settings.app.hideMainWindow){
+				mainWindow.hide();
+			}
 		});
+
 	}
 });
