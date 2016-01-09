@@ -3,7 +3,7 @@
 ironNode needs a JavaScript file as entry point for a debug session.  
 So first of all you have to locate the global or local installation of the commandline app you want to use.  
 
-Here we have a handy collection of scripts. You can simply copy and paste them into your ```scripts``` section of your ```package.json```. Feel free to :tada: contribute and add your scripts here!
+Here we have a handy collection of scripts. You can simply copy and paste them into the ```scripts``` section of your ```package.json```. Feel free to :tada: contribute and add your scripts here!
 
 ## debug script calls
 ```javascript
@@ -22,7 +22,7 @@ Now it is easy to start a debug session using ```npm run ...```.
 
 ## usage
 ```bash
-  $ cd you-project-path;
+  $ cd your-project-path;
   $ npm run debug-mocha;
 ```
 
