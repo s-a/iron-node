@@ -36,7 +36,7 @@ var error = function(error) {
 			msg.text += error;
 			break;
 	}
-	msg.text += "Please check the console log for more details.";
+	msg.text += "\nPlease check the console log for more details.";
 	notify(msg);
 }
 
