@@ -1,24 +1,30 @@
 # How to debug other Node.js command line applications like a Grunt task?
 
 ironNode needs a JavaScript file as entry point for a debug session.  
-So first of all you have to locate the global or local installation of the commandline app you want to use. Lets say we want to debug a Grunt task.  
-The ```where``` command will tell us the location of the commandline bash script file. Open it and find out to which JavaScript file the bash script points. In some cases this could be a JavaScript file a directly.
+So first of all you have to locate the global or local installation of the commandline app you want to use.  
 
-In my case of Grunt (on Windows) this is ```$AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt```
+Here we have a handy collection of scripts. You can simply copy and paste them into your ```scripts``` section of your ```package.json```. Feel free to :tada: contribute and add your scripts here!
 
-Now it is easy to start a debug session by passing the JavaScript File to ironNode
-
-## Windows example
-```bash
-$ cd your-project folder
-$ iron-node $AppData$\Roaming\npm\node_modules\grunt-cli\bin\grunt [taskname]
+## debug script calls
+```javascript
+  ...
+  "scripts": {
+    ...
+    "debug-mocha": "iron-node node_modules/mocha/bin/_mocha",
+    "debug-grunt": "iron-node node_modules/grunt-cli/bin/grunt build",
+    "debug-gulp": "iron-node node_modules/gulp/bin/gulp.js",
+    ...
+  },
+  ...
 ```
 
+Now it is easy to start a debug session using ```npm run ...```.  
+
+## usage
+```bash
+  $ cd you-project-path;
+  $ npm run debug-mocha;
+```
 
 ## :warning: Heads Up!
 Some command line apps may use native modules. Please read [How to use native modules?](/docs/NATIVE-MODULES.md).  
-***Feel free to [submit an issue](https://github.com/s-a/iron-node/issues) if you are affected by such an incompatibility.***  
-
-
-## :warning: Heads Up!
-Some command line apps may spawn another node instance. Please read [How to debug mocha?](https://github.com/s-a/iron-node/issues/51#issuecomment-136277173) if you are affected by such a behaviour.
