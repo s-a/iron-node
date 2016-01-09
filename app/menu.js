@@ -13,7 +13,7 @@ var mnuFile = {
 		{
 			label: 'Exit',
 			click: function() {
-				remote.getCurrentWindow().close();
+				app.exit(0);
 			},
 			accelerator: 'Control+w'
 		}
