@@ -5,53 +5,55 @@ var remote = require('remote');
 var ipc = require('electron').ipcRenderer;
 var markdown = require('markdown').markdown;
 var packageController = require("package.js");
-/*var events = require('events');*/
 var app = remote.require("app");
 
-/*var CustomApp = function  () {
-	this.events = new events.EventEmitter();
-	return this;
-};*/
 
 window.opener = window.open = require("open");
+
+var notify = function (msg) {
+	try{
+		Notification.requestPermission();
+		var notification = new Notification(msg.title, { body: msg.text, icon: '../logo/icon.png' });
+		console.log(notification);
+	} catch(e){
+		console.error(e);
+	}
+}
 
 var error = function(error) {
 	console.error(error);
 	var msg = {
-		/*type : "error",
-		title : "Uncaught Exception",
-		buttons:["ok", "close"],*/
-		width : 400
+		title : "",
+		text : ""
 	};
 
 	switch (typeof error) {
 		case "object":
-			msg.title = "Uncaught Exception: " + error.code;
-			msg.message = error.message;
+			msg.title += "Uncaught Exception: " + error.code;
+			msg.text += error.message;
 			break;
 		case "string":
-			msg.message = error;
+			msg.text += error;
 			break;
 	}
-	msg.detail = "Please check the console log for more details.";
-
-	if (ipc) {ipc.send('electron-toaster-message', msg)}
+	msg.text += "Please check the console log for more details.";
+	notify(msg);
 }
 
 process.on('uncaughtException', error);
 process.exit = function(code) {
 	var msg = {
 		title : "process.exit",
-		width : 300
+		text : ""
 	}
 
-	msg.message = "Exit Code: \"" + code + "\"";
+	msg.text += "Exit Code: \"" + code + "\"";
 
 	if (code !== 0){
-		msg.detail = "ERROR : Please check the console log for more details.";
+		msg.text += "ERROR : Please check the console log for more details.";
 	}
 
-	if (ipc) {ipc.send('electron-toaster-message', msg)}
+	notify(msg);
 }
 
 var prepareStartScriptParameter = function(filename) {
@@ -139,7 +141,6 @@ var boot = function() {
 	}
 
 	console.groupCollapsed("ironNode boot");
-	//console.log("%cUser %s has %d points", "color:cyan; font-size: 110%", 1, 2);
 	console.log("os", os.platform(), os.type());
 	console.log("versions", process.versions);
 	console.log("appData", customPackageFolder );
@@ -197,7 +198,6 @@ var boot = function() {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
 		initializeInfoWindow(process.cwd());
 	}
-
 }
 
 boot();
