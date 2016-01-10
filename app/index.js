@@ -38,13 +38,6 @@ var initializeApplication = function() {
 
 app.on('ready', function() {
 
-	var firstStart = true;
-	/*	if (ipc){
-		ipc.on('is-iron-node-first-start', function(event, arg) {
-			event.sender.send("is-iron-node-first-start-asynchronous-reply", {firstStart:firstStart});
-			firstStart = false;
-		});
-	}*/
 	var config = initializeApplication();
 
 	var meta = require("./../package.json");
