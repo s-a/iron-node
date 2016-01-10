@@ -13,6 +13,7 @@
     "dev": "node_modules/.bin/electron ./app",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
     "edge-test": "node_modules/.bin/electron ./app ..\\require\\edge.js",
+    "mocha-debug": "node_modules/.bin/electron ./app node_modules/mocha/bin/_mocha",
     "compiler": "node_modules\\.bin\\electron ./app --compile=c:\\git\\require\\",
     "bump": "npm version patch && git push && git push --tags && npm publish"
   },

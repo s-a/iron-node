@@ -2,7 +2,6 @@ var os = require('os');
 var fs = require('fs');
 var path = require('path');
 var remote = require('remote');
-var ipc = require('electron').ipcRenderer;
 var markdown = require('markdown').markdown;
 var packageController = require("package.js");
 var app = remote.require("app");
@@ -106,7 +105,9 @@ var initializePackageInfo = function(rootDirectory){
 	});
 }
 
-var initializeInfoWindow = function(rootDirectory) {
+var initializeInfoWindow = function(rootDirectory, startupScript) {
+	document.getElementById("project-filename").innerHTML = startupScript;
+
 	initializePackageInfo(rootDirectory);
 	var filename = path.join(rootDirectory, "DEBUG.md");
 	var loadMarkdownFile = function(fn) {
@@ -128,8 +129,6 @@ var initializeInfoWindow = function(rootDirectory) {
 		}
 	});
 };
-
- 
 
 
 var boot = function() {
@@ -183,16 +182,23 @@ var boot = function() {
 	}
 
 	if (args[2]){
-		document.getElementById("project-filename").innerHTML = args[2];
-		initializeInfoWindow(path.dirname(args[2]));
 
-		ipc.on('is-iron-node-first-start-asynchronous-reply', function(reply) {
-			if (reply.firstStart && config.settings.app.autoAddWorkSpace !== false){
-				remote.getCurrentWindow().webContents.addWorkSpace( path.dirname(args[2]) );
-			}
-			require(args[2]);
-		});
-		ipc.send("is-iron-node-first-start");
+		var workSpaceDirectory = path.dirname(args[2]);
+		var startupScriptName = path.basename(args[2]).toLowerCase();
+		switch(startupScriptName) {
+		    case "_mocha":
+		        workSpaceDirectory = process.cwd();
+		        break;
+		}
+
+
+		var webContents = remote.getCurrentWindow().webContents;
+		webContents.removeWorkSpace( workSpaceDirectory );
+		webContents.addWorkSpace( workSpaceDirectory );
+
+		initializeInfoWindow(workSpaceDirectory, args[2]);
+
+		require(args[2]);
 
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";

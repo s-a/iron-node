@@ -1,5 +1,4 @@
 var app = require('app');  // Module to control application life.
-var ipc = require('electron').ipcMain;
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
 // Report crashes to our server.
@@ -9,17 +8,11 @@ var BrowserWindow = require('browser-window');  // Module to create native brows
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
 
-
-
 app.on('window-all-closed', function() {
 	if (process.platform !== 'darwin'){
 		app.quit();
 	}
 });
-
-
-
-
 
 var initializeV8 = function(config) {
 	if (config.v8 && config.v8.flags){
@@ -46,12 +39,12 @@ var initializeApplication = function() {
 app.on('ready', function() {
 
 	var firstStart = true;
-	if (ipc){
-		ipc.on('is-iron-node-first-start', function(event/*, arg*/) {
+	/*	if (ipc){
+		ipc.on('is-iron-node-first-start', function(event, arg) {
 			event.sender.send("is-iron-node-first-start-asynchronous-reply", {firstStart:firstStart});
 			firstStart = false;
 		});
-	}
+	}*/
 	var config = initializeApplication();
 
 	var meta = require("./../package.json");
@@ -88,8 +81,6 @@ app.on('ready', function() {
 				'experimental-features' : true
 			}
 		});
-
-
 
 		mainWindow.maximize();
 		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});
