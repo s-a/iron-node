@@ -10,6 +10,7 @@
   "scripts": {
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "mocha",
+    "changelog": "changelog -m",
     "dev": "node_modules/.bin/electron ./app",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
     "edge-test": "node_modules/.bin/electron ./app ..\\require\\edge.js",
