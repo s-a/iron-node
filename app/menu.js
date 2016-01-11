@@ -109,10 +109,10 @@ Mnu.prototype.init = function(mainWindow) {
 				type: 'separator'
 			},
 			{
-				label: 'Update',
+				label: 'Check for Updates',
 				click: function() {
 					var upd = new SoftwareUpdate();
-					upd.check();
+					upd.check(mainWindow);
 				}
 			},
 			{
