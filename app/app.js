@@ -183,8 +183,10 @@ var boot = function() {
 
 	if (args[2]){
 		var webContents = remote.getCurrentWindow().webContents;
-		webContents.removeWorkSpace( config.settings.workSpaceDirectory(args) );
-		webContents.addWorkSpace( config.settings.workSpaceDirectory(args) );
+		if (config.settings.app.autoAddWorkSpace !== false){
+			webContents.removeWorkSpace( config.settings.workSpaceDirectory(args) );
+			webContents.addWorkSpace( config.settings.workSpaceDirectory(args) );
+		}
 		initializeInfoWindow(config.settings.workSpaceDirectory(args), args[2]);
 		require(args[2]);
 	} else {
