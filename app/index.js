@@ -1,5 +1,7 @@
 var app = require('app');  // Module to control application life.
+var path = require('path');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
+var Mnu = require('./menu.js');
 
 // Report crashes to our server.
 //require('crash-reporter').start();
@@ -67,16 +69,19 @@ app.on('ready', function() {
 			width: 800,
 			height: 600,
 			title : "ironNode v" + meta.version,
-			icon: __dirname + '/icon.png',
+			icon: path.join(__dirname, 'icon.png'),
 			transparent: false,
 			frame: true,
 			'web-preferences' : {
 				'experimental-features' : true
 			}
 		});
+		var menu = new Mnu();
+		menu.init(mainWindow);
 
 		mainWindow.maximize();
 		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});
+
 
 		mainWindow.on('closed', function() {
 			mainWindow = null;

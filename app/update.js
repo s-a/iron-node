@@ -1,5 +1,5 @@
-var remote = require('remote');
-var dialog = remote.require('dialog');
+//var remote = require('remote');
+var dialog = require('dialog');
 var semver = require('semver');
 
 
@@ -33,9 +33,9 @@ Update.prototype.check = function() {
 			currentVersion = semver.clean(currentVersion);
 			latestVersion = semver.clean(latestVersion);
 			if (semver.lt(currentVersion, latestVersion)) {
-				dialog.showMessageBox(remote.getCurrentWindow(), {type:"warning", title:"ironNode Update", message:"A new update is available!\nTo install it close this program.\nOpen a console and type:\n`npm install -g iron-node`.", detail:details, buttons: ["ok"]});
+				dialog.showMessageBox(getCurrentWindow(), {type:"warning", title:"ironNode Update", message:"A new update is available!\nTo install it close this program.\nOpen a console and type:\n`npm install -g iron-node`.", detail:details, buttons: ["ok"]});
 			} else {
-				dialog.showMessageBox(remote.getCurrentWindow(), {type:"info", title:"ironNode Update", message:"Everything is up-to-date!", detail:details, buttons: ["ok"]});
+				dialog.showMessageBox(getCurrentWindow(), {type:"info", title:"ironNode Update", message:"Everything is up-to-date!", detail:details, buttons: ["ok"]});
 			}
 		});
 	});
