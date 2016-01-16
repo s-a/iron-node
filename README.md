@@ -17,7 +17,7 @@ I hated attaching processes, watching files, restart processes and to debug Node
 
 ### Usage
 The usage is the same as ```node```. Use ```iron-node``` instead of ```node```.  
-Run a debug session with the given JavaScript file.
+Run a debug session with the given JavaScript file. Keep in mind to place the keyword ```debugger;``` to a place where you want to stop.
 ```bash
 iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ```
@@ -32,6 +32,7 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
  - [Packages aka addons or plugins](/docs/PACKAGES.md) -> [Package-Channel](https://www.npmjs.com/browse/keyword/iron-node)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
+ - [Supported platforms](c:\git\iron-node\docs\supported-platforms.md)
  - [How to debug Meteor apps?](/docs/METEOR.md)
 
 ## [Contributing](/CONTRIBUTING.md)
