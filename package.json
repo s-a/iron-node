@@ -27,7 +27,7 @@
     "type": "git",
     "url": "git+https://github.com/s-a/iron-node.git"
   },
-  "productName": "Iron Node",
+  "productName": "ironNode",
   "author": "Stephan Ahlf <stephan.ahlf@gmail.com> (https://github.com/s-a)",
   "license": "MIT",
   "bugs": {
