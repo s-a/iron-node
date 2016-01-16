@@ -10,14 +10,14 @@
 
 
 ## Debug Node.js code with Chrome Developer Tools on Linux, Windows and OS X.
-I always hated attaching processes, watching files, restart processes and so on to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Chrome Developer Tools.
+I hated attaching processes, watching files, restart processes and to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Chrome Developer Tools.
 
 ## Installation
 ```npm install iron-node -g;```
 
 ### Usage
-The usage is exactly the same like ```node```. Just use ```iron-node``` instead of ```node```.  
-Start a debug session with the given JavaScript file.
+The usage is the same as ```node```. Use ```iron-node``` instead of ```node```.  
+Run a debug session with the given JavaScript file.
 ```bash
 iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ```
