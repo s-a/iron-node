@@ -32,7 +32,7 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
  - [Packages aka addons or plugins](/docs/PACKAGES.md) -> [Package-Channel](https://www.npmjs.com/browse/keyword/iron-node)
  - [Version details](/docs/VERSION-DETAILS.md)
  - [How to debug Grunt, Gulp, Mocha or other commandline app tasks based on Node.js?](/docs/DEBUG-NODEJS-COMMANDLINE-APPS.md)
- - [Supported platforms](c:\git\iron-node\docs\supported-platforms.md)
+ - [Supported platforms](/docs/supported-platforms.md)
  - [How to debug Meteor apps?](/docs/METEOR.md)
 
 ## [Contributing](/CONTRIBUTING.md)
