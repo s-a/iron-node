@@ -1,8 +1,9 @@
 # ironNode Features
-Some people asked for a feature comparison table or want me to tell them why ironNode is better than other Node.js debúgging tools. Well this is not trivial because ironNode is a little bit different in the way it works and in the usage workflow. Anyway I want to try out to describe the fetaures.
+People asked for a feature comparison table or want me to tell them why ironNode is "better" than other Node.js debúgging tools. This is not trivial because ironNode uses a different approach and it aims a more easy workflow. 
 
-First of all ironNode is a debugger no more and no less. So it does what you expect and it claims to do this with better performance than other debug tools in workflow and usage.  
-ironNode have the powerful DevTools JavaScript debugger interface under the hood. It supports almost all of the debugging features of DevTools including...
+# ironNode is a debugger no more and no less. 
+It does what you expect and it claims to do this with a higher performance than other debug tools in workflow and usage.  
+ironNode have the powerful DevTools JavaScript debugger interface under the hood and it provides access to debugging features Chrome DevTools includes.
 
 ## Execution controls
 Continue, Step over, Step into, Step out, Toggle [conditional] breakpoints, Call Stack panel, Blackbox JavaScript files, Pause on Exceptions, Pause on Uncaught Exceptions.
@@ -10,8 +11,8 @@ Continue, Step over, Step into, Step out, Toggle [conditional] breakpoints, Call
 ## Interaction with paused breakpoints
 Inspect and edit scopes, variables and object properties, Live Editing, Exception tracking, Viewing exception stack trace and Console output inspection.
 
-#### More... and more. Get a very detailed description at [https://developer.chrome.com/devtools/docs/javascript-debugging](https://developer.chrome.com/devtools/docs/javascript-debugging).
-
+#### More... and more.
+There is detailed description about [javascript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
 ## :yellow_heart: +Features
 ironNode have io.js under the hood. As a result of this it supports EcmaScript 6 (ES6 Harmony) out of the box without any precompilers. [Screenshot](http://s-a.github.io/iron-node/iron-node__es6__lg.jpg).  
@@ -24,9 +25,9 @@ ironNode does not use WebSockets or something like this. (No connection lost mes
 ironNode works independent of local node installation because it has its own.  
 No too fast scripts to attach the debugger problems.  
 No ```--debug-brk``` or other preperation necessary to start a debug session.  
-No UI in a weird states.  
-NO UI doesn't load or doesn't work and refresh didn't help  
-No Node Inspector takes a long time to start up.
+No UI in a weird states behavior.  
+NO UI doesn't load or doesn't work and refresh didn't help behavior  
+No debugger takes a long time to start up behavior.
 
 ### :no_entry: Limitations
 Native modules need a recompilation against the current electron version. Please read ["How to use native modules?"](/docs/NATIVE-MODULES.md).  
