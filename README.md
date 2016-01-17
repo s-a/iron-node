@@ -17,7 +17,7 @@ I hated attaching processes, watching files, restart processes and to debug Node
 
 ### Usage
 The usage is the same as ```node```. Use ```iron-node``` instead of ```node```.  
-Run a debug session with the given JavaScript file. Keep in mind to place the keyword ```debugger;``` to a place where you want to stop.
+Keep in mind to place the keyword ```debugger;``` to a place where you want to stop. Run a debug session with the given JavaScript file. 
 ```bash
 iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ```
