@@ -13,6 +13,7 @@
     "changelog": "changelog -m",
     "dev": "node_modules/.bin/electron ./app",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
+    "pipe-test": "echo \"var i = 0; debugger;\" | node bin/run.js",
     "edge-test": "node_modules/.bin/electron ./app ..\\require\\edge.js",
     "mocha-debug": "node_modules/.bin/electron ./app node_modules/mocha/bin/_mocha",
     "test-notify": "node_modules/.bin/electron ./app ..\\require\\notify.js",

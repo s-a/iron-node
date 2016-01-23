@@ -3,6 +3,22 @@ var path = require('path');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var Mnu = require('./menu.js');
 
+
+/*
+
+	var lingeringLine = "";
+
+	process.stdin.on('data', function(chunk) {
+		console.log("data", chunk);
+	    lingeringLine += chunk;
+	});
+
+	process.stdin.on('end', function() {
+	    console.log("+", lingeringLine);
+	});
+
+*/
+
 // Report crashes to our server.
 //require('crash-reporter').start();
 
@@ -80,7 +96,6 @@ app.on('ready', function() {
 		menu.init(mainWindow);
 
 		mainWindow.maximize();
-		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});
 
 
 		mainWindow.on('closed', function() {
@@ -104,5 +119,6 @@ app.on('ready', function() {
 			}
 		});
 
+		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});
 	}
 });

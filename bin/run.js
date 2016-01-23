@@ -10,6 +10,26 @@ for (var i = 2; i < process.argv.length; i++) {
 	args.push(arg);
 }
 
+/*
+	var lingeringLine = "";
 
+	process.stdin.on('data', function(chunk) {
+		console.log("data", chunk);
+	    lingeringLine += chunk;
+	});
+
+	process.stdin.on('end', function() {
+	    console.log("-", lingeringLine);
+	});
+
+*/
 // spawn electron
-proc.spawn(electron, args);
+var _process = proc.spawn(electron, args/*, {
+    stdio: [ process.stdin, process.stdout, process.stderr],
+ 	cwd: process.cwd,
+  	env: process.env
+}*/);
+
+_process.on('close', function (code) {
+	process.exit(code);
+});
