@@ -5,9 +5,35 @@ var remote = require('remote');
 var markdown = require('markdown').markdown;
 var packageController = require("package.js");
 var app = remote.require("app");
+var shell = require('electron').shell;
 
 
-window.opener = window.open = require("open");
+window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
+window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
+window.socialIcons.setup.url = "http://s-a.github.io/iron-node/";
+window.socialIcons.setup.title = "Dead simple Node.js code debugging";
+
+
+var onLinkClick = function(event) {
+    event.preventDefault();
+    if (this.href.indexOf("git+") === 0){
+    	shell.openExternal(this.href.split("git+")[1]);
+    } else {
+    	shell.openExternal(this.href);
+    }
+    return false;
+};
+
+window.addEventListener('load',function(){
+	var links = document.getElementsByTagName("a");
+	for (var i = 0; i < links.length; i++) {
+		var link = links[i];
+		link.onclick = onLinkClick;
+	}
+},false); //W3C
+
+
+
 
 var notify = function (msg) {
 	try{
@@ -91,10 +117,10 @@ var initializePackageInfo = function(rootDirectory){
 						var meta = JSON.parse(data.toString());
 						initializePackageScripts(meta);
 						if (meta.repository && meta.repository.url){
-							document.getElementById("project-repo-url").innerHTML = '<a class="menu-item" href="#" onclick="window.opener(\'' + meta.repository.url + '\')"><span class="octicon octicon-repo"></span>Repository</a>';
+							document.getElementById("project-repo-url").innerHTML = '<a class="menu-item" href="' + meta.repository.url + '"><span class="octicon octicon-repo"></span>Repository</a>';
 						}
 						if (meta.bugs && meta.bugs.url){
-							document.getElementById("project-bugs-url").innerHTML = '<a class="menu-item" href="#" onclick="window.opener(\'' + meta.bugs.url + '\')"><span class="octicon octicon-bug"></span>Issues</a>';
+							document.getElementById("project-bugs-url").innerHTML = '<a class="menu-item" href="' + meta.bugs.url + '"><span class="octicon octicon-bug"></span>Issues</a>';
 						}
 					} catch (e){
 						console.error("Error in", p, e);
@@ -113,6 +139,11 @@ var initializeInfoWindow = function(rootDirectory, startupScript) {
 	var loadMarkdownFile = function(fn) {
 		fs.readFile(fn, function(err, data){
 			document.getElementById("content").innerHTML =  markdown.toHTML( data.toString() );
+			var links = document.getElementsByTagName("a");
+			for (var i = 0; i < links.length; i++) {
+				var link = links[i];
+				link.onclick = onLinkClick;
+			}
 		});
 	};
 
@@ -129,7 +160,6 @@ var initializeInfoWindow = function(rootDirectory, startupScript) {
 		}
 	});
 };
-
 
 var boot = function() {
 	process.stdout.write = console.log.bind(console);
