@@ -3,7 +3,7 @@ People asked for a feature comparison table or want me to tell them why ironNode
 
 # ironNode is a debugger no more and no less. 
 It does what you expect and it claims to do this with a higher performance than other debug tools in workflow and usage.  
-ironNode have the powerful DevTools JavaScript debugger interface under the hood and it provides access to debugging features Chrome DevTools includes.
+ironNode have the powerful DevTools JavaScript debugger UI under the hood and it provides access to debugging features Chrome DevTools includes.
 
 ## Execution controls
 Continue, Step over, Step into, Step out, Toggle [conditional] breakpoints, Call Stack panel, Blackbox JavaScript files, Pause on Exceptions, Pause on Uncaught Exceptions.
@@ -12,7 +12,7 @@ Continue, Step over, Step into, Step out, Toggle [conditional] breakpoints, Call
 Inspect and edit scopes, variables and object properties, Live Editing, Exception tracking, Viewing exception stack trace and Console output inspection.
 
 #### More... and more.
-There is detailed description about [javascript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging).
+Detailed description about [javascript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging).
 
 ## :yellow_heart: +Features
 ironNode have io.js under the hood. As a result of this it supports EcmaScript 6 (ES6 Harmony) out of the box without any precompilers. [Screenshot](http://s-a.github.io/iron-node/iron-node__es6__lg.jpg).  
@@ -31,4 +31,4 @@ No debugger takes a long time to start up behavior.
 
 ### :no_entry: Limitations
 Native modules need a recompilation against the current electron version. Please read ["How to use native modules?"](/docs/NATIVE-MODULES.md).  
-As part of design ironNode does not support remote debugging, debugging of multiple processes (e.g. cluster).
+As part of design ironNode does not support remote debugging, debugging of many processes (such as cluster).
