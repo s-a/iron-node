@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "Debug Node.js code on the fly with Chrome Developer Tools on Linux, Windows and OS X.",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,7 @@
     "dev": "node_modules/.bin/electron ./app",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
     "pipe-test": "echo var i = 0;debugger; | node bin/run.js",
-    "pipe-test-coffee" : "coffee -p ./../require/app.coffee | node bin/run.js",
+    "pipe-test-coffee": "coffee -p ./../require/app.coffee | node bin/run.js",
     "edge-test": "node bin/run.js ..\\require\\edge.js",
     "mocha-debug": "node_modules/.bin/electron ./app node_modules/mocha/bin/_mocha",
     "mocha-test": "node bin/run.js node_modules/mocha/bin/_mocha",
