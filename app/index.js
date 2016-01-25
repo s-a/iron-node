@@ -2,22 +2,8 @@ var app = require('app');  // Module to control application life.
 var path = require('path');  // Module to control application life.
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var Mnu = require('./menu.js');
+var fs = require('fs');
 
-
-/*
-
-	var lingeringLine = "";
-
-	process.stdin.on('data', function(chunk) {
-		console.log("data", chunk);
-	    lingeringLine += chunk;
-	});
-
-	process.stdin.on('end', function() {
-	    console.log("+", lingeringLine);
-	});
-
-*/
 
 // Report crashes to our server.
 //require('crash-reporter').start();
@@ -29,6 +15,10 @@ var mainWindow = null;
 app.on('window-all-closed', function() {
 	if (process.platform !== 'darwin'){
 		app.quit();
+	}
+	var fn = process.argv[2];
+	if(fn.split(".~mp.js") !== 0 && fs.existsSync(fn)){
+		fs.unlinkSync(fn);
 	}
 });
 
@@ -113,10 +103,12 @@ app.on('ready', function() {
 		});
 
 		mainWindow.on('devtools-opened', function() {
-			mainWindow.loadURL('file://' + __dirname + '/index.html');
-			if (config.settings.app.hideMainWindow){
-				mainWindow.hide();
-			}
+			setTimeout(function(){
+				mainWindow.loadURL('file://' + __dirname + '/index.html');
+				if (config.settings.app.hideMainWindow){
+					mainWindow.hide();
+				}
+			}, 400);
 		});
 
 		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});

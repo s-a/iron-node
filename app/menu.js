@@ -18,7 +18,7 @@ Mnu.prototype.init = function(mainWindow) {
 			{
 				label: 'Exit',
 				click: function() {
-					app.exit(0);
+					mainWindow.close();
 				},
 				accelerator: 'Control+w'
 			}

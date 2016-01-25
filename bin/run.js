@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-var electron = require('electron-prebuilt')
-var proc = require('child_process')
-var path = require('path')
+var electron = require('electron-prebuilt');
+var proc = require('child_process');
+var fs = require('fs');
+var path = require('path');
 
 
 var args = [ path.join(__dirname, "..", "app") ];
@@ -10,26 +11,32 @@ for (var i = 2; i < process.argv.length; i++) {
 	args.push(arg);
 }
 
-/*
-	var lingeringLine = "";
 
+var onStdIn = function(done) {
+	if( process.stdin.isTTY === true ){
+		done();
+	};
+
+	var body = "";
 	process.stdin.on('data', function(chunk) {
-		console.log("data", chunk);
-	    lingeringLine += chunk;
+		if (chunk){
+	    	body += chunk.toString();
+		}
 	});
 
 	process.stdin.on('end', function() {
-	    console.log("-", lingeringLine);
+	    done(body);
 	});
+};
 
-*/
-// spawn electron
-var _process = proc.spawn(electron, args/*, {
-    stdio: [ process.stdin, process.stdout, process.stderr],
- 	cwd: process.cwd,
-  	env: process.env
-}*/);
 
-_process.on('close', function (code) {
-	process.exit(code);
+onStdIn(function(stdin){
+	if (stdin){
+		var temporaryFilename = path.join(__dirname, "iron-node.piped-result.~mp.js");
+		fs.writeFileSync(temporaryFilename, stdin);
+		args[1] = temporaryFilename;
+	};
+
+	// spawn electron
+	proc.spawn(electron, args);
 });
