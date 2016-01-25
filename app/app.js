@@ -42,11 +42,12 @@ window.addEventListener('load',function(){
 
 
 var notify = function (msg) {
+	var notification = null;
 	try{
 		Notification.requestPermission();
-		var notification = new Notification(msg.title, { body: msg.text, icon: '../logo/icon.png' });
+		notification = new Notification(msg.title, { body: msg.text, icon: '../logo/icon.png' });
 	} catch(e){
-		console.error(e);
+		console.error(e, notification);
 	}
 }
 
