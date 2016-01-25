@@ -15,7 +15,7 @@ for (var i = 2; i < process.argv.length; i++) {
 var onStdIn = function(done) {
 	if( process.stdin.isTTY === true ){
 		done();
-	};
+	}
 
 	var body = "";
 	process.stdin.on('data', function(chunk) {
@@ -35,7 +35,7 @@ onStdIn(function(stdin){
 		var temporaryFilename = path.join(__dirname, "iron-node.piped-result.~mp.js");
 		fs.writeFileSync(temporaryFilename, stdin);
 		args[1] = temporaryFilename;
-	};
+	}
 
 	// spawn electron
 	proc.spawn(electron, args);
