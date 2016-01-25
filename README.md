@@ -25,14 +25,12 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ## Demo
 ![Version details](/docs/iron-node-demo.gif)
 
-
 ## Supports piped data now
 ![Debug piped result](/docs/debug-piped-result-of-coffee-script.jpg)
 
+## [More screenshots and demos](http://s-a.github.io/iron-node/)
 
-## [Screenshots and demos](http://s-a.github.io/iron-node/)
-
-## [Docs](/docs/)
+## [Documentation](/docs/)
  - [Features](/docs/FEATURES.md)
  - [Master the break-points](/docs/MASTER-THE-BREAKPOINTS.md)
  - [Local and global configuration](/docs/CONFIGURATION.md)
