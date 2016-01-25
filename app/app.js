@@ -6,7 +6,13 @@ var markdown = require('markdown').markdown;
 var packageController = require("package.js");
 var app = remote.require("app");
 var shell = require('electron').shell;
-
+var PrettyError = require('pretty-error');
+var prettyError = new PrettyError();
+var s = "file:///" + path.join(__dirname, "app.js").replace(/\\/g, "/");
+prettyError.skipPath( s );
+prettyError.withoutColors();
+prettyError.skipNodeFiles();
+var syntaxErrorCheck = require('syntax-error')
 
 window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
 window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
@@ -39,14 +45,17 @@ var notify = function (msg) {
 	try{
 		Notification.requestPermission();
 		var notification = new Notification(msg.title, { body: msg.text, icon: '../logo/icon.png' });
-		console.log(notification);
 	} catch(e){
 		console.error(e);
 	}
 }
 
 var error = function(error) {
-	console.error(error);
+
+
+  	console.error(prettyError.render(error));
+  	console.error("Details", error);
+
 	var msg = {
 		title : "",
 		text : ""
@@ -54,7 +63,7 @@ var error = function(error) {
 
 	switch (typeof error) {
 		case "object":
-			msg.title += "Uncaught Exception: " + error.code;
+			msg.title += "Uncaught Exception: " + (error.code || "");
 			msg.text += error.message;
 			break;
 		case "string":
@@ -218,6 +227,14 @@ var boot = function() {
 			webContents.addWorkSpace( config.settings.workSpaceDirectory(args) );
 		}
 		initializeInfoWindow(config.settings.workSpaceDirectory(args), args[2]);
+
+		var src = fs.readFileSync(args[2]);
+		var err = syntaxErrorCheck(src, args[2]);
+		if (err){
+			console.warn("Error compiling ", args[2], "...");
+		  	console.error(prettyError.render(new Error(err)));
+			console.warn("Try to go on...");
+		}
 		require(args[2]);
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
