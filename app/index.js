@@ -17,8 +17,10 @@ app.on('window-all-closed', function() {
 		app.quit();
 	}
 	var fn = process.argv[2];
-	if(fn.split(".~mp.js") !== 0 && fs.existsSync(fn)){
-		fs.unlinkSync(fn);
+	if (fn){
+		if(fn.indexOf(".~mp.js") !== -1 && fs.existsSync(fn)){
+			fs.unlinkSync(fn);
+		}
 	}
 });
 
