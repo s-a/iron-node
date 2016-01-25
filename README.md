@@ -23,8 +23,11 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ```
 
 ## Demo
-
 ![Version details](/docs/iron-node-demo.gif)
+
+
+## Supports piped data now
+![Debug piped result](/docs/debug-piped-result-of-coffee-script.jpg)
 
 
 ## [Screenshots and demos](http://s-a.github.io/iron-node/)
