@@ -38,5 +38,9 @@ onStdIn(function(stdin){
 	}
 
 	// spawn electron
-	proc.spawn(electron, args);
+	var _proc = proc.spawn(electron, args);
+
+  	_proc.on('close', function (code) {
+	    process.exit(code);
+	});
 });
