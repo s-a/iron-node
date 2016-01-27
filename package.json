@@ -48,7 +48,7 @@
     "nmp": "^1.0.3",
     "package.js": "^1.1.3",
     "pretty-error": "^2.0.0",
-    "syntax-error": "^1.1.4"
+    "syntax-error": "^1.1.5"
   },
   "devDependencies": {
     "jshint": "^2.8.0",
