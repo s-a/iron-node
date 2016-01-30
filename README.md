@@ -33,6 +33,7 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ## [Documentation](/docs/)
  - [Features](/docs/FEATURES.md)
  - [Master the break-points](/docs/MASTER-THE-BREAKPOINTS.md)
+ - [How to profile? - Optimize JavaScript execution and discover memory leaks.](/docs/PROFILE.md)
  - [Local and global configuration](/docs/CONFIGURATION.md)
  - [How to use native modules?](/docs/NATIVE-MODULES.md)
  - [Packages aka addons or plugins](/docs/PACKAGES.md) -> [Package-Channel](https://www.npmjs.com/browse/keyword/iron-node)
