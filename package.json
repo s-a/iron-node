@@ -42,7 +42,7 @@
   "dependencies": {
     "commander": "^2.8.1",
     "deep-extend": "^0.4.0",
-    "electron-prebuilt": "^0.36.5",
+    "electron-prebuilt": "^0.36.7",
     "electron-recompile": "^1.0.16",
     "markdown": "^0.5.0",
     "nmp": "^1.0.3",
