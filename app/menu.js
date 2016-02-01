@@ -24,6 +24,19 @@ Mnu.prototype.init = function(mainWindow) {
 			}
 		]
 	};
+
+  if (os.platform() === 'darwin') {
+    mnuFile.submenu.push({
+      type: 'separator'
+    });
+    mnuFile.submenu.push({
+      label: 'Quit ironNode',
+      click: function () {
+        app.quit();
+      },
+      accelerator: 'Cmd+Q'
+    });
+  }
 	template.push(mnuFile);
 
 	if (os.platform() === 'darwin'){
