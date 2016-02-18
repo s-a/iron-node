@@ -236,6 +236,12 @@ var boot = function() {
 		  	console.error(prettyError.render(new Error(err)));
 			console.warn("Try to go on...");
 		}
+
+		/* jshint ignore:start */
+		var Req = require(path.join(__dirname, "require-custom-wrap.js"));
+		var req = new Req(config.settings);
+		/* jshint ignore:end */
+
 		require(args[2]);
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";

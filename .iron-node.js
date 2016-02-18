@@ -1,7 +1,13 @@
 var path = require("path");
 var settings = {
+  "nodeModule" : {
+    "scriptInjection" : "debugger;",  // Prepend some custom javascript code to your code.
+    "arguments" : [                   // Add additional arguments. Node will pass undefined to these parms. This is usefull to mimic a native browser environment.
+      "window", "document", "self", "global", "navigator", 
+    ]  
+  },
   "v8": {
-    "flags" : [ 			             // DEFAULT=[]; https://github.com/thlorenz/v8-flags/blob/master/flags-0.11.md
+    "flags" : [ 			                // DEFAULT=[]; https://github.com/thlorenz/v8-flags/blob/master/flags-0.11.md
     	"--harmony-arrow-functions"
     ]
   },
