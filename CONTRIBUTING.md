@@ -35,12 +35,24 @@ possible with your report. If you can, please include:
  - Fork it!
  - Clone your fork
  - Install development dependencies
-   - ```cd sulu;```
+   - ```cd iron-node;```
    - ```npm install;```
  - Create your feature branch: `git checkout -b my-new-feature;`
- - Add a test for each new code
  - Add add your new code
  - Run the tests: `npm test;`
  - Commit your changes: `git commit -am 'Add some feature';`
  - Push to the branch: `git push origin my-new-feature;`
  - Submit a pull request :dog:
+ 
+ ## Execute iron-node in development mode
+
+```bash
+# mocha-test
+$ node bin/run.js node_modules/mocha/bin/_mocha;
+
+# run a custom script
+$ node bin/run.js c:\\test\\yourscript.js;
+
+# pipe something
+$ echo var i = 0;debugger; | node bin/run.js c:\\test\\yourscript.js;
+```
