@@ -10,14 +10,14 @@ var fs = require('fs');
 var mainWindow = null;
 
 app.on('window-all-closed', function() {
-	if (process.platform !== 'darwin'){
-		app.quit();
-	}
 	var fn = process.argv[2];
 	if (fn){
 		if(fn.indexOf(".~mp.js") !== -1 && fs.existsSync(fn)){
 			fs.unlinkSync(fn);
 		}
+	}
+	if (process.platform !== 'darwin'){
+		app.quit();
 	}
 });
 
