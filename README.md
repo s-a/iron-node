@@ -42,6 +42,9 @@ iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
  - [Supported platforms](/docs/supported-platforms.md)
  - [How to debug Meteor apps?](/docs/METEOR.md)
 
+## Support
+ - https://stackoverflow.com/questions/tagged/iron-node
+
 ## [Contributing](/CONTRIBUTING.md)
 
 ## [License](/LICENSE.md)
