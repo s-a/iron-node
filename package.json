@@ -11,7 +11,7 @@
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "mocha",
     "changelog": "changelog -m",
-    "dev": "node_modules/.bin/electron ./app",
+    "dev": "node bin/run.js",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
     "pipe-test": "echo var i = 0;debugger; | node bin/run.js",
     "pipe-test-coffee": "coffee -p ./../require/app.coffee | node bin/run.js",
