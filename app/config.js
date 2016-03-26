@@ -44,7 +44,12 @@ var Config = function(argv) {
 	if (!fs.existsSync(configFilename)){
 		configFilename = path.join(process.cwd(), path.resolve(path.dirname(dir)), ".iron-node.js"); // relative pathname
 	}
-	if (!fs.existsSync(configFilename)){
+	try{
+		configFilename = path.normalize(configFilename);
+		if (!fs.existsSync(configFilename)){
+			configFilename = path.join( process.cwd(), ".iron-node.js"); // current working dir pathname
+		}
+	} catch (e){
 		configFilename = path.join( process.cwd(), ".iron-node.js"); // current working dir pathname
 	}
 	if (!fs.existsSync(configFilename)){
