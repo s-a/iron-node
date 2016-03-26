@@ -223,11 +223,18 @@ var boot = function() {
 
 	if (args[2]){
 		var webContents = remote.getCurrentWindow().webContents;
-		if (config.settings.app.autoAddWorkSpace !== false){
-			webContents.removeWorkSpace( config.settings.workSpaceDirectory(args) );
-			webContents.addWorkSpace( config.settings.workSpaceDirectory(args) );
+		var workSpaceDirectory = config.settings.workSpaceDirectory(args);
+		if (!Array.isArray(workSpaceDirectory)){
+			workSpaceDirectory = [workSpaceDirectory];
 		}
-		initializeInfoWindow(config.settings.workSpaceDirectory(args), args[2]);
+		if (config.settings.app.autoAddWorkSpace !== false){
+			for (var w = 0; w < workSpaceDirectory.length; w++) {
+				var wsd = workSpaceDirectory[w];
+				webContents.removeWorkSpace( wsd );
+				webContents.addWorkSpace( wsd );
+			}
+		}
+		initializeInfoWindow(workSpaceDirectory[0], args[2]);
 
 		var src = fs.readFileSync(args[2]);
 		var err = syntaxErrorCheck(src, args[2]);
