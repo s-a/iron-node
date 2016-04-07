@@ -66,8 +66,8 @@
     "trailing"      : true,
     "white"         : true,
     "indent"        : 2,
-    "maxdepth"      : 3,
-    "maxcomplexity"	: 11,
+    "maxdepth"      : 4,
+    "maxcomplexity"	: 12,
     "maxparams"     : 3,
     "maxstatements" : 50
 }

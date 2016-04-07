@@ -230,7 +230,9 @@ var boot = function() {
 		if (config.settings.app.autoAddWorkSpace !== false){
 			for (var w = 0; w < workSpaceDirectory.length; w++) {
 				var wsd = workSpaceDirectory[w];
-				webContents.removeWorkSpace( wsd );
+				try {
+					webContents.removeWorkSpace( wsd );
+				} catch(e){}
 				webContents.addWorkSpace( wsd );
 			}
 		}
