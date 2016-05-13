@@ -1,10 +1,10 @@
 var os = require('os');
 var fs = require('fs');
 var path = require('path');
-var remote = require('remote');
+var remote = require('electron').remote;
 var markdown = require('markdown').markdown;
 var packageController = require("package.js");
-var app = remote.require("app");
+var app = require('electron').remote.app
 var shell = require('electron').shell;
 var PrettyError = require('pretty-error');
 var prettyError = new PrettyError();

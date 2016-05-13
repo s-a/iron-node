@@ -1,7 +1,7 @@
-var app = require('app');  // Module to control application life.
+const {app} = require('electron');
 var path = require('path');  // Module to control application life.
-var BrowserWindow = require('browser-window');  // Module to create native browser window.
-var Mnu = require('./menu.js');
+const {BrowserWindow} = require('electron');
+var Mnu = require(path.join(__dirname, 'menu.js'));
 var fs = require('fs');
 
 
@@ -87,27 +87,22 @@ app.on('ready', function() {
 		mainWindow.maximize();
 
 
-		mainWindow.on('closed', function() {
+		mainWindow.webContents.on('closed', function() {
 			mainWindow = null;
 		});
 
-		var devtoolsClosedFirstCall = true; // workaround - devtools-closed fired once devTools was opened?
-		mainWindow.on('devtools-closed', function() {
-			if (config.settings.app.hideMainWindow){
-				if (!devtoolsClosedFirstCall){
-					mainWindow.close();
-				}
-			}
-			devtoolsClosedFirstCall = false;
+		mainWindow.webContents.on('devtools-closed', function() {
+			//app.quit();
+			mainWindow.show();
 		});
 
-		mainWindow.on('devtools-opened', function() {
-			setTimeout(function(){
+		mainWindow.webContents.on('devtools-opened', function() {
+			//setTimeout(function(){
 				mainWindow.loadURL('file://' + __dirname + '/index.html');
 				if (config.settings.app.hideMainWindow){
 					mainWindow.hide();
 				}
-			}, 400);
+			//}, 400);
 		});
 
 		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});

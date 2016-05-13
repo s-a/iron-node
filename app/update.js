@@ -1,5 +1,4 @@
-var dialog = require('dialog');
-
+const {dialog} = require('electron');
 var execute = function(cmd, done) {
 	var exec = require('child_process').exec;
 	exec(cmd,

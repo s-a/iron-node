@@ -7,7 +7,7 @@ var app;
 try{
 	app = require("app");
 } catch(e){
-	app = require("remote").require("app");
+	app = require('electron');
 }
 
 var Config = function(argv) {
