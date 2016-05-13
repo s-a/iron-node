@@ -8,7 +8,7 @@ var settings = {
   },
   "v8": {
     "flags" : [ 			                // DEFAULT=[]; https://github.com/thlorenz/v8-flags/blob/master/flags-0.11.md
-    	"--harmony-arrow-functions"
+    	// "--harmony-arrow-functions"
     ]
   },
   "app": {

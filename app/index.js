@@ -77,8 +77,8 @@ app.on('ready', function() {
 			icon: path.join(__dirname, 'icon.png'),
 			transparent: false,
 			frame: true,
-			'web-preferences' : {
-				'experimental-features' : true
+			'webPreferences' : {
+				'experimentalFeatures' : true
 			}
 		});
 		var menu = new Mnu();
