@@ -193,14 +193,13 @@ var boot = function() {
 
 	if (fs.existsSync(customPackageFolder)){
 		console.groupCollapsed("ironNode packages");
-		//var customApp = new CustomApp();
 		packageController.autoload({
 			debug: true,
 			identify: function() {
 				return (this.meta.iron_node_package === true);
 			},
 			directories: [customPackageFolder],
-			packageContstructorSettings: {/*app:customApp*/}
+			packageContstructorSettings: {}
 		});
 		console.groupEnd();
 	} else {
