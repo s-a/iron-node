@@ -10,6 +10,7 @@
   "scripts": {
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "mocha",
+    "test2": "node bin/run.js c:/git/time-track/lib/index.js",
     "changelog": "changelog -m",
     "dev": "node bin/run.js",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
@@ -40,15 +41,15 @@
   },
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
-    "commander": "^2.8.1",
-    "deep-extend": "^0.4.0",
-    "electron-prebuilt": "^0.37.5",
+    "commander": "^2.9.0",
+    "deep-extend": "^0.4.1",
+    "electron-prebuilt": "^0.37.8",
     "electron-recompile": "^1.0.16",
     "markdown": "^0.5.0",
     "nmp": "^1.0.3",
     "package.js": "^1.1.3",
     "pretty-error": "^2.0.0",
-    "syntax-error": "^1.1.5"
+    "syntax-error": "^1.1.6"
   },
   "devDependencies": {
     "jshint": "^2.8.0",
