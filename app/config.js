@@ -1,12 +1,12 @@
 var fs = require("fs");
 var path = require("path");
 var deepExtend = require('deep-extend');
-var app;
 
 
-try{
-	app = require("app");
-} catch(e){
+var app; 
+if (require('electron').remote){
+	app = require('electron').remote.app;
+} else {
 	app = require('electron');
 }
 
