@@ -2,3 +2,4 @@ node_modules
 app/node_modules
 /dist
 *.log
+/bin/iron-node.env.json

@@ -8,6 +8,7 @@ var app = require('electron').remote.app
 var shell = require('electron').shell;
 var PrettyError = require('pretty-error');
 var prettyError = new PrettyError();
+var deepExtend = require('deep-extend');
 var s = "file:///" + path.join(__dirname, "app.js").replace(/\\/g, "/");
 prettyError.skipPath( s );
 prettyError.withoutColors();
@@ -171,6 +172,17 @@ var initializeInfoWindow = function(rootDirectory, startupScript) {
 	});
 };
 
+var extendProcessEnvironment = function () {
+	var envFilename = path.join(__dirname, "..", "bin", "iron-node.env.json");
+	if (fs.existsSync(envFilename)){
+		var env = require(envFilename);
+		process.env = deepExtend(env, process.env);
+		if (env.NODE_PATH){
+			module.paths.push(env.NODE_PATH);
+		}
+	}
+};
+
 var boot = function() {
 	process.stdout.write = console.log.bind(console);
 
@@ -244,6 +256,8 @@ var boot = function() {
 		  	console.error(prettyError.render(new Error(err)));
 			console.warn("Try to go on...");
 		}
+
+		extendProcessEnvironment();
 
 		/* jshint ignore:start */
 		var Req = require(path.join(__dirname, "require-custom-wrap.js"));

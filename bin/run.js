@@ -37,6 +37,9 @@ onStdIn(function(stdin){
 		args[1] = temporaryFilename;
 	}
 
+
+	fs.writeFileSync(path.join(__dirname, "iron-node.env.json"), JSON.stringify(process.env, null, 4));
+
 	// spawn electron
 	var _proc = proc.spawn(electron, args);
 
