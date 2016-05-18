@@ -3,12 +3,18 @@ var path = require("path");
 var deepExtend = require('deep-extend');
 
 
-var app; 
-if (require('electron').remote){
-	app = require('electron').remote.app;
-} else {
-	app = require('electron');
-}
+var linuxHome = function () {
+	return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+};
+
+var osxHome = function () {
+	return path.join(process.env.HOME, "Library/Preferences");
+};
+
+var home = function () {
+	return process.env.APPDATA || (process.platform === "darwin" ? osxHome() : linuxHome());
+};
+
 
 var Config = function(argv) {
 	var workSpaceDirectory = "";
@@ -53,7 +59,7 @@ var Config = function(argv) {
 		configFilename = path.join( process.cwd(), ".iron-node.js"); // current working dir pathname
 	}
 	if (!fs.existsSync(configFilename)){
-		configFilename = path.join( app.getPath("appData"), "iron-node", ".iron-node.js"); // global config pathname
+		configFilename = path.join( home(), "iron-node", ".iron-node.js"); // global config pathname
 	}
 	if (fs.existsSync(configFilename)){
 		try{
