@@ -3,7 +3,7 @@ var settings = {
   "nodeModule" : {
     // "scriptInjection" : "debugger;",  // Prepend some custom javascript code to your code.
     "arguments" : [                   // Add additional arguments. Node will pass undefined to these parms. This is usefull to mimic a native browser environment.
-      "window", "document", "self", "global", "navigator", 
+      "window", "document", "self", "navigator", 
     ]  
   },
   "v8": {
