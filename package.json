@@ -1,6 +1,6 @@
 {
   "name": "iron-node",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Debug Node.js code on the fly with Chrome Developer Tools on Linux, Windows and OS X.",
   "main": "index.js",
   "bin": {
