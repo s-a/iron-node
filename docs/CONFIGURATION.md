@@ -23,7 +23,7 @@ cd $XDG_CONFIG_HOME
 cd ~/.config;
 
 # on OS X
-cd ~/Library/Application Support;
+cd ~/Library/Preferences;
 
 # create if not exists
 mkdir iron-node;
