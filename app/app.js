@@ -185,6 +185,7 @@ var extendProcessEnvironment = function () {
 
 var boot = function() {
 	process.stdout.write = console.log.bind(console);
+	process.stderr.write = console.log.bind(console);
 
 	var customPackageFolder = path.join( app.getPath("appData"), "iron-node", "node_modules" );
 	if (!fs.existsSync(customPackageFolder)){
