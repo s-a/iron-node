@@ -23,11 +23,4 @@ See [Local and global configuration](CONFIGURATION.md) to learn how to configure
 
 ## Dependencies
 - Install node.js
-- Install Python 2.7
-- A c++ compiler. On Windows
- - Option 1 :  Install [Visual C++ Build Tools](http://go.microsoft.com/fwlink/?LinkId=691126) on production servers using the default Install option.
- - Option 2 :  [Microsoft Visual C++ 2015 Express](https://www.visualstudio.com/products/visual-studio-community-vs) works best but only needed for development.
- - Troubleshooting: A detailed description can be found at https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#environment-setup-and-configuration
-- Envronment variables
- - ```npm config set msvs_version 2015 --global``` 
- - ```set GYP_MSVS_VERSION 2015``` (Optional)
+- ```npm install --global --production windows-build-tools```
