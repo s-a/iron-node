@@ -1,10 +1,10 @@
-const {app} = require('electron');
+const {app,globalShortcut} = require('electron');
 var path = require('path');  // Module to control application life.
 const {BrowserWindow} = require('electron');
 var Mnu = require(path.join(__dirname, 'menu.js'));
 var fs = require('fs');
 
-
+ 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
@@ -71,39 +71,79 @@ app.on('ready', function() {
 		process.exit(0);
 	} else {
 		mainWindow = new BrowserWindow({
-			width: 800,
-			height: 600,
+			width: 1,
+			height: 1,
 			title : "ironNode v" + meta.version,
 			icon: path.join(__dirname, 'icon.png'),
 			transparent: false,
 			frame: true,
 			'webPreferences' : {
 				'experimentalFeatures' : true
-			}
+			}, 
+			images :false
 		});
+
+
+
 		var menu = new Mnu();
 		menu.init(mainWindow);
 
-		mainWindow.maximize();
-
+		
+		if (config.settings.app.hideMainWindow){
+			mainWindow.hide();
+		} else {
+			mainWindow.maximize();
+		}
 
 		mainWindow.webContents.on('closed', function() {
 			mainWindow = null;
 		});
 
 		mainWindow.webContents.on('devtools-closed', function() {
-			//app.quit();
-			mainWindow.show();
+			if (config.settings.app.hideMainWindow){
+				setTimeout(function(){
+					if (mainWindow){
+
+						// app.quit crashes maybe until https://github.com/electron/electron/issues/6359
+						var windows = BrowserWindow.getAllWindows();
+						for(var i = 0 ; i < windows.length; i++){
+							var w = windows[i];
+							w.destroy();
+						}
+					}
+				}, 200);
+			}
 		});
 
+ 
+		let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('ironNodeDevTools');
+		if (installed){ 
+			BrowserWindow.removeDevToolsExtension(path.join(__dirname, "ironNodeDevTools"))
+		}
+		if (config.settings.app.useIronNodeDevToolsExtension && !installed){
+			BrowserWindow.addDevToolsExtension(path.join(__dirname, "devtools-extension"));
+		} else {
+			if (installed){ 
+				BrowserWindow.removeDevToolsExtension(path.join(__dirname, "ironNodeDevTools"))
+			}
+		} 
+		globalShortcut.register('CommandOrControl+D', () => {
+			app.quit();
+		})
+		globalShortcut.register('CommandOrControl+W', () => {
+			app.quit();
+		})
+		globalShortcut.register('CommandOrControl+C', () => {
+			app.quit();
+		})
+
+
 		mainWindow.webContents.on('devtools-opened', function() {
-			//setTimeout(function(){
-				mainWindow.loadURL('file://' + __dirname + '/index.html');
-				if (config.settings.app.hideMainWindow){
-					mainWindow.hide();
-				}
-			//}, 400);
+			setTimeout(function(){
+				mainWindow.loadURL('file://' + __dirname + '/index.html'); 
+			}, 200);
 		});
+
 
 		mainWindow.openDevTools({detach : config.settings.app.openDevToolsDetached});
 	}
