@@ -8,6 +8,7 @@
   },
   "preferGlobal": true,
   "scripts": {
+    "start": "node bin/run.js",
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "mocha",
     "test2": "node bin/run.js c:/git/time-track/lib/index.js",
