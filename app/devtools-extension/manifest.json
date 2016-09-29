@@ -1,0 +1,42 @@
+{
+    "name": "ironNodeDevTools",
+    "version": "0.1",
+    "description": "ironNodeDevTools",
+    "devtools_page": "devtools.html",
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "tabs", 
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "commands": {
+        "toggle-feature-foo": {
+            "suggested_key": {
+                "default": "Alt+Y",
+                "mac": "Command+Shift+Y"
+            },
+            "description": "Toggle feature foo"
+        },
+        "_execute_browser_action": {
+            "suggested_key": {
+                "windows": "Ctrl+D",
+                "mac": "Command+Shift+Y",
+                "chromeos": "Ctrl+Shift+U",
+                "linux": "Ctrl+Shift+J"
+            }
+        },
+        "_execute_page_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+E",
+                "windows": "Shift+P",
+                "mac": "Alt+Shift+P"
+            }
+        }
+    },
+    "manifest_version": 2
+}
