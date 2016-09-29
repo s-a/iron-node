@@ -10,28 +10,26 @@
 
 
 ## Debug Node.js code with Chrome Developer Tools on Linux, Windows and OS X.
-I hated attaching processes, watching files, restart processes and to debug Node.js code. For this reason I wrote this software to make those things easier. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Chrome Developer Tools.
+This software aims to make things easier :smile:. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Chrome Developer Tools.
 
 ## Installation
 ```npm install iron-node -g;```
 
 ## Usage
 The usage is the same as ```node```. Use ```iron-node``` instead of ```node```.  
-Keep in mind to place the keyword ```debugger;``` to a place where you want to stop. Run a debug session with the given JavaScript file. 
+Keep in mind to place the keyword ```debugger;``` to a place where you want to stop. Run a debug session with the given JavaScript file.
 ```bash
 iron-node PATH_TO_NODE_JS_FILE [--customparm1=foo --customparm2=bar];
 ```
 
 ## Demo
-![Version details](/docs/iron-node-demo.gif)
-
-## Supports piped data now
-![Debug piped result](/docs/debug-piped-result-of-coffee-script.jpg)
+![Version details](/docs/iron-node-demo.gif) 
 
 ## [More screenshots and demos](http://s-a.github.io/iron-node/)
 
 ## [Documentation](/docs/)
  - [Features](/docs/FEATURES.md)
+ - [How to hide the Markdown information Window?](https://github.com/s-a/iron-node/blob/10ecde9d6c5c96f383998e7c4a895f8e70b231b1/.iron-node.js#L10-L11)
  - [Master the break-points](/docs/MASTER-THE-BREAKPOINTS.md)
  - [How to profile? - Optimize JavaScript execution and discover memory leaks.](/docs/PROFILE.md)
  - [Change electron module version](/docs//CHANGE-ELECTRON-VERSION.md). See #103
