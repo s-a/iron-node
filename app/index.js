@@ -117,21 +117,26 @@ app.on('ready', function() {
 
  
 		let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('ironNodeDevTools');
-		if (installed){ 
-			BrowserWindow.removeDevToolsExtension(path.join(__dirname, "ironNodeDevTools"))
-		}
+		 
+		BrowserWindow.removeDevToolsExtension("ironNodeDevTools")
+ 
 		if (config.settings.app.useIronNodeDevToolsExtension && !installed){
 			BrowserWindow.addDevToolsExtension(path.join(__dirname, "devtools-extension"));
 		} else {
 			if (installed){ 
-				BrowserWindow.removeDevToolsExtension(path.join(__dirname, "ironNodeDevTools"))
+				BrowserWindow.removeDevToolsExtension("ironNodeDevTools")
 			}
 		} 
+
 		globalShortcut.register('CommandOrControl+D', () => {
 			app.quit();
 		});
-		
+
 		globalShortcut.register('CommandOrControl+W', () => {
+			app.quit();
+		});
+
+		globalShortcut.register('CommandOrControl+Q', () => {
 			app.quit();
 		});
 
