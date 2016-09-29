@@ -129,13 +129,11 @@ app.on('ready', function() {
 		} 
 		globalShortcut.register('CommandOrControl+D', () => {
 			app.quit();
-		})
+		});
+		
 		globalShortcut.register('CommandOrControl+W', () => {
 			app.quit();
-		})
-		globalShortcut.register('CommandOrControl+C', () => {
-			app.quit();
-		})
+		});
 
 
 		mainWindow.webContents.on('devtools-opened', function() {
