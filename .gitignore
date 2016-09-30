@@ -3,3 +3,4 @@ app/node_modules
 /dist
 *.log
 /bin/iron-node.env.json
+/jsconfig.json
