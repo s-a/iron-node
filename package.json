@@ -10,9 +10,9 @@
   "scripts": {
     "start": "node bin/run.js",
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
-    "test": "mocha",
+    "test": "node node_modules/mocha/bin/_mocha",
     "test2": "node bin/run.js c:/git/time-track/lib/index.js",
-    "changelog": "changelog -m",
+    "changelog": "node node_modules/changelog/bin/changelog.js all --markdown  > ./CHANGELOG.md",
     "dev": "node bin/run.js",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",
     "pipe-test": "echo var i = 0;debugger; | node bin/run.js",
@@ -53,7 +53,11 @@
     "syntax-error": "^1.1.6"
   },
   "devDependencies": {
+    "changelog": "^1.0.7",
+    "eslint": "^3.6.1",
+    "eslint-config-xo-space": "^0.14.0",
     "jshint": "^2.8.0",
+    "mdlint": "^0.1.0",
     "mocha": "^2.2.5",
     "pre-commit": "^1.1.1",
     "should": "^8.1.1"

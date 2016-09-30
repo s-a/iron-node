@@ -1,0 +1,43 @@
+{
+    "extends": "xo-space",
+    "env": {
+        "mocha": true,
+        "node": true
+    },
+    "rules":{
+        "no-trailing-spaces" : "off",
+        "no-multiple-empty-lines":"off",
+        "space-before-function-paren" : "off",
+        "keyword-spacing" : "off",
+        "indent" : "off",
+        "quotes": ["warn", "double", "avoid-escape"],
+        "eol-last" : "off",
+        "space-before-blocks" : "off",
+        "no-mixed-spaces-and-tabs" : "warn",
+        "key-spacing" : "off",
+        "comma-spacing" : "off",
+        "no-multi-spaces" : "off",
+        "padded-blocks" : "warn",
+        "spaced-comment": "off",
+        "no-extra-boolean-cast" : "off",
+        "max-statements" : ["warn", { "max": 20 }],
+        "max-params":["error", 3],
+        "max-nested-callbacks":["error", { "max": 3 }],
+        "max-depth":["error", 4],
+        "no-negated-condition":"off",
+        "no-implicit-coercion":"off",
+        "no-unused-vars":"warn",
+        "no-useless-escape" : "off",
+        "space-in-parens" : "off",
+        "semi-spacing": "off",
+        "no-useless-concat": "off",
+        "max-lines": ["warn", 130],
+        "no-lonely-if" :"off",
+        "space-infix-ops" : "warn",
+        "camelcase" : "off",
+        "comma-dangle" : "warn",
+        "no-new-func":"off",
+        "no-prototype-builtins":"off",
+        "no-new":"warn"
+    }
+}
