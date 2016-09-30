@@ -1,6 +1,6 @@
-const {dialog} = require('electron');
+const {dialog} = require("electron");
 var execute = function(cmd, done) {
-	var exec = require('child_process').exec;
+	var exec = require("child_process").exec;
 	exec(cmd,
 		function (error, stdout, stderr) {
 			console.log("CMD:", cmd);
@@ -9,15 +9,15 @@ var execute = function(cmd, done) {
 			if (error === null) {
 				done(stdout);
 			} else {
-				console.log('exec error: ' + error);
+				console.log("exec error: " + error);
 				throw error;
 			}
 	});
-}
+};
 
 var Update = function () {
 	return this;
-}
+};
 
 Update.prototype.check = function(window) {
 	dialog.showMessageBox(window, {type:"info", title:"ironNode Update check", message:"Stay tuned. This may take a few seconds.", detail:"", buttons: ["ok"]});

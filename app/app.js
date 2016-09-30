@@ -1,19 +1,19 @@
-var os = require('os');
-var fs = require('fs');
-var path = require('path');
-var remote = require('electron').remote;
-var markdown = require('markdown').markdown;
+var os = require("os");
+var fs = require("fs");
+var path = require("path");
+var remote = require("electron").remote;
+var markdown = require("markdown").markdown;
 var packageController = require("package.js");
-var app = require('electron').remote.app
-var shell = require('electron').shell;
-var PrettyError = require('pretty-error');
+var app = require("electron").remote.app;
+var shell = require("electron").shell;
+var PrettyError = require("pretty-error");
 var prettyError = new PrettyError();
-var deepExtend = require('deep-extend');
+var deepExtend = require("deep-extend");
 var s = "file:///" + path.join(__dirname, "app.js").replace(/\\/g, "/");
 prettyError.skipPath( s );
 prettyError.withoutColors();
 prettyError.skipNodeFiles();
-var syntaxErrorCheck = require('syntax-error')
+var syntaxErrorCheck = require("syntax-error");
 
 window.socialIcons.setup.githubUrl = "https://github.com/s-a/iron-node/";
 window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-node/master/screenshot.jpg";
@@ -22,16 +22,16 @@ window.socialIcons.setup.title = "Dead simple Node.js code debugging";
 
 
 var onLinkClick = function(event) {
-    event.preventDefault();
-    if (this.href.indexOf("git+") === 0){
-    	shell.openExternal(this.href.split("git+")[1]);
-    } else {
-    	shell.openExternal(this.href);
-    }
-    return false;
+	event.preventDefault();
+	if (this.href.indexOf("git+") === 0){
+		shell.openExternal(this.href.split("git+")[1]);
+	} else {
+		shell.openExternal(this.href);
+	}
+	return false;
 };
 
-window.addEventListener('load',function(){
+window.addEventListener("load",function(){
 	var links = document.getElementsByTagName("a");
 	for (var i = 0; i < links.length; i++) {
 		var link = links[i];
@@ -46,17 +46,15 @@ var notify = function (msg) {
 	var notification = null;
 	try{
 		Notification.requestPermission();
-		notification = new Notification(msg.title, { body: msg.text, icon: '../logo/icon.png' });
+		notification = new Notification(msg.title, {body: msg.text, icon: "../logo/icon.png"});
 	} catch(e){
 		console.error(e, notification);
 	}
-}
+};
 
 var error = function(error) {
-
-
-  	console.error(prettyError.render(error));
-  	console.error("Details", error);
+	console.error(prettyError.render(error));
+	console.error("Details", error);
 
 	var msg = {
 		title : "",
@@ -74,14 +72,14 @@ var error = function(error) {
 	}
 	msg.text += "\nPlease check the console log for more details.";
 	notify(msg);
-}
+};
 
-process.on('uncaughtException', error);
+process.on("uncaughtException", error);
 process.exit = function(code) {
 	var msg = {
 		title : "process.exit",
 		text : ""
-	}
+	};
 
 	msg.text += "Exit Code: \"" + code + "\"";
 
@@ -90,7 +88,7 @@ process.exit = function(code) {
 	}
 
 	notify(msg);
-}
+};
 
 var prepareStartScriptParameter = function(filename) {
 	var result = filename;
@@ -108,12 +106,12 @@ var initializePackageScripts = function(json) {
 	if (packageMeta.scripts){
 		for(var script in packageMeta.scripts){
 			if (packageMeta.scripts.hasOwnProperty(script)){
-				scripts.push('<a class="menu-item" href="#"><span class="octicon octicon-terminal"></span>' + script + ' : ' + packageMeta.scripts[script] + '</a>');
+				scripts.push('<a class="menu-item" href="#"><span class="octicon octicon-terminal"></span>' + script + " : " + packageMeta.scripts[script] + "</a>");
 			}
 		}
 	}
 	document.getElementById("project-terminal").innerHTML = scripts.join("");
-}
+};
 
 var initializePackageInfo = function(rootDirectory){
 	var p = path.join(rootDirectory, "package.json");
@@ -124,7 +122,7 @@ var initializePackageInfo = function(rootDirectory){
 					console.error(err);
 				} else {
 					try{
-						document.getElementById("project-package").innerHTML = '<a class="menu-item" href="#"><span class="octicon octicon-package"></span><span>' + p + '</span></a>';
+						document.getElementById("project-package").innerHTML = '<a class="menu-item" href="#"><span class="octicon octicon-package"></span><span>' + p + "</span></a>";
 						var meta = JSON.parse(data.toString());
 						initializePackageScripts(meta);
 						if (meta.repository && meta.repository.url){
@@ -140,7 +138,7 @@ var initializePackageInfo = function(rootDirectory){
 			});
 		}
 	});
-}
+};
 
 var initializeInfoWindow = function(rootDirectory, startupScript) {
 	document.getElementById("project-filename").innerHTML = startupScript;
@@ -149,11 +147,13 @@ var initializeInfoWindow = function(rootDirectory, startupScript) {
 	var filename = path.join(rootDirectory, "DEBUG.md");
 	var loadMarkdownFile = function(fn) {
 		fs.readFile(fn, function(err, data){
-			document.getElementById("content").innerHTML =  markdown.toHTML( data.toString() );
-			var links = document.getElementsByTagName("a");
-			for (var i = 0; i < links.length; i++) {
-				var link = links[i];
-				link.onclick = onLinkClick;
+			if (!err){
+				document.getElementById("content").innerHTML =  markdown.toHTML( data.toString() );
+				var links = document.getElementsByTagName("a");
+				for (var i = 0; i < links.length; i++) {
+					var link = links[i];
+					link.onclick = onLinkClick;
+				}
 			}
 		});
 	};
@@ -198,7 +198,8 @@ var boot = function() {
 	console.log("appData", customPackageFolder );
 
 
-	var config = new require("./config.js")(remote.process.argv);
+	var C = require("./config.js");
+	var config = new C(remote.process.argv);
 	console.log("configuration", config);
 	if (config && config.settings && config.settings.app && config.settings.app["native+"] === true){
 		require("./require.js");
@@ -254,22 +255,20 @@ var boot = function() {
 		var err = syntaxErrorCheck(src, args[2]);
 		if (err){
 			console.warn("Error compiling ", args[2], "...");
-		  	console.error(prettyError.render(new Error(err)));
+			console.error(prettyError.render(new Error(err)));
 			console.warn("Try to go on...");
 		}
 
 		extendProcessEnvironment();
 
-		/* jshint ignore:start */
 		var Req = require(path.join(__dirname, "require-custom-wrap.js"));
 		var req = new Req(config.settings);
-		/* jshint ignore:end */
-
+		console.info(req);
 		require(args[2]);
 	} else {
 		document.getElementById("project-filename").innerHTML = "No start script given.<br>Try <code>iron-node [path_to_your_javascript_file]</code>";
 		initializeInfoWindow(process.cwd());
 	}
-}
+};
 
 boot();

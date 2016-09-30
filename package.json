@@ -11,7 +11,7 @@
     "start": "node bin/run.js",
     "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "node node_modules/mocha/bin/_mocha",
-    "test2": "node bin/run.js c:/git/time-track/lib/index.js",
+    "test2": "node bin/run.js ./../test.js",
     "changelog": "node node_modules/changelog/bin/changelog.js all --markdown  > ./CHANGELOG.md",
     "dev": "node bin/run.js",
     "node-sass-test": "node_modules/.bin/electron ./app ..\\require\\node-sass.js",

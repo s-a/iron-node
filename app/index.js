@@ -1,22 +1,22 @@
-const {app,globalShortcut} = require('electron');
-var path = require('path');  // Module to control application life.
-const {BrowserWindow} = require('electron');
-var Mnu = require(path.join(__dirname, 'menu.js'));
-var fs = require('fs');
+const {app,globalShortcut} = require("electron");
+var path = require("path");  // Module to control application life.
+const {BrowserWindow} = require("electron");
+var Mnu = require(path.join(__dirname, "menu.js"));
+var fs = require("fs");
 
  
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
 
-app.on('window-all-closed', function() {
+app.on("window-all-closed", function() {
 	var fn = process.argv[2];
 	if (fn){
 		if(fn.indexOf(".~mp.js") !== -1 && fs.existsSync(fn)){
 			fs.unlinkSync(fn);
 		}
 	}
-	if (process.platform !== 'darwin'){
+	if (process.platform !== "darwin"){
 		app.quit();
 	}
 });
@@ -26,13 +26,14 @@ var initializeV8 = function(config) {
 		for (var i = 0; i < config.v8.flags.length; i++) {
 			var flag = config.v8.flags[i];
 			console.log("v8", flag);
-			app.commandLine.appendSwitch("js-flags", flag)
+			app.commandLine.appendSwitch("js-flags", flag);
 		}
 	}
-}
+};
 
 var initializeApplication = function() {
-	var config = new require("./config.js")(process.argv);
+	var CFG = require("./config.js");
+	var config = new CFG(process.argv);
 	//var config = getConfiguration();
 	if (config){
 		console.log("configuration", config.filename);
@@ -41,17 +42,16 @@ var initializeApplication = function() {
 	//app.commandLine.appendSwitch('remote-debugging-port', '9222')
 
 	return config;
-}
+};
 
-app.on('ready', function() {
-
+app.on("ready", function() {
 	var config = initializeApplication();
 
 	var meta = require("./../package.json");
-	var program = require('commander');
+	var program = require("commander");
 
 	program.version(meta.version).allowUnknownOption()
-  	.option('-c, --compile [value]', 'recompile native modules for current electron version and processor architecture')
+	.option("-c, --compile [value]", "recompile native modules for current electron version and processor architecture")
 	.parse(process.argv);
 
 
@@ -74,11 +74,11 @@ app.on('ready', function() {
 			width: 1,
 			height: 1,
 			title : "ironNode v" + meta.version,
-			icon: path.join(__dirname, 'icon.png'),
+			icon: path.join(__dirname, "icon.png"),
 			transparent: false,
 			frame: true,
-			'webPreferences' : {
-				'experimentalFeatures' : true
+			webPreferences : {
+				experimentalFeatures : true
 			}, 
 			images :false
 		});
@@ -95,15 +95,14 @@ app.on('ready', function() {
 			mainWindow.maximize();
 		}
 
-		mainWindow.webContents.on('closed', function() {
+		mainWindow.webContents.on("closed", function() {
 			mainWindow = null;
 		});
 
-		mainWindow.webContents.on('devtools-closed', function() {
+		mainWindow.webContents.on("devtools-closed", function() {
 			if (config.settings.app.hideMainWindow){
 				setTimeout(function(){
 					if (mainWindow){
-
 						// app.quit crashes maybe until https://github.com/electron/electron/issues/6359
 						var windows = BrowserWindow.getAllWindows();
 						for(var i = 0 ; i < windows.length; i++){
@@ -116,34 +115,33 @@ app.on('ready', function() {
 		});
 
  
-		let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('ironNodeDevTools');
-		 
-		BrowserWindow.removeDevToolsExtension("ironNodeDevTools")
+		let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty("ironNodeDevTools");
+		BrowserWindow.removeDevToolsExtension("ironNodeDevTools");
  
 		if (config.settings.app.useIronNodeDevToolsExtension && !installed){
 			BrowserWindow.addDevToolsExtension(path.join(__dirname, "devtools-extension"));
 		} else {
 			if (installed){ 
-				BrowserWindow.removeDevToolsExtension("ironNodeDevTools")
+				BrowserWindow.removeDevToolsExtension("ironNodeDevTools");
 			}
 		} 
 
-		globalShortcut.register('CommandOrControl+D', () => {
+		globalShortcut.register("CommandOrControl+D", () => {
 			app.quit();
 		});
 
-		globalShortcut.register('CommandOrControl+W', () => {
+		globalShortcut.register("CommandOrControl+W", () => {
 			app.quit();
 		});
 
-		globalShortcut.register('CommandOrControl+Q', () => {
+		globalShortcut.register("CommandOrControl+Q", () => {
 			app.quit();
 		});
 
 
-		mainWindow.webContents.on('devtools-opened', function() {
+		mainWindow.webContents.on("devtools-opened", function() {
 			setTimeout(function(){
-				mainWindow.loadURL('file://' + __dirname + '/index.html'); 
+				mainWindow.loadURL("file://" + __dirname + "/index.html"); 
 			}, 200);
 		});
 

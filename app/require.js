@@ -15,7 +15,7 @@ var checkNodeModulesLevel = function(dir) {
 
 	while( path.basename(p) !== "node_modules" ){
 		// can it go back?
-		var newPath = path.join(p, "..")
+		var newPath = path.join(p, "..");
 		if (newPath !== p){
 			p = newPath;
 			result++;

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-var electron = require('electron-prebuilt');
-var proc = require('child_process');
-var fs = require('fs');
-var path = require('path');
+var electron = require("electron-prebuilt");
+var proc = require("child_process");
+var fs = require("fs");
+var path = require("path");
 
 
-var args = [ path.join(__dirname, "..", "app") ];
+var args = [path.join(__dirname, "..", "app")];
 for (var i = 2; i < process.argv.length; i++) {
 	var arg = process.argv[i];
 	args.push(arg);
@@ -18,14 +18,14 @@ var onStdIn = function(done) {
 	}
 
 	var body = "";
-	process.stdin.on('data', function(chunk) {
+	process.stdin.on("data", function(chunk) {
 		if (chunk){
-	    	body += chunk.toString();
+			body += chunk.toString();
 		}
 	});
 
-	process.stdin.on('end', function() {
-	    done(body);
+	process.stdin.on("end", function() {
+		done(body);
 	});
 };
 
@@ -43,7 +43,7 @@ onStdIn(function(stdin){
 	// spawn electron
 	var _proc = proc.spawn(electron, args);
 
-  	_proc.on('close', function (code) {
-	    process.exit(code);
+	_proc.on("close", function (code) {
+		process.exit(code);
 	});
 });

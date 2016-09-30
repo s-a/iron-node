@@ -3,7 +3,7 @@ var Module = require("module");
 
 
 var isArray = function(ar) {
-  return ar instanceof Array || Array.isArray(ar)|| (ar && ar !== Object.prototype && isArray(ar.__proto__));
+  return ar instanceof Array || Array.isArray(ar) || (ar && ar !== Object.prototype && isArray(ar.__proto__));
 };
 
 var newModuleWrap = function(script) {
@@ -32,11 +32,11 @@ var ModedModule = function (ironNodeSettings) {
 	console.log(settings);
 	if (ironNodeSettings && ironNodeSettings.nodeModule){
 		(function(moduleWrapMethode) {
-		  Module.wrap = function(script) {
-		    return moduleWrapMethode(script); // Call the new wrapper function
-		  };
+			Module.wrap = function(script) {
+				return moduleWrapMethode(script); // Call the new wrapper function
+			};
 		}(newModuleWrap)); // Pass original function to IIFE
-	};
+	}
 };
 
 module.exports = ModedModule;
