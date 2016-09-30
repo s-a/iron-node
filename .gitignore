@@ -4,3 +4,4 @@ app/node_modules
 *.log
 /bin/iron-node.env.json
 /jsconfig.json
+/CHANGELOG.md
