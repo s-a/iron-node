@@ -1,4 +1,4 @@
-const {app,globalShortcut} = require("electron");
+const {app} = require("electron");
 var path = require("path");  // Module to control application life.
 const {BrowserWindow} = require("electron");
 var Mnu = require(path.join(__dirname, "menu.js"));
@@ -126,17 +126,7 @@ app.on("ready", function() {
 			}
 		} 
 
-		globalShortcut.register("CommandOrControl+D", () => {
-			app.quit();
-		});
-
-		globalShortcut.register("CommandOrControl+W", () => {
-			app.quit();
-		});
-
-		globalShortcut.register("CommandOrControl+Q", () => {
-			app.quit();
-		});
+ 
 
 
 		mainWindow.webContents.on("devtools-opened", function() {
