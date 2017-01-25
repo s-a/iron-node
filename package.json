@@ -9,7 +9,7 @@
   "preferGlobal": true,
   "scripts": {
     "start": "node bin/run.js",
-    "mdlint": "node_modules/.bin/mdlint glob \"docs/*.md\"",
+    "mdlint": "rem node_modules/.bin/mdlint glob \"docs/*.md\"",
     "test": "node node_modules/mocha/bin/_mocha",
     "test2": "node bin/run.js ./../test.js",
     "changelog": "node node_modules/changelog/bin/changelog.js all --markdown  > ./CHANGELOG.md",
@@ -44,22 +44,22 @@
   "dependencies": {
     "commander": "^2.9.0",
     "deep-extend": "^0.4.1",
-    "electron-prebuilt": "^1.4.1",
+    "electron": "^1.4.15",
     "electron-recompile": "^1.0.16",
     "markdown": "^0.5.0",
     "nmp": "^1.0.3",
     "package.js": "^1.1.3",
-    "pretty-error": "^2.0.0",
+    "pretty-error": "^2.0.2",
     "syntax-error": "^1.1.6"
   },
   "devDependencies": {
     "changelog": "^1.0.7",
-    "eslint": "^3.6.1",
+    "eslint": "^3.14.1",
     "eslint-config-xo-space": "^0.14.0",
-    "jshint": "^2.8.0",
+    "jshint": "^2.9.4",
     "mdlint": "^0.1.0",
-    "mocha": "^2.2.5",
-    "pre-commit": "^1.1.1",
-    "should": "^8.1.1"
+    "mocha": "^2.5.3",
+    "pre-commit": "^1.2.2",
+    "should": "^8.4.0"
   }
 }
