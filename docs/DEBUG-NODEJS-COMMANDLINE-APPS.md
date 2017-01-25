@@ -1,11 +1,12 @@
-# How to debug other Node.js command line applications like a Grunt task?
+# How to debug other Node.js command line applications like a Grunt task
 
-ironNode needs a JavaScript file as entry point for a debug session.  
-So first of all you have to locate the global or local installation of the commandline app you want to use.  
+ironNode needs a JavaScript file as entry point for a debug session.
+So first of all you have to locate the global or local installation of the commandline app you want to use.
 
 Here we have a handy collection of scripts. You can simply copy and paste them into the ```scripts``` section of your ```package.json```. Feel free to :tada: contribute and add your scripts here!
 
 ## debug script calls
+
 ```javascript
   ...
   "scripts": {
@@ -18,13 +19,15 @@ Here we have a handy collection of scripts. You can simply copy and paste them i
   ...
 ```
 
-Now it is easy to start a debug session using ```npm run ...```.  
+Now it is easy to start a debug session using ```npm run ...```.
 
 ## usage
+
 ```bash
   $ cd your-project-path;
   $ npm run debug-mocha;
 ```
 
-## :warning: Heads Up!
-Some command line apps may use native modules. Please read [How to use native modules?](/docs/NATIVE-MODULES.md).  
+## :warning: Heads Up
+
+Some command line apps may use native modules. Please read [How to use native modules?](/docs/NATIVE-MODULES.md).
