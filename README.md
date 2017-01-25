@@ -8,17 +8,6 @@
 [![Massachusetts Institute of Technology (MIT)](https://s-a.github.io/license/img/mit.svg)](/LICENSE.md#mit)
 [![Donate](http://s-a.github.io/donate/donate.svg)](http://s-a.github.io/donate/)
 
-# THE END
-[![the-end](end.gif)](#theend)  
-**I've decided to stop working on iron-node. There's been a small community of contributors that have made iron-node great and encouraged me to keep going. Thank you! I 've learned a lot while resolving feature requests and bugs. **  
-Why?  At the end of 2016 a lot of solutions for debugging appeared at the sky of JavaScript.    
-If anyone wants to take over iron-node then please get in touch!
-
-## Useful alternatives
-- https://code.visualstudio.com (Massive debug features!)
-- https://nodejs.org/api/debugger.html#debugger_v8_inspector_integration_for_node_js (The native way!)
-- https://github.com/sindresorhus/awesome-nodejs#debugging--profiling (A lot more!)
-
 ## Debug Node.js code with Chrome Developer Tools on Linux, Windows and OS X.
 This software aims to make things easier :smile:. With [ironNode](https://github.com/s-a/iron-node) you have the full power of [JavaScript debugging](https://developer.chrome.com/devtools/docs/javascript-debugging) within Chrome Developer Tools.
 
