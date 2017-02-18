@@ -20,6 +20,8 @@ window.socialIcons.setup.media = "https://raw.githubusercontent.com/s-a/iron-nod
 window.socialIcons.setup.url = "http://s-a.github.io/iron-node/";
 window.socialIcons.setup.title = "Dead simple Node.js code debugging";
 
+var sep 		= path.sep;
+var userHome 	= os.homedir() + sep + '.iron-node';
 
 var onLinkClick = function(event) {
 	event.preventDefault();
@@ -173,7 +175,7 @@ var initializeInfoWindow = function(rootDirectory, startupScript) {
 };
 
 var extendProcessEnvironment = function () {
-	var envFilename = path.join(__dirname, "..", "bin", "iron-node.env.json");
+	var envFilename = path.join(userHome, "iron-node.env.json");
 	if (fs.existsSync(envFilename)){
 		var env = require(envFilename);
 		process.env = deepExtend(env, process.env);
