@@ -17,3 +17,4 @@ app/node_modules
 *.log
 logs
 npm-debug.log*
+/bin/iron-node.env.json
