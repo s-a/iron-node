@@ -1,7 +1,19 @@
 node_modules
 app/node_modules
 /dist
-*.log
-/bin/iron-node.env.json
 /jsconfig.json
 /CHANGELOG.md
+
+#eclipse Config Files #
+.classpath
+.project
+.settings
+.metadata
+#outputfolder
+/target
+/results
+
+# Log Files
+*.log
+logs
+npm-debug.log*
