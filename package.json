@@ -43,7 +43,7 @@
   "homepage": "https://github.com/s-a/iron-node#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "deep-extend": "^0.4.1",
+    "deep-extend": "^0.5.0",
     "electron": "^1.7.5",
     "electron-recompile": "^1.0.16",
     "markdown": "^0.5.0",
@@ -54,12 +54,11 @@
   },
   "devDependencies": {
     "changelog": "^1.0.7",
-    "eslint": "^3.14.1",
-    "eslint-config-xo-space": "^0.14.0",
+    "eslint": "^4.4.1",
+    "eslint-config-xo-space": "^0.16.0",
     "jshint": "^2.9.4",
     "mdlint": "^0.1.0",
-    "mocha": "^2.5.3",
-    "pre-commit": "^1.2.2",
-    "should": "^8.4.0"
+    "mocha": "^3.5.0",
+    "should": "^11.2.1"
   }
 }
