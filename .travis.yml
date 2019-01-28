@@ -1,5 +1,10 @@
 language: node_js
 node_js:
-  - "0.12"
+  - "6"
+  - "8"
+  - "10"
+  - "node"
+before_install: npm i -g npm@latest
+install: npm install
 before_script:
   - npm install -g mocha
